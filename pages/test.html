@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Diagnóstico - Mavi Bayona</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/logoMavi.png">
+    <link rel="shortcut icon" type="image/png" href="../assets/logoMavi.png">
+    <link rel="apple-touch-icon" href="../assets/logoMavi.png">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gold: #D4AF37;
+            --primary-cyan: #1B9AAA;
+            --primary-turquoise: #06D6A0;
+            --accent-teal: #2D9596;
+            --neutral-light: #F8F9FA;
+            --neutral-dark: #2C3E50;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --white: #FFFFFF;
+            --gradient-primary: linear-gradient(135deg, #1B9AAA 0%, #06D6A0 50%, #2D9596 100%);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--neutral-light);
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .test-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            width: 60px;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        .test-header h1 {
+            color: var(--primary-cyan);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .test-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .progress-bar {
+            background: #e0e0e0;
+            height: 8px;
+            border-radius: 10px;
+            margin: 2rem 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: var(--gradient-primary);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .progress-text {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        /* Questions */
+        .question-container {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            display: none;
+        }
+
+        .question-container.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .question-number {
+            color: var(--primary-cyan);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .question-text {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .option {
+            background: var(--neutral-light);
+            padding: 1.2rem 1.5rem;
+            border-radius: 12px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .option:hover {
+            background: #e8f4f5;
+            border-color: var(--primary-cyan);
+            transform: translateX(5px);
+        }
+
+        .option.selected {
+            background: var(--primary-cyan);
+            color: white;
+            border-color: var(--primary-cyan);
+        }
+
+        .option-radio {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--primary-cyan);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .option.selected .option-radio {
+            border-color: white;
+        }
+
+        .option-radio::after {
+            content: '';
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary-cyan);
+            display: none;
+        }
+
+        .option.selected .option-radio::after {
+            display: block;
+            background: white;
+        }
+
+        .option-text {
+            flex: 1;
+            font-size: 1.05rem;
+        }
+
+        /* Navigation Buttons */
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary {
+            background: var(--neutral-light);
+            color: var(--text-dark);
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+
+        .btn-primary {
+            background: var(--primary-cyan);
+            color: white;
+            flex: 1;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-teal);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(27, 154, 170, 0.3);
+        }
+
+        .btn-primary:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Results Section */
+        .results-container {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            display: none;
+        }
+
+        .results-container.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .results-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .results-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .results-header h2 {
+            color: var(--primary-cyan);
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .results-header .subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .diagnosis-card {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 20px rgba(27, 154, 170, 0.3);
+        }
+
+        .diagnosis-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .diagnosis-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .scores-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .score-card {
+            background: var(--neutral-light);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary-cyan);
+        }
+
+        .score-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .score-bar {
+            background: #e0e0e0;
+            height: 12px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .score-bar-fill {
+            height: 100%;
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+
+        .score-bar-fill.ansiedad {
+            background: linear-gradient(90deg, #FF6B6B, #FF8E53);
+        }
+
+        .score-bar-fill.depresion {
+            background: linear-gradient(90deg, #4A5568, #667EEA);
+        }
+
+        .score-bar-fill.estres {
+            background: linear-gradient(90deg, #F6AD55, #FC8181);
+        }
+
+        .score-bar-fill.duelo {
+            background: linear-gradient(90deg, #718096, #4299E1);
+        }
+
+        .score-bar-fill.vacio {
+            background: linear-gradient(90deg, #9F7AEA, #667EEA);
+        }
+
+        .score-percentage {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-cyan);
+        }
+
+        .recommendations {
+            background: #FFF9E6;
+            border-left: 4px solid var(--primary-gold);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .recommendations h3 {
+            color: var(--accent-teal);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .recommendations ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .recommendations li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .recommendations li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-gold);
+            font-weight: bold;
+        }
+
+        /* Email Form */
+        .email-form {
+            background: var(--neutral-light);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .email-form h3 {
+            color: var(--primary-cyan);
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary-cyan);
+        }
+
+        .btn-submit {
+            background: var(--primary-gold);
+            color: var(--text-dark);
+            width: 100%;
+            padding: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 2rem;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 15px;
+        }
+
+        .cta-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        .btn-cta {
+            background: white;
+            color: var(--primary-cyan);
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Success Message */
+        .success-message {
+            background: #48BB78;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            display: none;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .success-message.show {
+            display: flex;
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+
+            .test-header {
+                padding: 1.5rem;
+            }
+
+            .test-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .question-container {
+                padding: 1.5rem;
+            }
+
+            .question-text {
+                font-size: 1.1rem;
+            }
+
+            .results-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .results-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .diagnosis-title {
+                font-size: 1.5rem;
+            }
+
+            .scores-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .navigation {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="test-header">
+            <img src="../assets/logoMavi.png" alt="Mavi Bayona" class="logo">
+            <h1>Test de Diagnóstico Emocional</h1>
+            <p>Responde con honestidad para obtener un diagnóstico preciso</p>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-text">
+            Pregunta <span id="currentQuestion">1</span> de <span id="totalQuestions">15</span>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <!-- Questions Container -->
+        <div id="questionsContainer"></div>
+
+        <!-- Results Container -->
+        <div class="results-container" id="resultsContainer">
+            <div class="results-header">
+                <svg class="results-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" stroke="#1B9AAA" stroke-width="2" fill="none"/>
+                    <path d="M8 12L11 15L16 9" stroke="#06D6A0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h2>Resultados de tu Test</h2>
+                <p class="subtitle">Análisis basado en tus respuestas</p>
+            </div>
+
+            <div class="diagnosis-card" id="mainDiagnosis">
+                <!-- Se llenará dinámicamente -->
+            </div>
+
+            <div class="scores-grid" id="scoresGrid">
+                <!-- Se llenará dinámicamente -->
+            </div>
+
+            <div class="recommendations" id="recommendations">
+                <!-- Se llenará dinámicamente -->
+            </div>
+
+            <!-- Email Form -->
+            <div class="email-form">
+                <h3>📧 Recibe tus resultados por email</h3>
+                <p style="color: var(--text-light); margin-bottom: 1.5rem;">
+                    Te enviaremos un resumen completo de tu evaluación y recomendaciones personalizadas
+                </p>
+                
+                <div class="success-message" id="successMessage">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 6L9 17L4 12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>¡Resultados enviados exitosamente! Revisa tu correo.</span>
+                </div>
+
+                <form id="resultsForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="form-group">
+                        <label for="userName">Tu Nombre *</label>
+                        <input type="text" id="userName" name="nombre" required placeholder="Ej. María González">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userEmail">Tu Email *</label>
+                        <input type="email" id="userEmail" name="email" required placeholder="tu@email.com">
+                    </div>
+
+                    <!-- Hidden fields para enviar los resultados -->
+                    <input type="hidden" name="diagnostico_principal" id="hiddenDiagnosis">
+                    <input type="hidden" name="porcentaje_ansiedad" id="hiddenAnsiedad">
+                    <input type="hidden" name="porcentaje_depresion" id="hiddenDepresion">
+                    <input type="hidden" name="porcentaje_estres" id="hiddenEstres">
+                    <input type="hidden" name="porcentaje_duelo" id="hiddenDuelo">
+                    <input type="hidden" name="porcentaje_vacio" id="hiddenVacio">
+                    <input type="hidden" name="respuestas_detalladas" id="hiddenAnswers">
+
+                    <button type="submit" class="btn-submit">
+                        📨 Enviar Resultados a mi Email
+                    </button>
+                </form>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <h3>¿Listo para dar el siguiente paso?</h3>
+                <p>Agenda una consulta conmigo y trabajemos juntos en tu bienestar emocional</p>
+                <a href="../index.html#agendar" class="btn-cta">Agendar mi Primera Sesión</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Preguntas del test
+        const questions = [
+            {
+                id: 1,
+                text: "¿Con qué frecuencia te sientes nervioso/a o ansioso/a?",
+                options: [
+                    { text: "Casi nunca", scores: { ansiedad: 0, estres: 0 } },
+                    { text: "Ocasionalmente", scores: { ansiedad: 1, estres: 1 } },
+                    { text: "Frecuentemente", scores: { ansiedad: 2, estres: 2 } },
+                    { text: "Casi siempre", scores: { ansiedad: 3, estres: 3 } }
+                ]
+            },
+            {
+                id: 2,
+                text: "¿Te cuesta trabajo sentir interés o placer por hacer cosas?",
+                options: [
+                    { text: "No, disfruto mis actividades", scores: { depresion: 0, vacio: 0 } },
+                    { text: "A veces me cuesta", scores: { depresion: 1, vacio: 1 } },
+                    { text: "Frecuentemente no tengo interés", scores: { depresion: 2, vacio: 2 } },
+                    { text: "Casi nada me interesa", scores: { depresion: 3, vacio: 3 } }
+                ]
+            },
+            {
+                id: 3,
+                text: "¿Has experimentado alguna pérdida significativa recientemente?",
+                options: [
+                    { text: "No", scores: { duelo: 0 } },
+                    { text: "Hace más de un año", scores: { duelo: 1 } },
+                    { text: "Hace menos de un año", scores: { duelo: 2, ansiedad: 1 } },
+                    { text: "Recientemente (menos de 6 meses)", scores: { duelo: 3, ansiedad: 2 } }
+                ]
+            },
+            {
+                id: 4,
+                text: "¿Cómo describirías tu nivel de estrés actualmente?",
+                options: [
+                    { text: "Bajo, puedo manejarlo", scores: { estres: 0 } },
+                    { text: "Moderado, a veces me abruma", scores: { estres: 1, ansiedad: 1 } },
+                    { text: "Alto, me cuesta concentrarme", scores: { estres: 2, ansiedad: 2 } },
+                    { text: "Muy alto, afecta mi vida diaria", scores: { estres: 3, ansiedad: 3, depresion: 1 } }
+                ]
+            },
+            {
+                id: 5,
+                text: "¿Te sientes triste, deprimido/a o sin esperanza?",
+                options: [
+                    { text: "Casi nunca", scores: { depresion: 0 } },
+                    { text: "Algunos días", scores: { depresion: 1, vacio: 1 } },
+                    { text: "Más de la mitad del tiempo", scores: { depresion: 2, vacio: 2 } },
+                    { text: "Casi todos los días", scores: { depresion: 3, vacio: 3 } }
+                ]
+            },
+            {
+                id: 6,
+                text: "¿Tienes problemas para dormir (insomnio o dormir demasiado)?",
+                options: [
+                    { text: "Duermo bien", scores: { estres: 0 } },
+                    { text: "Ocasionalmente tengo problemas", scores: { estres: 1, ansiedad: 1 } },
+                    { text: "Frecuentemente", scores: { estres: 2, ansiedad: 2, depresion: 1 } },
+                    { text: "Casi todas las noches", scores: { estres: 3, ansiedad: 3, depresion: 2 } }
+                ]
+            },
+            {
+                id: 7,
+                text: "¿Sientes que tu vida tiene un propósito o significado claro?",
+                options: [
+                    { text: "Sí, tengo claridad en mi propósito", scores: { vacio: 0 } },
+                    { text: "A veces lo cuestiono", scores: { vacio: 1 } },
+                    { text: "Frecuentemente me siento perdido/a", scores: { vacio: 2, depresion: 1 } },
+                    { text: "No encuentro sentido a mi vida", scores: { vacio: 3, depresion: 2 } }
+                ]
+            },
+            {
+                id: 8,
+                text: "¿Experimentas síntomas físicos como dolores de cabeza, tensión muscular o problemas digestivos?",
+                options: [
+                    { text: "Raramente", scores: { estres: 0 } },
+                    { text: "De vez en cuando", scores: { estres: 1, ansiedad: 1 } },
+                    { text: "Con frecuencia", scores: { estres: 2, ansiedad: 2 } },
+                    { text: "Constantemente", scores: { estres: 3, ansiedad: 3 } }
+                ]
+            },
+            {
+                id: 9,
+                text: "¿Te cuesta concentrarte en tus tareas diarias?",
+                options: [
+                    { text: "No, me concentro bien", scores: { ansiedad: 0 } },
+                    { text: "A veces me distraigo", scores: { ansiedad: 1, estres: 1 } },
+                    { text: "Frecuentemente", scores: { ansiedad: 2, estres: 2, depresion: 1 } },
+                    { text: "Casi nunca puedo concentrarme", scores: { ansiedad: 3, estres: 3, depresion: 2 } }
+                ]
+            },
+            {
+                id: 10,
+                text: "¿Has pensado que estarías mejor muerto/a o has tenido pensamientos de hacerte daño?",
+                options: [
+                    { text: "Nunca", scores: { depresion: 0 } },
+                    { text: "Raramente", scores: { depresion: 2, vacio: 2 } },
+                    { text: "Algunas veces", scores: { depresion: 3, vacio: 3, ansiedad: 2 } },
+                    { text: "Frecuentemente", scores: { depresion: 4, vacio: 4, ansiedad: 3 } }
+                ]
+            },
+            {
+                id: 11,
+                text: "¿Cómo es tu relación con los demás actualmente?",
+                options: [
+                    { text: "Buena, me siento conectado/a", scores: { depresion: 0, vacio: 0 } },
+                    { text: "Normal, pero a veces me siento solo/a", scores: { depresion: 1, vacio: 1 } },
+                    { text: "Me he alejado de las personas", scores: { depresion: 2, vacio: 2, duelo: 1 } },
+                    { text: "Me siento completamente aislado/a", scores: { depresion: 3, vacio: 3, duelo: 2 } }
+                ]
+            },
+            {
+                id: 12,
+                text: "¿Te sientes abrumado/a por tus responsabilidades?",
+                options: [
+                    { text: "No, las manejo bien", scores: { estres: 0 } },
+                    { text: "A veces", scores: { estres: 1, ansiedad: 1 } },
+                    { text: "Frecuentemente", scores: { estres: 2, ansiedad: 2 } },
+                    { text: "Constantemente, no puedo más", scores: { estres: 3, ansiedad: 3, depresion: 1 } }
+                ]
+            },
+            {
+                id: 13,
+                text: "¿Has experimentado cambios significativos en tu apetito o peso?",
+                options: [
+                    { text: "No, todo normal", scores: { depresion: 0 } },
+                    { text: "Cambios menores", scores: { depresion: 1, estres: 1 } },
+                    { text: "Cambios notables", scores: { depresion: 2, estres: 2 } },
+                    { text: "Cambios drásticos", scores: { depresion: 3, estres: 2, ansiedad: 1 } }
+                ]
+            },
+            {
+                id: 14,
+                text: "¿Te sientes culpable o crees que eres un fracaso?",
+                options: [
+                    { text: "No, tengo buena autoestima", scores: { depresion: 0 } },
+                    { text: "A veces me critico", scores: { depresion: 1, vacio: 1 } },
+                    { text: "Frecuentemente me siento culpable", scores: { depresion: 2, vacio: 2 } },
+                    { text: "Constantemente, creo que no valgo nada", scores: { depresion: 3, vacio: 3 } }
+                ]
+            },
+            {
+                id: 15,
+                text: "¿Cómo te ves a ti mismo/a en el futuro?",
+                options: [
+                    { text: "Con esperanza y optimismo", scores: { vacio: 0, depresion: 0 } },
+                    { text: "Con algunas dudas pero positivo/a", scores: { vacio: 1 } },
+                    { text: "Con mucha incertidumbre", scores: { vacio: 2, depresion: 1, ansiedad: 1 } },
+                    { text: "Sin esperanza, todo es oscuro", scores: { vacio: 3, depresion: 3, ansiedad: 2 } }
+                ]
+            }
+        ];
+
+        // Estado del test
+        let currentQuestionIndex = 0;
+        let answers = [];
+        let scores = {
+            ansiedad: 0,
+            depresion: 0,
+            estres: 0,
+            duelo: 0,
+            vacio: 0
+        };
+
+        // Inicializar el test
+        function initTest() {
+            document.getElementById('totalQuestions').textContent = questions.length;
+            renderQuestion();
+        }
+
+        // Renderizar pregunta actual
+        function renderQuestion() {
+            const container = document.getElementById('questionsContainer');
+            const question = questions[currentQuestionIndex];
+            
+            const questionHTML = `
+                <div class="question-container active" id="question${question.id}">
+                    <div class="question-number">Pregunta ${currentQuestionIndex + 1} de ${questions.length}</div>
+                    <div class="question-text">${question.text}</div>
+                    <div class="options" id="options${question.id}">
+                        ${question.options.map((option, index) => `
+                            <div class="option" onclick="selectOption(${question.id}, ${index})">
+                                <div class="option-radio"></div>
+                                <div class="option-text">${option.text}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="navigation">
+                        ${currentQuestionIndex > 0 ? `
+                            <button class="btn btn-secondary" onclick="previousQuestion()">
+                                ← Anterior
+                            </button>
+                        ` : '<div></div>'}
+                        <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" disabled>
+                            ${currentQuestionIndex === questions.length - 1 ? 'Ver Resultados' : 'Siguiente →'}
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            container.innerHTML = questionHTML;
+            updateProgress();
+        }
+
+        // Seleccionar opción
+        function selectOption(questionId, optionIndex) {
+            const question = questions[currentQuestionIndex];
+            const options = document.querySelectorAll(`#options${questionId} .option`);
+            
+            options.forEach(opt => opt.classList.remove('selected'));
+            options[optionIndex].classList.add('selected');
+            
+            answers[currentQuestionIndex] = {
+                questionId: questionId,
+                questionText: question.text,
+                optionIndex: optionIndex,
+                optionText: question.options[optionIndex].text,
+                scores: question.options[optionIndex].scores
+            };
+            
+            document.getElementById('nextBtn').disabled = false;
+        }
+
+        // Siguiente pregunta
+        function nextQuestion() {
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                renderQuestion();
+            } else {
+                calculateResults();
+                showResults();
+            }
+        }
+
+        // Pregunta anterior
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                renderQuestion();
+                
+                // Restaurar selección anterior si existe
+                if (answers[currentQuestionIndex]) {
+                    const questionId = questions[currentQuestionIndex].id;
+                    const optionIndex = answers[currentQuestionIndex].optionIndex;
+                    const options = document.querySelectorAll(`#options${questionId} .option`);
+                    options[optionIndex].classList.add('selected');
+                    document.getElementById('nextBtn').disabled = false;
+                }
+            }
+        }
+
+        // Actualizar barra de progreso
+        function updateProgress() {
+            const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
+            document.getElementById('progressFill').style.width = `${progress}%`;
+            document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
+        }
+
+        // Calcular resultados
+        function calculateResults() {
+            scores = {
+                ansiedad: 0,
+                depresion: 0,
+                estres: 0,
+                duelo: 0,
+                vacio: 0
+            };
+            
+            answers.forEach(answer => {
+                Object.keys(answer.scores).forEach(key => {
+                    scores[key] += answer.scores[key];
+                });
+            });
+        }
+
+        // Mostrar resultados
+        function showResults() {
+            document.getElementById('questionsContainer').style.display = 'none';
+            document.querySelector('.progress-bar').style.display = 'none';
+            document.querySelector('.progress-text').style.display = 'none';
+            
+            const resultsContainer = document.getElementById('resultsContainer');
+            resultsContainer.classList.add('active');
+            
+            // Calcular máximo score posible por categoría
+            const maxScores = {
+                ansiedad: 45,
+                depresion: 48,
+                estres: 42,
+                duelo: 12,
+                vacio: 45
+            };
+            
+            // Calcular porcentajes
+            const percentages = {};
+            Object.keys(scores).forEach(key => {
+                percentages[key] = Math.round((scores[key] / maxScores[key]) * 100);
+            });
+            
+            // Determinar diagnóstico principal
+            const maxCategory = Object.keys(percentages).reduce((a, b) => 
+                percentages[a] > percentages[b] ? a : b
+            );
+            
+            // Renderizar diagnóstico principal
+            renderMainDiagnosis(maxCategory, percentages[maxCategory]);
+            
+            // Renderizar scores
+            renderScores(percentages);
+            
+            // Renderizar recomendaciones
+            renderRecommendations(maxCategory, percentages);
+            
+            // Llenar campos ocultos para el formulario
+            fillHiddenFields(maxCategory, percentages);
+        }
+
+        // Renderizar diagnóstico principal
+        function renderMainDiagnosis(category, percentage) {
+            const diagnoses = {
+                ansiedad: {
+                    title: "Ansiedad Predominante",
+                    description: "Tus respuestas indican que la ansiedad es el factor principal que está afectando tu bienestar. Esto puede manifestarse como preocupación constante, nerviosismo, dificultad para relajarte y síntomas físicos como tensión muscular."
+                },
+                depresion: {
+                    title: "Síntomas Depresivos",
+                    description: "Tus resultados sugieren la presencia de síntomas depresivos significativos. Esto puede incluir tristeza persistente, pérdida de interés en actividades, cambios en el sueño y la energía, y sentimientos de desesperanza."
+                },
+                estres: {
+                    title: "Estrés Elevado",
+                    description: "El estrés parece ser el factor dominante en tu situación actual. Esto puede estar afectando tu capacidad para concentrarte, dormir bien y manejar tus responsabilidades diarias de manera efectiva."
+                },
+                duelo: {
+                    title: "Proceso de Duelo",
+                    description: "Estás atravesando un proceso de duelo que necesita atención. La pérdida que has experimentado está afectando significativamente tu bienestar emocional y requiere acompañamiento profesional."
+                },
+                vacio: {
+                    title: "Vacío Existencial",
+                    description: "Tus respuestas sugieren que estás experimentando un vacío existencial o falta de sentido. Esto puede manifestarse como sensación de que la vida no tiene propósito, desconexión emocional y cuestionamiento profundo sobre tu identidad."
+                }
+            };
+            
+            const diagnosis = diagnoses[category];
+            const mainDiagnosisDiv = document.getElementById('mainDiagnosis');
+            
+            mainDiagnosisDiv.innerHTML = `
+                <div class="diagnosis-title">${diagnosis.title}</div>
+                <div class="diagnosis-description">${diagnosis.description}</div>
+                <div style="margin-top: 1.5rem; font-size: 1.1rem;">
+                    <strong>Nivel de afectación: ${percentage}%</strong>
+                </div>
+            `;
+        }
+
+        // Renderizar scores
+        function renderScores(percentages) {
+            const labels = {
+                ansiedad: "Ansiedad",
+                depresion: "Depresión",
+                estres: "Estrés",
+                duelo: "Duelo",
+                vacio: "Vacío Existencial"
+            };
+            
+            const scoresGrid = document.getElementById('scoresGrid');
+            scoresGrid.innerHTML = Object.keys(percentages).map(key => `
+                <div class="score-card">
+                    <div class="score-label">${labels[key]}</div>
+                    <div class="score-bar">
+                        <div class="score-bar-fill ${key}" style="width: ${percentages[key]}%"></div>
+                    </div>
+                    <div class="score-percentage">${percentages[key]}%</div>
+                </div>
+            `).join('');
+        }
+
+        // Renderizar recomendaciones
+        function renderRecommendations(mainCategory, percentages) {
+            const recommendationsDiv = document.getElementById('recommendations');
+            
+            let recommendations = [
+                "Considera agendar una consulta profesional para un diagnóstico completo y personalizado",
+                "No minimices lo que estás sintiendo - buscar ayuda es un signo de fortaleza, no de debilidad"
+            ];
+            
+            // Recomendaciones específicas según categoría principal
+            if (mainCategory === 'ansiedad') {
+                recommendations.push(
+                    "Practica técnicas de respiración profunda y mindfulness",
+                    "Establece una rutina de ejercicio regular para reducir la ansiedad",
+                    "Limita el consumo de cafeína y estimulantes"
+                );
+            } else if (mainCategory === 'depresion') {
+                recommendations.push(
+                    "Mantén una rutina diaria estructurada",
+                    "Busca apoyo en tus seres queridos - no atravieses esto solo/a",
+                    "Considera la terapia cognitivo-conductual como tratamiento efectivo"
+                );
+                
+                if (percentages.depresion >= 60) {
+                    recommendations.push("⚠️ IMPORTANTE: Si tienes pensamientos de hacerte daño, busca ayuda inmediata llamando a una línea de crisis");
+                }
+            } else if (mainCategory === 'estres') {
+                recommendations.push(
+                    "Aprende técnicas de gestión del tiempo y priorización",
+                    "Establece límites saludables en tu vida personal y profesional",
+                    "Dedica tiempo diario para actividades que te relajen"
+                );
+            } else if (mainCategory === 'duelo') {
+                recommendations.push(
+                    "Permítete sentir y expresar tus emociones sin juzgarlas",
+                    "Considera la tanatología como especialidad para procesar tu pérdida",
+                    "Únete a un grupo de apoyo de personas en situaciones similares"
+                );
+            } else if (mainCategory === 'vacio') {
+                recommendations.push(
+                    "Explora la logoterapia para encontrar sentido y propósito",
+                    "Reflexiona sobre tus valores y lo que realmente importa para ti",
+                    "Considera actividades de voluntariado o ayuda a otros"
+                );
+            }
+            
+            recommendationsDiv.innerHTML = `
+                <h3>Recomendaciones Personalizadas</h3>
+                <ul>
+                    ${recommendations.map(rec => `<li>${rec}</li>`).join('')}
+                </ul>
+            `;
+        }
+
+        // Llenar campos ocultos del formulario
+        function fillHiddenFields(mainCategory, percentages) {
+            const diagnoses = {
+                ansiedad: "Ansiedad Predominante",
+                depresion: "Síntomas Depresivos",
+                estres: "Estrés Elevado",
+                duelo: "Proceso de Duelo",
+                vacio: "Vacío Existencial"
+            };
+            
+            document.getElementById('hiddenDiagnosis').value = diagnoses[mainCategory];
+            document.getElementById('hiddenAnsiedad').value = percentages.ansiedad + '%';
+            document.getElementById('hiddenDepresion').value = percentages.depresion + '%';
+            document.getElementById('hiddenEstres').value = percentages.estres + '%';
+            document.getElementById('hiddenDuelo').value = percentages.duelo + '%';
+            document.getElementById('hiddenVacio').value = percentages.vacio + '%';
+            
+            // Crear resumen de respuestas
+            const answersText = answers.map((a, i) => 
+                `P${i+1}: ${a.questionText}\nR: ${a.optionText}`
+            ).join('\n\n');
+            document.getElementById('hiddenAnswers').value = answersText;
+        }
+
+        // Manejar envío del formulario
+        document.getElementById('resultsForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById('successMessage').classList.add('show');
+                    this.reset();
+                    setTimeout(() => {
+                        document.getElementById('successMessage').classList.remove('show');
+                    }, 5000);
+                } else {
+                    alert('Hubo un error al enviar los resultados. Por favor intenta de nuevo.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Hubo un error al enviar los resultados. Por favor intenta de nuevo.');
+            });
+        });
+
+        // Inicializar test al cargar la página
+        window.addEventListener('DOMContentLoaded', initTest);
+    </script>
+</body>
+</html>

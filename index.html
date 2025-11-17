@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mavi Bayona - Psicoterapeuta | Tanatóloga | Logoterapeuta</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logoMavi.png">
+    <link rel="shortcut icon" type="image/png" href="assets/logoMavi.png">
+    <link rel="apple-touch-icon" href="assets/logoMavi.png">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --primary-gold: #D4AF37;
+            --primary-cyan: #1B9AAA;
+            --primary-turquoise: #06D6A0;
+            --accent-teal: #2D9596;
+            --neutral-light: #F8F9FA;
+            --neutral-dark: #2C3E50;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --white: #FFFFFF;
+            --gradient-primary: linear-gradient(135deg, #1B9AAA 0%, #06D6A0 50%, #2D9596 100%);
+            --gradient-warm: linear-gradient(135deg, #D4AF37 0%, #F4E4C1 100%);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        /* Header - Pill Nav Style */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background: transparent;
+        }
+
+        .pill-nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            position: relative;
+        }
+        
+        .pill-logo {
+            position: absolute;
+            left: 0;
+        }
+
+        .pill-logo {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: white;
+            padding: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .pill-logo:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 35px rgba(0, 0, 0, 0.25);
+        }
+
+        .pill-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .pill-nav-items {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            padding: 6px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .pill-nav-items ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .pill-nav-items a {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 24px;
+            color: var(--primary-cyan);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pill-nav-items a::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: var(--primary-cyan);
+            transform: translate(-50%, -50%);
+            transition: width 0.4s ease, height 0.4s ease;
+            z-index: 0;
+        }
+
+        .pill-nav-items a:hover::before {
+            width: 200%;
+            height: 400%;
+        }
+
+        .pill-nav-items a span {
+            position: relative;
+            z-index: 1;
+            transition: color 0.3s ease;
+        }
+
+        .pill-nav-items a:hover span {
+            color: white;
+        }
+
+        .pill-nav-items a.active {
+            background: var(--primary-cyan);
+            color: white;
+        }
+
+        .pill-nav-items a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            background: var(--primary-gold);
+            border-radius: 50%;
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-button {
+            display: none;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: white;
+            border: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            position: absolute;
+            right: 0;
+        }
+
+        .mobile-menu-button:hover {
+            transform: scale(1.05);
+        }
+
+        .hamburger-line {
+            width: 24px;
+            height: 3px;
+            background: var(--primary-cyan);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-button.active .hamburger-line:first-child {
+            transform: rotate(45deg) translateY(7px);
+        }
+
+        .mobile-menu-button.active .hamburger-line:last-child {
+            transform: rotate(-45deg) translateY(-7px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 1rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 14px 20px;
+            color: var(--primary-cyan);
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .mobile-menu a:hover,
+        .mobile-menu a.active {
+            background: var(--primary-cyan);
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+            }
+
+            .pill-nav-items {
+                display: none;
+            }
+
+            .mobile-menu-button {
+                display: flex;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            margin: 0 !important;
+            padding: 0 !important;
+            position: relative;
+            color: var(--white);
+            text-align: center;
+            overflow: hidden;
+            width: 100% !important;
+            max-width: none !important;
+            height: 100vh;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            left: 0;
+            right: 0;
+        }
+        
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100% !important;
+            height: 100% !important;
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(27, 154, 170, 0.65) 0%, rgba(6, 214, 160, 0.55) 50%, rgba(45, 149, 150, 0.65) 100%);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .hero-content h1 {
+            text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.7);
+            margin-bottom: 1.5rem;
+            font-size: 3.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero-content p {
+            text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.6);
+        }
+        
+        .hero-content .subtitle {
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+            text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.98;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--primary-gold);
+            color: var(--text-dark);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+        }
+        
+        section:not(.hero) {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-cyan);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--primary-gold);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border-top: 4px solid var(--primary-cyan);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .service-card a:hover {
+            background: var(--accent-teal) !important;
+            transform: scale(1.05);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .service-icon svg {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .service-card h3 {
+            color: var(--primary-cyan);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Appointment Form */
+        .appointment-form {
+            background: var(--gradient-primary);
+            padding: 4rem;
+            border-radius: 20px;
+            color: var(--white);
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 15px 50px rgba(27, 154, 170, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-button {
+            background: var(--primary-gold);
+            color: var(--text-dark);
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .contact-item {
+            padding: 2rem;
+            background: var(--neutral-light);
+            border-radius: 15px;
+        }
+
+        .contact-item i {
+            font-size: 2.5rem;
+            color: var(--primary-cyan);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-item svg {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--neutral-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            /* Header Mobile */
+            .pill-nav-container {
+                justify-content: space-between;
+                gap: 1rem;
+            }
+            
+            .pill-logo {
+                position: relative;
+                left: auto;
+            }
+            
+            .mobile-menu-button {
+                position: relative;
+                right: auto;
+            }
+            
+            /* About Image Overlay - Mobile adjustments */
+            .about-image > div > div[style*="position: absolute"] {
+                top: auto !important;
+                bottom: 1.5rem !important;
+                left: 1rem !important;
+                right: 1rem !important;
+                max-width: calc(100% - 2rem) !important;
+                padding: 1.2rem 1.5rem !important;
+            }
+            
+            .about-image > div > div[style*="position: absolute"] h4 {
+                font-size: 1.1rem !important;
+                margin-bottom: 0.6rem !important;
+            }
+            
+            .about-image > div > div[style*="position: absolute"] p {
+                font-size: 0.85rem !important;
+                line-height: 1.5 !important;
+            }
+            
+            /* Hero Mobile */
+            .hero {
+                width: 100% !important;
+                height: 100vh;
+                min-height: 100vh;
+                padding: 0;
+                margin: 0;
+                justify-content: center;
+            }
+
+            .hero-content {
+                padding: 0 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+                line-height: 1.3;
+                margin-bottom: 1rem;
+            }
+            
+            .hero-content .subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 0.95rem !important;
+                line-height: 1.6 !important;
+                margin-bottom: 1.5rem !important;
+            }
+            
+            .hero-content div {
+                flex-direction: column;
+                gap: 0.8rem !important;
+                align-items: center !important;
+            }
+            
+            .hero-content div a {
+                width: 100%;
+                max-width: 280px;
+                padding: 0.9rem 2rem;
+                font-size: 0.9rem;
+                display: block;
+                text-align: center;
+            }
+
+            /* About Section Mobile */
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-text h3 {
+                font-size: 1.5rem !important;
+            }
+
+            .about-text p {
+                font-size: 0.95rem;
+            }
+
+            /* Services Mobile */
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .service-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .service-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .service-card p {
+                font-size: 0.95rem;
+            }
+
+            /* Form Mobile */
+            .appointment-form {
+                padding: 2rem 1.5rem;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                font-size: 16px; /* Previene zoom en iOS */
+            }
+
+            .submit-button {
+                font-size: 1rem;
+                padding: 0.9rem 2rem;
+            }
+
+            /* Contact Mobile */
+            .contact-info {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .contact-item {
+                padding: 1.5rem;
+            }
+
+            /* Sections Mobile */
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 2rem;
+            }
+
+            /* CTA Buttons */
+            .cta-button {
+                font-size: 0.9rem;
+                padding: 0.9rem 2rem;
+            }
+
+            /* Navigation adjustments */
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Extra small devices (phones, less than 375px) */
+        @media (max-width: 375px) {
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .hero-content .subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-content p {
+                font-size: 0.9rem !important;
+            }
+
+            section {
+                padding: 2.5rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .appointment-form {
+                padding: 1.5rem 1rem;
+            }
+            
+            /* About Image Overlay - Extra small screens */
+            .about-image > div > div[style*="position: absolute"] {
+                bottom: 1rem !important;
+                left: 0.75rem !important;
+                right: 0.75rem !important;
+                padding: 1rem 1.2rem !important;
+            }
+            
+            .about-image > div > div[style*="position: absolute"] h4 {
+                font-size: 1rem !important;
+            }
+            
+            .about-image > div > div[style*="position: absolute"] p {
+                font-size: 0.8rem !important;
+            }
+        }
+
+        /* Adjust checks on mobile */
+        @media (max-width: 500px) {
+            .hero-content p:last-child {
+                flex-direction: column !important;
+                gap: 0.5rem !important;
+                font-size: 0.85rem !important;
+            }
+        }
+
+        /* Large screens */
+        @media (min-width: 1400px) {
+            .hero h1 {
+                font-size: 4rem;
+            }
+
+            .hero-content .subtitle {
+                font-size: 1.8rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem !important;
+            }
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: #2ecc71;
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: fadeInUp 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="pill-nav-container">
+            <a href="#inicio" class="pill-logo" aria-label="Home">
+                <img src="assets/logoMavi.png" alt="Mavi Bayona Logo" style="width: 100%; height: 100%; object-fit: contain;">
+            </a>
+
+            <nav class="pill-nav-items">
+                <ul>
+                    <li><a href="#inicio" class="active"><span>Inicio</span></a></li>
+                    <li><a href="#sobre-mi"><span>Sobre Mí</span></a></li>
+                    <li><a href="#servicios"><span>Servicios</span></a></li>
+                    <li><a href="#test"><span>Test Diagnóstico</span></a></li>
+                    <li><a href="#agendar"><span>Agendar Cita</span></a></li>
+                    <li><a href="#contacto"><span>Contacto</span></a></li>
+                </ul>
+            </nav>
+
+            <button class="mobile-menu-button" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="#inicio" class="active" onclick="closeMobileMenu()">Inicio</a></li>
+                <li><a href="#sobre-mi" onclick="closeMobileMenu()">Sobre Mí</a></li>
+                <li><a href="#servicios" onclick="closeMobileMenu()">Servicios</a></li>
+                <li><a href="#test" onclick="closeMobileMenu()">Test Diagnóstico</a></li>
+                <li><a href="#agendar" onclick="closeMobileMenu()">Agendar Cita</a></li>
+                <li><a href="#contacto" onclick="closeMobileMenu()">Contacto</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <!-- Video de fondo -->
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="assets/MAVI_WEB.mp4" type="video/mp4">
+        </video>
+        
+        <!-- Contenido del Hero -->
+        <div class="hero-content">
+            <h1>¿Sientes que algo no está bien?</h1>
+            <p class="subtitle">No tienes que enfrentarlo solo/a</p>
+            <p style="font-size: 1.15rem; margin-bottom: 2.5rem; line-height: 1.7; max-width: 850px; margin-left: auto; margin-right: auto;">
+                Soy <strong>Mavi Bayona</strong>, Psicoterapeuta especializada en ayudarte a recuperar tu bienestar emocional. 
+                <strong>Tu transformación comienza hoy.</strong>
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;">
+                <a href="#agendar" class="cta-button" style="padding: 1rem 2.5rem; font-size: 1rem;">Agenda tu Primera Sesión</a>
+                <a href="#test" class="cta-button" style="background: var(--primary-gold); color: var(--text-dark); padding: 1rem 2.5rem; font-size: 1rem; border: 2px solid var(--primary-gold);">✓ Realiza el Test</a>
+                <a href="#sobre-mi" class="cta-button" style="background: transparent; border: 2px solid white; color: white; padding: 1rem 2.5rem; font-size: 1rem;">Conoce mi Método</a>
+            </div>
+            <p style="font-size: 0.95rem; opacity: 0.95; display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+                <span>✓ Primera sesión sin compromiso</span>
+                <span>✓ Confidencialidad total</span>
+                <span>✓ Resultados desde la primera consulta</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre-mi">
+        <h2 class="section-title">¿Por Qué Elegir Terapia Conmigo?</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3 style="color: var(--primary-cyan); margin-bottom: 1.5rem; font-size: 1.8rem;">Porque Tus Emociones Merecen Ser Escuchadas</h3>
+                <p style="margin-bottom: 1.5rem; font-size: 1.05rem; line-height: 1.8;">
+                    <strong>Imagina despertar sin esa ansiedad que te persigue.</strong> Imagina sentirte en paz con tu pasado 
+                    y emocionado por tu futuro. Eso no es un sueño imposible, es el resultado que mis pacientes experimentan día a día.
+                </p>
+                <p style="margin-bottom: 1.5rem; font-size: 1.05rem; line-height: 1.8;">
+                    Soy <strong>L.Psic. Mavi Bayona</strong>, y entiendo que buscar ayuda no es fácil. Por eso he dedicado mi vida 
+                    profesional a crear un espacio donde puedas ser tú mismo/a sin juicios, donde cada palabra que compartas 
+                    será escuchada con empatía y respeto.
+                </p>
+                <div style="background: var(--neutral-light); padding: 1.5rem; border-radius: 15px; border-left: 4px solid var(--primary-gold); margin: 2rem 0;">
+                    <h4 style="color: var(--accent-teal); margin-bottom: 1rem;">Lo que NO puedes permitirte:</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;">✗ Seguir posponiendo tu bienestar emocional</li>
+                        <li style="margin-bottom: 0.5rem;">✗ Creer que el tiempo solo sanará tus heridas</li>
+                        <li style="margin-bottom: 0.5rem;">✗ Pensar que "no es tan grave" cuando sufres cada día</li>
+                        <li style="margin-bottom: 0.5rem;">✗ Perder más momentos importantes por no estar bien</li>
+                    </ul>
+                </div>
+                <p style="font-size: 1.05rem; line-height: 1.8;">
+                    Mi metodología combina <strong>Psicoterapia, Tanatología y Logoterapia</strong> para darte 
+                    herramientas reales que puedes aplicar desde la primera sesión. No soy de las que solo escuchan, 
+                    trabajo activamente contigo para lograr cambios tangibles.
+                </p>
+            </div>
+            <div class="about-image">
+                <div style="position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.2);">
+                    <img 
+                        src="assets/maviBayona1.jpg" 
+                        alt="L.Psic. Mavi Bayona - Psicoterapeuta"
+                        style="width: 100%; display: block; border-radius: 20px;"
+                    />
+                    
+                    <!-- Overlay de texto - Arriba a la izquierda con fondo blanco translúcido -->
+                    <div style="position: absolute; top: 2rem; left: 2rem; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 1.5rem 2rem; border-radius: 15px; max-width: 280px; box-shadow: 0 8px 30px rgba(0,0,0,0.2); border-left: 4px solid var(--primary-cyan);">
+                        <h4 style="color: var(--primary-cyan); font-size: 1.2rem; margin-bottom: 0.8rem; font-weight: 700;">L.Psic. Mavi Bayona</h4>
+                        <p style="color: var(--text-dark); font-size: 0.9rem; line-height: 1.6; margin: 0;">
+                            Psicoterapeuta especializada en acompañarte hacia tu bienestar emocional. 
+                            <strong style="color: var(--accent-teal);">Estoy aquí para ayudarte.</strong>
+                        </p>
+                    </div>
+                </div>
+                
+                <div style="background: var(--gradient-primary); color: white; padding: 1.5rem; border-radius: 15px; margin-top: 1.5rem; text-align: center;">
+                    <p style="font-size: 1.1rem; font-weight: 500; margin-bottom: 0.5rem;">💬 "La mejor inversión es en ti mismo"</p>
+                    <p style="font-size: 0.95rem; opacity: 0.9;">No esperes a tocar fondo para pedir ayuda</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" style="background: var(--neutral-light); position: relative;">
+        <!-- Logo marca de agua de fondo -->
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.03; pointer-events: none; z-index: 0;">
+            <img src="assets/logoMavi.png" alt="Mavi Bayona" style="width: 300px; height: auto; object-fit: contain;">
+        </div>
+        
+        <div style="position: relative; z-index: 1;">
+        <h2 class="section-title">¿Qué Puedo Ayudarte a Resolver?</h2>
+        <p style="text-align: center; max-width: 800px; margin: -1rem auto 3rem; font-size: 1.1rem; color: var(--text-light);">
+            Cada servicio está diseñado para darte resultados reales. No más teoría sin acción.
+        </p>
+        <div class="services-grid">
+            <div class="service-card" style="overflow: hidden; padding: 0;">
+                <img src="assets/Psicoterapia.jpg" alt="Psicoterapia" style="width: 100%; height: 250px; object-fit: cover; border-radius: 20px 20px 0 0;">
+                <div style="padding: 2rem 2rem 2.5rem;">
+                    <h3 style="color: var(--primary-cyan); margin-bottom: 1rem;">Psicoterapia</h3>
+                    <p style="font-weight: 600; color: var(--accent-teal); margin-bottom: 1rem;">¿Te sientes atrapado/a en tus pensamientos?</p>
+                    <p style="margin-bottom: 1.5rem;">Ansiedad, depresión, estrés o traumas del pasado no tienen que controlar tu vida.</p>
+                    <ul style="list-style: none; padding-left: 0; text-align: left; margin-bottom: 1.5rem;">
+                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Elimina patrones de pensamiento negativos</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Maneja la ansiedad y el estrés</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Reconstruye tu autoestima</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Sana traumas del pasado</li>
+                    </ul>
+                    <a href="#agendar" style="display: inline-block; background: var(--primary-cyan); color: white; padding: 0.8rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">Agendar Sesión</a>
+                </div>
+            </div>
+
+            <div class="service-card" style="overflow: hidden; padding: 0;">
+                <img src="assets/Tanatologia.jpg" alt="Tanatología" style="width: 100%; height: 250px; object-fit: cover; border-radius: 20px 20px 0 0;">
+                <div style="padding: 2rem 2rem 2.5rem;">
+                    <h3 style="color: var(--primary-cyan); margin-bottom: 1rem;">Tanatología</h3>
+                    <p style="font-weight: 600; color: var(--accent-teal); margin-bottom: 1rem;">¿El dolor de una pérdida te paraliza?</p>
+                    <p style="margin-bottom: 1.5rem;">Cuando una etapa termina, el proceso de sanación puede comenzar. No tienes que quedarte atrapado/a.</p>
+                    <ul style="list-style: none; padding-left: 0; text-align: left; margin-bottom: 1.5rem;">
+                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Procesa el duelo de forma saludable</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Honra a quien partió sin estancarte</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Encuentra paz y aceptación</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Reconstruye tu vida con esperanza</li>
+                    </ul>
+                    <a href="#agendar" style="display: inline-block; background: var(--primary-cyan); color: white; padding: 0.8rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">Agendar Sesión</a>
+                </div>
+            </div>
+
+            <div class="service-card" style="overflow: hidden; padding: 0;">
+                <img src="assets/Logoterapia.jpg" alt="Logoterapia" style="width: 100%; height: 250px; object-fit: cover; border-radius: 20px 20px 0 0;">
+                <div style="padding: 2rem 2rem 2.5rem;">
+                    <h3 style="color: var(--primary-cyan); margin-bottom: 1rem;">Logoterapia</h3>
+                    <p style="font-weight: 600; color: var(--accent-teal); margin-bottom: 1rem;">¿Sientes que tu vida no tiene sentido?</p>
+                    <p style="margin-bottom: 1.5rem;">Encontrar sentido también es una forma de sanar. Si sientes un vacío existencial, es porque aún no has encontrado tu propósito.</p>
+                    <ul style="list-style: none; padding-left: 0; text-align: left; margin-bottom: 1.5rem;">
+                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Descubre tu propósito de vida</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Reconecta con tus valores</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Supera crisis existenciales</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Vive con significado y plenitud</li>
+                    </ul>
+                    <a href="#agendar" style="display: inline-block; background: var(--primary-cyan); color: white; padding: 0.8rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">Agendar Sesión</a>
+                </div>
+            </div>
+        </div>
+        
+        <div style="background: white; max-width: 900px; margin: 4rem auto 0; padding: 3rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); text-align: center;">
+            <h3 style="color: var(--primary-cyan); font-size: 2rem; margin-bottom: 1.5rem;">⚠️ La pregunta no es "¿Puedo mejorar?"</h3>
+            <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem;">
+                La pregunta es: <strong>"¿Cuánto tiempo más voy a esperar?"</strong><br>
+                Cada día que pospongas tu bienestar es un día perdido de felicidad, paz y plenitud.
+            </p>
+            <a href="#agendar" class="cta-button" style="font-size: 1.1rem; padding: 1.2rem 3rem;">Quiero Empezar Mi Transformación Ahora</a>
+        </div>
+        </div>
+    </section>
+
+    <!-- Test Diagnóstico Section -->
+    <section id="test" style="background: var(--neutral-light);">
+        <!-- Sección de Test Diagnóstico -->
+        <div style="background: linear-gradient(135deg, #1B9AAA 0%, #06D6A0 100%); max-width: 1000px; margin: 0 auto; padding: 3.5rem 3rem; border-radius: 20px; box-shadow: 0 15px 50px rgba(27, 154, 170, 0.3); text-align: center; color: white; position: relative; overflow: hidden;">
+            <!-- Decoración de fondo -->
+            <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: rgba(255, 255, 255, 0.05); border-radius: 50%;"></div>
+            <div style="position: absolute; bottom: -30px; left: -30px; width: 150px; height: 150px; background: rgba(255, 255, 255, 0.05); border-radius: 50%;"></div>
+            
+            <div style="position: relative; z-index: 1;">
+                <div style="margin-bottom: 2rem;">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));">
+                        <rect x="4" y="4" width="16" height="16" rx="2" stroke="white" stroke-width="2" fill="none"/>
+                        <path d="M8 12L11 15L16 9" stroke="#D4AF37" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="19" cy="5" r="2" fill="#D4AF37"/>
+                    </svg>
+                </div>
+                
+                <h3 style="font-size: 2.2rem; margin-bottom: 1.5rem; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">
+                    ¿No sabes exactamente qué te está pasando?
+                </h3>
+                
+                <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2.5rem; opacity: 0.95; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    A veces es difícil poner en palabras lo que sentimos. <strong>Mi test de diagnóstico rápido</strong> te ayudará a 
+                    identificar qué está afectando tu bienestar emocional para que podamos tratarlo de forma efectiva en tu consulta.
+                </p>
+                
+                <div style="background: rgba(255, 255, 255, 0.15); padding: 1.5rem; border-radius: 15px; margin-bottom: 2.5rem; backdrop-filter: blur(10px);">
+                    <p style="font-size: 1rem; margin: 0; display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                        <span style="display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2" fill="none"/>
+                                <path d="M12 6V12L16 14" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <strong>Solo 5 minutos</strong>
+                        </span>
+                        <span style="display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="5" y="11" width="14" height="10" rx="2" stroke="white" stroke-width="2" fill="none"/>
+                                <path d="M12 15V17" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M9 11V7C9 5.34315 10.3431 4 12 4C13.6569 4 15 5.34315 15 7V11" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <strong>100% Confidencial</strong>
+                        </span>
+                        <span style="display: flex; align-items: center; gap: 0.5rem;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 6L9 17L4 12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <strong>Resultados Inmediatos</strong>
+                        </span>
+                    </p>
+                </div>
+                
+                <a href="pages/test.html" class="cta-button" style="background: white; color: var(--primary-cyan); padding: 1.3rem 3rem; font-size: 1.15rem; display: inline-flex; align-items: center; gap: 0.8rem; box-shadow: 0 6px 20px rgba(0,0,0,0.15);">
+                    <span>Realizar Test Gratuito Ahora</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                
+                <p style="font-size: 0.9rem; margin-top: 1.5rem; opacity: 0.9; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2" fill="none"/>
+                        <path d="M12 16V12M12 8H12.01" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    El test no reemplaza una consulta profesional, pero es un excelente primer paso
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section id="agendar">
+        <h2 class="section-title">Tu Vida Puede Cambiar Desde Hoy</h2>
+        <p style="text-align: center; max-width: 800px; margin: -1rem auto 3rem; font-size: 1.15rem; color: var(--text-light);">
+            Agendar tu primera sesión es el primer paso hacia la vida que mereces vivir.<br>
+            <strong style="color: var(--primary-cyan);">Sin compromisos. Sin juicios. Solo tú y tu bienestar.</strong>
+        </p>
+        
+        <!-- Logo decorativo arriba del formulario -->
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <img src="assets/logoMavi.png" alt="Mavi Bayona Logo" style="width: 60px; height: auto; opacity: 0.9; animation: fadeInUp 1s ease; object-fit: contain;">
+        </div>
+        
+        <div class="appointment-form">
+            <div id="successMessage" class="success-message">
+                <span style="display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                    ¡Excelente decisión! Tu solicitud ha sido enviada. Te contactaré pronto para confirmar tu sesión. 
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block;">
+                        <path d="M12 2C12 2 10.5 4 9 6C7.5 8 6 10 6 12C6 14 7 15 8.5 15.5C10 16 11 16 12 15C13 16 14 16 15.5 15.5C17 15 18 14 18 12C18 10 16.5 8 15 6C13.5 4 12 2 12 2Z" fill="white"/>
+                        <path d="M4 8C4 8 2 9 2 11C2 13 3 14 4.5 14C6 14 7 13 7 11.5C7 10 6 9 4 8Z" fill="white" opacity="0.8"/>
+                        <path d="M20 8C20 8 22 9 22 11C22 13 21 14 19.5 14C18 14 17 13 17 11.5C17 10 18 9 20 8Z" fill="white" opacity="0.8"/>
+                    </svg>
+                </span>
+            </div>
+            
+            <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 15px; margin-bottom: 2rem; border-left: 4px solid var(--primary-gold);">
+                <p style="font-size: 1.05rem; line-height: 1.7; margin: 0;">
+                    💡 <strong>Compromiso de Confidencialidad:</strong> Todo lo que compartas conmigo permanece en 
+                    absoluta confidencialidad. Este es tu espacio seguro.
+                </p>
+            </div>
+            
+            <form id="appointmentForm">
+                <div class="form-group">
+                    <label for="nombre">Tu Nombre Completo *</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej. María González" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Tu Correo Electrónico *</label>
+                    <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefono">Tu Teléfono (preferiblemente WhatsApp) *</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="+52 777 123 4567" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="servicio">¿Qué Servicio Necesitas? *</label>
+                    <select id="servicio" name="servicio" required>
+                        <option value="">Selecciona el servicio que más resuena contigo</option>
+                        <option value="psicoterapia">💭 Psicoterapia - Ansiedad, depresión, estrés</option>
+                        <option value="tanatologia">🕊️ Tanatología - Duelo y pérdidas</option>
+                        <option value="logoterapia">✨ Logoterapia - Búsqueda de sentido</option>
+                        <option value="consulta-general">🤝 No estoy seguro/a, necesito orientación</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="fecha-preferida">¿Cuándo Te Gustaría Tu Primera Sesión?</label>
+                    <input type="date" id="fecha-preferida" name="fecha-preferida">
+                    <small style="opacity: 0.9; display: block; margin-top: 0.5rem;">Propondré horarios disponibles cercanos a esta fecha</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="motivo">Cuéntame: ¿Qué Te Está Pasando? *</label>
+                    <textarea id="motivo" name="motivo" required placeholder="No te preocupes por los detalles, solo comparte lo que sientes. Por ejemplo: 'Me siento ansioso/a constantemente', 'Perdí a alguien y no puedo superarlo', 'Siento que mi vida no tiene sentido'..."></textarea>
+                    <small style="opacity: 0.9; display: block; margin-top: 0.5rem;">Esta información me ayuda a preparar mejor nuestra primera sesión</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="comentarios">¿Algo Más Que Quieras Que Sepa?</label>
+                    <textarea id="comentarios" name="comentarios" placeholder="Horarios que prefieres, situaciones especiales, dudas sobre el proceso..."></textarea>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.15); padding: 1.2rem; border-radius: 10px; margin-bottom: 1.5rem; text-align: center;">
+                    <p style="margin: 0; font-size: 0.95rem; line-height: 1.6;">
+                        ⏰ <strong>Te responderé en menos de 24 horas</strong><br>
+                        Generalmente confirmo las citas el mismo día
+                    </p>
+                </div>
+
+                <button type="submit" class="submit-button">Sí, Quiero Agendar Mi Primera Sesión</button>
+                
+                <p style="text-align: center; margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.9;">
+                    Al enviar este formulario aceptas que me contacte para agendar tu sesión
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" style="background: var(--neutral-light);">
+        <h2 class="section-title">Contacto</h2>
+        
+        <!-- Logo central decorativo -->
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <img src="assets/logoMavi.png" alt="Mavi Bayona Logo" style="width: 70px; height: auto; opacity: 0.85; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.1)); object-fit: contain;">
+            <p style="margin-top: 1rem; color: var(--primary-cyan); font-weight: 600; font-size: 1.1rem;">Estoy aquí para acompañarte</p>
+        </div>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="32" cy="32" r="26" fill="#06D6A0" opacity="0.2"/>
+                    <path d="M32 10C19.3 10 9 20.3 9 33C9 37.4 10.3 41.5 12.5 45L9 55L19.5 51.6C22.8 53.6 26.7 55 31 55C43.7 55 54 44.7 54 32C54 19.3 43.7 9 31 9L32 10Z" stroke="#1B9AAA" stroke-width="2.5" fill="none"/>
+                    <path d="M24 24C24 24 25 22 27 22C28 22 29 23 29 24C29 25 28 26 27 27C26 28 25 29 25 31C25 33 27 35 29 37C31 39 33 41 35 41C37 41 38 40 39 39C40 38 41 37 42 37C43 37 44 38 44 39C44 41 42 42 42 42C42 42 39 45 35 45C31 45 27 43 24 40C21 37 19 33 19 29C19 25 22 22 22 22" fill="#D4AF37"/>
+                </svg>
+                <h3 style="color: var(--primary-cyan); margin-bottom: 0.5rem;">WhatsApp</h3>
+                <p>Contáctame directamente</p>
+                <a href="https://wa.me/5217771234567" style="color: var(--primary-cyan); text-decoration: none; font-weight: bold;">Enviar mensaje</a>
+            </div>
+
+            <div class="contact-item">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="8" y="16" width="48" height="32" rx="4" fill="#06D6A0" opacity="0.2"/>
+                    <rect x="8" y="16" width="48" height="32" rx="4" stroke="#1B9AAA" stroke-width="2.5" fill="none"/>
+                    <path d="M8 20L32 36L56 20" stroke="#D4AF37" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8 44L22 32M56 44L42 32" stroke="#1B9AAA" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <h3 style="color: var(--primary-cyan); margin-bottom: 0.5rem;">Email</h3>
+                <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d1b2bebfa5b0b2a5be91bcb0a7b8b3b0a8bebfb0ffb2bebc">[email&#160;protected]</a></p>
+            </div>
+
+            <div class="contact-item">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="32" cy="32" r="26" fill="#1B9AAA" opacity="0.2"/>
+                    <circle cx="32" cy="32" r="26" stroke="#1B9AAA" stroke-width="2.5" fill="none"/>
+                    <path d="M38 22H34C32 22 30 23 30 25V28H26V34H30V50H36V34H40L42 28H36V26C36 25 37 24 38 24H42V18C42 18 40 18 38 18C35 18 32 20 32 23V28H38V22Z" fill="#06D6A0"/>
+                    <rect x="34" y="28" width="4" height="6" fill="#D4AF37"/>
+                </svg>
+                <h3 style="color: var(--primary-cyan); margin-bottom: 0.5rem;">Facebook</h3>
+                <p>Sígueme en redes</p>
+                <a href="https://www.facebook.com/share/17NcimN3gD/" target="_blank" style="color: var(--primary-cyan); text-decoration: none; font-weight: bold;">Visitar página</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <!-- Logo en el footer -->
+        <div style="margin-bottom: 1.5rem;">
+            <img src="assets/logoMavi.png" alt="Mavi Bayona Logo" style="width: 50px; height: auto; opacity: 0.8; filter: brightness(0) invert(1); object-fit: contain;">
+        </div>
+        
+        <p>&copy; 2024 Mavi Bayona - Psicoterapeuta, Tanatóloga, Logoterapeuta</p>
+        <p style="margin-top: 0.5rem; opacity: 0.8; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+            Cuidando tus emociones 
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block;">
+                <path d="M12 2C12 2 10.5 4 9 6C7.5 8 6 10 6 12C6 14 7 15 8.5 15.5C10 16 11 16 12 15C13 16 14 16 15.5 15.5C17 15 18 14 18 12C18 10 16.5 8 15 6C13.5 4 12 2 12 2Z" fill="#D4AF37"/>
+                <path d="M4 8C4 8 2 9 2 11C2 13 3 14 4.5 14C6 14 7 13 7 11.5C7 10 6 9 4 8Z" fill="#06D6A0"/>
+                <path d="M20 8C20 8 22 9 22 11C22 13 21 14 19.5 14C18 14 17 13 17 11.5C17 10 18 9 20 8Z" fill="#06D6A0"/>
+            </svg>
+        </p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const button = document.querySelector('.mobile-menu-button');
+            const menu = document.getElementById('mobileMenu');
+            
+            button.classList.toggle('active');
+            menu.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const button = document.querySelector('.mobile-menu-button');
+            const menu = document.getElementById('mobileMenu');
+            
+            button.classList.remove('active');
+            menu.classList.remove('active');
+        }
+
+        // Active link tracking
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.pill-nav-items a, .mobile-menu a');
+
+            function updateActiveLink() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', updateActiveLink);
+            updateActiveLink();
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form handling
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                nombre: document.getElementById('nombre').value,
+                email: document.getElementById('email').value,
+                telefono: document.getElementById('telefono').value,
+                servicio: document.getElementById('servicio').value,
+                fechaPreferida: document.getElementById('fecha-preferida').value,
+                motivo: document.getElementById('motivo').value,
+                comentarios: document.getElementById('comentarios').value,
+                fecha: new Date().toLocaleString('es-MX')
+            };
+
+            // Store in localStorage (simulating database)
+            let citas = JSON.parse(localStorage.getItem('citas')) || [];
+            citas.push(formData);
+            localStorage.setItem('citas', JSON.stringify(citas));
+
+            // Show success message
+            const successMsg = document.getElementById('successMessage');
+            successMsg.classList.add('show');
+
+            // Reset form
+            this.reset();
+
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMsg.classList.remove('show');
+            }, 5000);
+
+            // Log to console (for Mavi to see appointments)
+            console.log('Nueva cita agendada:', formData);
+            console.log('Total de citas:', citas);
+        });
+
+        // Set minimum date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('fecha-preferida').setAttribute('min', today);
+    </script>
+</body>
+</html>
