@@ -10,6 +10,13 @@
     <link rel="shortcut icon" type="image/png" href="../assets/logoMavi.png">
     <link rel="apple-touch-icon" href="../assets/logoMavi.png">
     
+    <!-- Chart.js para gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
+    <!-- jsPDF para generar PDFs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
     <style>
         * {
             margin: 0;
@@ -484,6 +491,96 @@
             box-shadow: 0 6px 20px rgba(0,0,0,0.2);
         }
 
+        /* Charts Section */
+        .charts-section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .charts-section h3 {
+            color: var(--primary-cyan);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+
+        .charts-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .chart-legend {
+            margin-top: 2rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.8rem;
+            margin-bottom: 0.5rem;
+            border-radius: 8px;
+            background: var(--neutral-light);
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            margin-right: 0.8rem;
+        }
+
+        .legend-label {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            font-weight: 600;
+        }
+
+        .legend-value {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary-cyan);
+        }
+
+        /* PDF Download Button */
+        .btn-download {
+            background: var(--primary-gold);
+            color: var(--text-dark);
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .download-section {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
         /* Success Message */
         .success-message {
             background: #48BB78;
@@ -546,6 +643,15 @@
             .btn {
                 width: 100%;
             }
+
+            .charts-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .charts-section {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -582,6 +688,31 @@
 
             <div class="diagnosis-card" id="mainDiagnosis">
                 <!-- Se llenará dinámicamente -->
+            </div>
+
+            <!-- Sección de Gráficos Circulares -->
+            <div class="charts-section">
+                <h3>📊 Visualización de Resultados</h3>
+                <div class="charts-container">
+                    <div class="chart-wrapper">
+                        <canvas id="resultsChart"></canvas>
+                    </div>
+                    <div class="chart-legend" id="chartLegend">
+                        <!-- Se llenará dinámicamente -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botón de Descarga PDF -->
+            <div class="download-section">
+                <button class="btn-download" onclick="downloadPDF()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 15V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Descargar Resultados en PDF
+                </button>
             </div>
 
             <div class="scores-grid" id="scoresGrid">
@@ -806,6 +937,8 @@
             duelo: 0,
             vacio: 0
         };
+        let resultsChart = null;
+        let calculatedPercentages = {};
 
         // Inicializar el test
         function initTest() {
@@ -942,6 +1075,8 @@
                 percentages[key] = Math.round((scores[key] / maxScores[key]) * 100);
             });
             
+            calculatedPercentages = percentages;
+            
             // Determinar diagnóstico principal
             const maxCategory = Object.keys(percentages).reduce((a, b) => 
                 percentages[a] > percentages[b] ? a : b
@@ -949,6 +1084,9 @@
             
             // Renderizar diagnóstico principal
             renderMainDiagnosis(maxCategory, percentages[maxCategory]);
+            
+            // Renderizar gráfico circular
+            renderChart(percentages);
             
             // Renderizar scores
             renderScores(percentages);
@@ -958,6 +1096,89 @@
             
             // Llenar campos ocultos para el formulario
             fillHiddenFields(maxCategory, percentages);
+        }
+
+        // Renderizar gráfico circular
+        function renderChart(percentages) {
+            const labels = {
+                ansiedad: "Ansiedad",
+                depresion: "Depresión",
+                estres: "Estrés",
+                duelo: "Duelo",
+                vacio: "Vacío Existencial"
+            };
+            
+            const colors = {
+                ansiedad: '#FF6B6B',
+                depresion: '#667EEA',
+                estres: '#F6AD55',
+                duelo: '#4299E1',
+                vacio: '#9F7AEA'
+            };
+            
+            const ctx = document.getElementById('resultsChart').getContext('2d');
+            
+            // Destruir gráfico anterior si existe
+            if (resultsChart) {
+                resultsChart.destroy();
+            }
+            
+            resultsChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(percentages).map(key => labels[key]),
+                    datasets: [{
+                        data: Object.values(percentages),
+                        backgroundColor: Object.keys(percentages).map(key => colors[key]),
+                        borderWidth: 3,
+                        borderColor: '#ffffff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            padding: 12,
+                            titleFont: {
+                                size: 14,
+                                weight: 'bold'
+                            },
+                            bodyFont: {
+                                size: 13
+                            },
+                            callbacks: {
+                                label: function(context) {
+                                    return context.label + ': ' + context.parsed + '%';
+                                }
+                            }
+                        }
+                    },
+                    cutout: '60%'
+                }
+            });
+            
+            // Renderizar leyenda personalizada
+            renderChartLegend(percentages, labels, colors);
+        }
+
+        // Renderizar leyenda del gráfico
+        function renderChartLegend(percentages, labels, colors) {
+            const legendDiv = document.getElementById('chartLegend');
+            
+            legendDiv.innerHTML = Object.keys(percentages).map(key => `
+                <div class="legend-item">
+                    <div class="legend-label">
+                        <div class="legend-color" style="background: ${colors[key]}"></div>
+                        ${labels[key]}
+                    </div>
+                    <div class="legend-value">${percentages[key]}%</div>
+                </div>
+            `).join('');
         }
 
         // Renderizar diagnóstico principal
@@ -1129,6 +1350,300 @@
 
         // Inicializar test al cargar la página
         window.addEventListener('DOMContentLoaded', initTest);
+
+        // Función para descargar resultados en PDF
+        async function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF('p', 'mm', 'a4');
+            
+            // Colores
+            const primaryCyan = [27, 154, 170];
+            const primaryGold = [212, 175, 55];
+            const textDark = [51, 51, 51];
+            const textLight = [102, 102, 102];
+            
+            // Configuración inicial
+            let yPosition = 20;
+            const pageWidth = pdf.internal.pageSize.getWidth();
+            const pageHeight = pdf.internal.pageSize.getHeight();
+            const margin = 20;
+            const contentWidth = pageWidth - (margin * 2);
+            const bottomMargin = 30; // Margen inferior para el footer
+            
+            // Función para verificar si necesitamos nueva página
+            function checkNewPage(requiredSpace) {
+                if (yPosition + requiredSpace > pageHeight - bottomMargin) {
+                    pdf.addPage();
+                    yPosition = 20;
+                    return true;
+                }
+                return false;
+            }
+            
+            // Header con logo (texto)
+            pdf.setFillColor(...primaryCyan);
+            pdf.rect(0, 0, pageWidth, 35, 'F');
+            pdf.setTextColor(255, 255, 255);
+            pdf.setFontSize(22);
+            pdf.setFont('helvetica', 'bold');
+            pdf.text('Test de Diagnóstico Emocional', pageWidth / 2, 15, { align: 'center' });
+            pdf.setFontSize(11);
+            pdf.setFont('helvetica', 'normal');
+            pdf.text('Resultados Personalizados - Mavi Bayona', pageWidth / 2, 24, { align: 'center' });
+            
+            yPosition = 45;
+            
+            // Información del usuario
+            const userName = document.getElementById('userName').value || 'Usuario';
+            const userEmail = document.getElementById('userEmail').value || 'Sin email';
+            const currentDate = new Date().toLocaleDateString('es-MX', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+            
+            pdf.setTextColor(...textDark);
+            pdf.setFontSize(10);
+            pdf.setFont('helvetica', 'normal');
+            pdf.text(`Nombre: ${userName}`, margin, yPosition);
+            yPosition += 6;
+            pdf.text(`Email: ${userEmail}`, margin, yPosition);
+            yPosition += 6;
+            pdf.text(`Fecha: ${currentDate}`, margin, yPosition);
+            yPosition += 12;
+            
+            // Diagnóstico Principal
+            const maxCategory = Object.keys(calculatedPercentages).reduce((a, b) => 
+                calculatedPercentages[a] > calculatedPercentages[b] ? a : b
+            );
+            
+            const diagnoses = {
+                ansiedad: "Ansiedad Predominante",
+                depresion: "Síntomas Depresivos",
+                estres: "Estrés Elevado",
+                duelo: "Proceso de Duelo",
+                vacio: "Vacío Existencial"
+            };
+            
+            const descriptions = {
+                ansiedad: "Preocupación constante, nerviosismo y tensión que afectan tu vida diaria.",
+                depresion: "Tristeza persistente, pérdida de interés y cambios en el estado de ánimo.",
+                estres: "Sobrecarga emocional que dificulta el manejo de responsabilidades.",
+                duelo: "Proceso de adaptación ante una pérdida significativa que requiere acompañamiento.",
+                vacio: "Sensación de falta de propósito o sentido en diferentes áreas de tu vida."
+            };
+            
+            checkNewPage(35);
+            
+            // Recuadro del diagnóstico principal
+            pdf.setFillColor(...primaryCyan);
+            pdf.roundedRect(margin, yPosition, contentWidth, 30, 3, 3, 'F');
+            pdf.setTextColor(255, 255, 255);
+            pdf.setFontSize(14);
+            pdf.setFont('helvetica', 'bold');
+            pdf.text('Diagnóstico Principal', pageWidth / 2, yPosition + 10, { align: 'center' });
+            pdf.setFontSize(16);
+            pdf.text(diagnoses[maxCategory], pageWidth / 2, yPosition + 18, { align: 'center' });
+            pdf.setFontSize(10);
+            pdf.setFont('helvetica', 'normal');
+            pdf.text(`Nivel de afectación: ${calculatedPercentages[maxCategory]}%`, pageWidth / 2, yPosition + 26, { align: 'center' });
+            
+            yPosition += 38;
+            
+            // Descripción del diagnóstico
+            checkNewPage(20);
+            pdf.setTextColor(...textDark);
+            pdf.setFontSize(9);
+            const descLines = pdf.splitTextToSize(descriptions[maxCategory], contentWidth - 10);
+            pdf.text(descLines, margin + 5, yPosition);
+            yPosition += descLines.length * 4 + 8;
+            
+            // Resultados detallados
+            checkNewPage(15);
+            pdf.setTextColor(...primaryCyan);
+            pdf.setFontSize(13);
+            pdf.setFont('helvetica', 'bold');
+            pdf.text('Resultados Detallados', margin, yPosition);
+            yPosition += 8;
+            
+            const labels = {
+                ansiedad: "Ansiedad",
+                depresion: "Depresión",
+                estres: "Estrés",
+                duelo: "Duelo",
+                vacio: "Vacío Existencial"
+            };
+            
+            const colors = {
+                ansiedad: [255, 107, 107],
+                depresion: [102, 126, 234],
+                estres: [246, 173, 85],
+                duelo: [66, 153, 225],
+                vacio: [159, 122, 234]
+            };
+            
+            // Dibujar barras de progreso para cada categoría
+            pdf.setFontSize(10);
+            pdf.setFont('helvetica', 'normal');
+            
+            Object.keys(calculatedPercentages).forEach(key => {
+                checkNewPage(18);
+                
+                const percentage = calculatedPercentages[key];
+                const barWidth = contentWidth - 35;
+                const fillWidth = (barWidth * percentage) / 100;
+                
+                // Etiqueta
+                pdf.setTextColor(...textDark);
+                pdf.text(labels[key], margin, yPosition);
+                
+                // Porcentaje
+                pdf.setFont('helvetica', 'bold');
+                pdf.text(`${percentage}%`, pageWidth - margin, yPosition, { align: 'right' });
+                pdf.setFont('helvetica', 'normal');
+                
+                yPosition += 5;
+                
+                // Barra de fondo
+                pdf.setFillColor(224, 224, 224);
+                pdf.roundedRect(margin, yPosition, barWidth, 5, 2, 2, 'F');
+                
+                // Barra de progreso
+                if (percentage > 0) {
+                    pdf.setFillColor(...colors[key]);
+                    pdf.roundedRect(margin, yPosition, fillWidth, 5, 2, 2, 'F');
+                }
+                
+                yPosition += 10;
+            });
+            
+            yPosition += 5;
+            
+            // Recomendaciones
+            checkNewPage(15);
+            
+            pdf.setFontSize(13);
+            pdf.setFont('helvetica', 'bold');
+            pdf.setTextColor(...primaryCyan);
+            pdf.text('Recomendaciones', margin, yPosition);
+            yPosition += 8;
+            
+            // Fondo para recomendaciones
+            const recomStartY = yPosition - 2;
+            
+            pdf.setFontSize(9);
+            pdf.setFont('helvetica', 'normal');
+            pdf.setTextColor(...textDark);
+            
+            const recommendations = [
+                'Considera agendar una consulta profesional para un diagnóstico completo y personalizado',
+                'No minimices lo que estás sintiendo - buscar ayuda es un signo de fortaleza',
+                'Establece rutinas saludables de sueño y alimentación',
+                'Practica técnicas de relajación y mindfulness diariamente',
+                'Mantén conexión con tus seres queridos y red de apoyo'
+            ];
+            
+            let recomHeight = 0;
+            recommendations.forEach(rec => {
+                checkNewPage(12);
+                
+                const bullet = '•';
+                pdf.setFont('helvetica', 'bold');
+                pdf.text(bullet, margin + 3, yPosition);
+                pdf.setFont('helvetica', 'normal');
+                
+                const lines = pdf.splitTextToSize(rec, contentWidth - 15);
+                pdf.text(lines, margin + 8, yPosition);
+                const lineHeight = lines.length * 4;
+                yPosition += lineHeight + 2;
+                recomHeight += lineHeight + 2;
+            });
+            
+            // Fondo de recomendaciones
+            pdf.setFillColor(255, 249, 230);
+            pdf.rect(margin - 2, recomStartY, contentWidth + 4, recomHeight + 2, 'F');
+            
+            // Re-dibujar las recomendaciones sobre el fondo
+            yPosition = recomStartY + 5;
+            pdf.setTextColor(...textDark);
+            recommendations.forEach(rec => {
+                const bullet = '•';
+                pdf.setFont('helvetica', 'bold');
+                pdf.text(bullet, margin + 3, yPosition);
+                pdf.setFont('helvetica', 'normal');
+                
+                const lines = pdf.splitTextToSize(rec, contentWidth - 15);
+                pdf.text(lines, margin + 8, yPosition);
+                yPosition += lines.length * 4 + 2;
+            });
+            
+            yPosition += 5;
+            
+            // Nota importante si hay niveles altos
+            if (calculatedPercentages.depresion >= 60 || calculatedPercentages.ansiedad >= 70) {
+                checkNewPage(25);
+                
+                pdf.setFillColor(255, 235, 235);
+                pdf.roundedRect(margin, yPosition, contentWidth, 20, 2, 2, 'F');
+                
+                pdf.setTextColor(220, 50, 50);
+                pdf.setFontSize(10);
+                pdf.setFont('helvetica', 'bold');
+                pdf.text('⚠ IMPORTANTE', margin + 5, yPosition + 7);
+                
+                pdf.setTextColor(...textDark);
+                pdf.setFontSize(9);
+                pdf.setFont('helvetica', 'normal');
+                const warningText = 'Tus resultados sugieren que podrías beneficiarte de atención profesional inmediata. No dudes en buscar ayuda.';
+                const warningLines = pdf.splitTextToSize(warningText, contentWidth - 15);
+                pdf.text(warningLines, margin + 5, yPosition + 13);
+                
+                yPosition += 25;
+            }
+            
+            // Call to Action
+            checkNewPage(25);
+            
+            pdf.setFillColor(240, 248, 255);
+            pdf.roundedRect(margin, yPosition, contentWidth, 22, 2, 2, 'F');
+            
+            pdf.setTextColor(...primaryCyan);
+            pdf.setFontSize(11);
+            pdf.setFont('helvetica', 'bold');
+            pdf.text('¿Listo para dar el siguiente paso?', pageWidth / 2, yPosition + 8, { align: 'center' });
+            
+            pdf.setTextColor(...textDark);
+            pdf.setFontSize(9);
+            pdf.setFont('helvetica', 'normal');
+            pdf.text('Agenda tu primera consulta y trabajemos juntos en tu bienestar emocional', pageWidth / 2, yPosition + 15, { align: 'center' });
+            
+            // Footer en todas las páginas
+            const totalPages = pdf.internal.pages.length - 1;
+            for (let i = 1; i <= totalPages; i++) {
+                pdf.setPage(i);
+                const finalY = pageHeight - 20;
+                
+                pdf.setFillColor(...primaryGold);
+                pdf.rect(0, finalY, pageWidth, 20, 'F');
+                
+                pdf.setTextColor(255, 255, 255);
+                pdf.setFontSize(9);
+                pdf.setFont('helvetica', 'bold');
+                pdf.text('Mavi Bayona - Psicoterapeuta | Tanatóloga | Logoterapeuta', pageWidth / 2, finalY + 7, { align: 'center' });
+                
+                pdf.setFont('helvetica', 'normal');
+                pdf.setFontSize(8);
+                pdf.text('Este test no reemplaza una consulta profesional - Es una herramienta de orientación', pageWidth / 2, finalY + 13, { align: 'center' });
+                
+                // Número de página
+                pdf.setFontSize(8);
+                pdf.text(`Página ${i} de ${totalPages}`, pageWidth - margin, finalY + 10, { align: 'right' });
+            }
+            
+            // Descargar PDF
+            const fileName = `Resultados_Test_${userName.replace(/\s+/g, '_')}_${new Date().toLocaleDateString('es-MX').replace(/\//g, '-')}.pdf`;
+            pdf.save(fileName);
+        }
     </script>
 </body>
 </html>
