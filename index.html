@@ -70,9 +70,13 @@
             position: relative;
         }
         
-        .pill-logo {
+        .header-logos {
             position: absolute;
             left: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 1rem;
         }
 
         .pill-logo {
@@ -95,6 +99,31 @@
         }
 
         .pill-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .header-logo-horizontal {
+            width: 140px;
+            height: 55px;
+            background: white;
+            border-radius: 27.5px;
+            padding: 8px 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .header-logo-horizontal:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 35px rgba(0, 0, 0, 0.25);
+        }
+
+        .header-logo-horizontal img {
             width: 100%;
             height: 100%;
             object-fit: contain;
@@ -275,6 +304,19 @@
         @media (max-width: 768px) {
             header {
                 padding: 1rem;
+            }
+
+            .header-logos {
+                position: relative;
+                left: auto;
+            }
+
+            .pill-logo {
+                display: inline-flex;
+            }
+
+            .header-logo-horizontal {
+                display: none;
             }
 
             .pill-nav-items {
@@ -852,9 +894,15 @@
     <!-- Header -->
     <header>
         <div class="pill-nav-container">
-            <a href="#inicio" class="pill-logo" aria-label="Home">
-                <img src="assets/logoMavi.png" alt="Mavi Bayona Logo" style="width: 100%; height: 100%; object-fit: contain;">
-            </a>
+            <div class="header-logos">
+                <a href="#inicio" class="pill-logo" aria-label="Home">
+                    <img src="assets/logoMavi.png" alt="Mavi Bayona Logo" style="width: 100%; height: 100%; object-fit: contain;">
+                </a>
+
+                <a href="#inicio" class="header-logo-horizontal" aria-label="Home">
+                    <img src="assets/mavibayona-logo.png" alt="Mavi Bayona" style="width: 100%; height: 100%; object-fit: contain;">
+                </a>
+            </div>
 
             <nav class="pill-nav-items">
                 <ul>
@@ -894,34 +942,34 @@
         
         <!-- Contenido del Hero -->
         <div class="hero-content">
-            <h1>¿Sientes que algo no está bien?</h1>
-            <p class="subtitle">No tienes que enfrentarlo solo/a</p>
+            <h1>Entiendo por lo que estás pasando</h1>
+            <p class="subtitle">Y estoy aquí para acompañarte en tu proceso</p>
             <p style="font-size: 1.15rem; margin-bottom: 2.5rem; line-height: 1.7; max-width: 850px; margin-left: auto; margin-right: auto;">
-                Soy <strong>Mavi Bayona</strong>, Psicoterapeuta especializada en ayudarte a recuperar tu bienestar emocional. 
-                <strong>Tu transformación comienza hoy.</strong>
+                Soy <strong>Mavi Bayona</strong>, Psicoterapeuta especializada en crear un espacio seguro donde puedas ser tú mismo/a. 
+                <strong>Juntos encontraremos el camino hacia tu bienestar.</strong>
             </p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;">
-                <a href="#agendar" class="cta-button" style="padding: 1rem 2.5rem; font-size: 1rem;">Agenda tu Primera Sesión</a>
-                <a href="#test" class="cta-button" style="background: var(--primary-gold); color: var(--text-dark); padding: 1rem 2.5rem; font-size: 1rem; border: 2px solid var(--primary-gold);">✓ Realiza el Test</a>
-                <a href="#sobre-mi" class="cta-button" style="background: transparent; border: 2px solid white; color: white; padding: 1rem 2.5rem; font-size: 1rem;">Conoce mi Método</a>
+                <a href="#agendar" class="cta-button" style="padding: 1rem 2.5rem; font-size: 1rem;">Conversemos</a>
+                <a href="#test" class="cta-button" style="background: var(--primary-gold); color: var(--text-dark); padding: 1rem 2.5rem; font-size: 1rem; border: 2px solid var(--primary-gold);">✓ Conoce cómo te sientes</a>
+                <a href="#sobre-mi" class="cta-button" style="background: transparent; border: 2px solid white; color: white; padding: 1rem 2.5rem; font-size: 1rem;">Más sobre mí</a>
             </div>
             <p style="font-size: 0.95rem; opacity: 0.95; display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
-                <span>✓ Primera sesión sin compromiso</span>
-                <span>✓ Confidencialidad total</span>
-                <span>✓ Resultados desde la primera consulta</span>
+                <span>✓ Espacio seguro y sin juicios</span>
+                <span>✓ Confidencialidad absoluta</span>
+                <span>✓ A tu propio ritmo</span>
             </p>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="sobre-mi">
-        <h2 class="section-title">¿Por Qué Elegir Terapia Conmigo?</h2>
+        <h2 class="section-title">Un Espacio Para Ti</h2>
         <div class="about-content">
             <div class="about-text">
                 <h3 style="color: var(--primary-cyan); margin-bottom: 1.5rem; font-size: 1.8rem;">Porque Tus Emociones Merecen Ser Escuchadas</h3>
                 <p style="margin-bottom: 1.5rem; font-size: 1.05rem; line-height: 1.8;">
-                    <strong>Imagina despertar sin esa ansiedad que te persigue.</strong> Imagina sentirte en paz con tu pasado 
-                    y emocionado por tu futuro. Eso no es un sueño imposible, es el resultado que mis pacientes experimentan día a día.
+                    Imagina vivir tu presente en paz y plenitud. Imagina sentirte en paz con tu pasado 
+                    y emocionado por tu futuro. Eso no es un sueño imposible, es algo que puedes lograr.
                 </p>
                 <p style="margin-bottom: 1.5rem; font-size: 1.05rem; line-height: 1.8;">
                     Soy <strong>L.Psic. Mavi Bayona</strong>, y entiendo que buscar ayuda no es fácil. Por eso he dedicado mi vida 
@@ -929,18 +977,18 @@
                     será escuchada con empatía y respeto.
                 </p>
                 <div style="background: var(--neutral-light); padding: 1.5rem; border-radius: 15px; border-left: 4px solid var(--primary-gold); margin: 2rem 0;">
-                    <h4 style="color: var(--accent-teal); margin-bottom: 1rem;">Lo que NO puedes permitirte:</h4>
+                    <h4 style="color: var(--accent-teal); margin-bottom: 1rem;">Lo que SÍ puedes lograr:</h4>
                     <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 0.5rem;">✗ Seguir posponiendo tu bienestar emocional</li>
-                        <li style="margin-bottom: 0.5rem;">✗ Creer que el tiempo solo sanará tus heridas</li>
-                        <li style="margin-bottom: 0.5rem;">✗ Pensar que "no es tan grave" cuando sufres cada día</li>
-                        <li style="margin-bottom: 0.5rem;">✗ Perder más momentos importantes por no estar bien</li>
+                        <li style="margin-bottom: 0.5rem;">✓ Reconocer que mereces sentirte bien</li>
+                        <li style="margin-bottom: 0.5rem;">✓ Darte el permiso de buscar ayuda cuando la necesitas</li>
+                        <li style="margin-bottom: 0.5rem;">✓ Aprender herramientas para gestionar tus emociones</li>
+                        <li style="margin-bottom: 0.5rem;">✓ Vivir más presente y disfrutar momentos importantes</li>
                     </ul>
                 </div>
                 <p style="font-size: 1.05rem; line-height: 1.8;">
                     Mi metodología combina <strong>Psicoterapia, Tanatología y Logoterapia</strong> para darte 
-                    herramientas reales que puedes aplicar desde la primera sesión. No soy de las que solo escuchan, 
-                    trabajo activamente contigo para lograr cambios tangibles.
+                    herramientas reales que puedes aplicar desde la primera sesión. Trabajo activamente contigo 
+                    para lograr cambios tangibles.
                 </p>
             </div>
             <div class="about-image">
@@ -962,8 +1010,8 @@
                 </div>
                 
                 <div style="background: var(--gradient-primary); color: white; padding: 1.5rem; border-radius: 15px; margin-top: 1.5rem; text-align: center;">
-                    <p style="font-size: 1.1rem; font-weight: 500; margin-bottom: 0.5rem;">💬 "La mejor inversión es en ti mismo"</p>
-                    <p style="font-size: 0.95rem; opacity: 0.9;">No esperes a tocar fondo para pedir ayuda</p>
+                    <p style="font-size: 1.1rem; font-weight: 500; margin-bottom: 0.5rem;">💬 "La mejor inversión es en ti mismo/a"</p>
+                    <p style="font-size: 0.95rem; opacity: 0.9;">Cuando estés listo/a, aquí estaré para acompañarte</p>
                 </div>
             </div>
         </div>
@@ -977,24 +1025,24 @@
         </div>
         
         <div style="position: relative; z-index: 1;">
-        <h2 class="section-title">¿Qué Puedo Ayudarte a Resolver?</h2>
+        <h2 class="section-title">¿En Qué Puedo Acompañarte?</h2>
         <p style="text-align: center; max-width: 800px; margin: -1rem auto 3rem; font-size: 1.1rem; color: var(--text-light);">
-            Cada servicio está diseñado para darte resultados reales. No más teoría sin acción.
+            Cada servicio está diseñado para darte herramientas prácticas que puedes aplicar en tu día a día.
         </p>
         <div class="services-grid">
             <div class="service-card" style="overflow: hidden; padding: 0;">
                 <img src="assets/Psicoterapia.jpg" alt="Psicoterapia" style="width: 100%; height: 250px; object-fit: cover; border-radius: 20px 20px 0 0;">
                 <div style="padding: 2rem 2rem 2.5rem;">
                     <h3 style="color: var(--primary-cyan); margin-bottom: 1rem;">Psicoterapia</h3>
-                    <p style="font-weight: 600; color: var(--accent-teal); margin-bottom: 1rem;">¿Te sientes atrapado/a en tus pensamientos?</p>
-                    <p style="margin-bottom: 1.5rem;">Ansiedad, depresión, estrés o traumas del pasado no tienen que controlar tu vida.</p>
+                    <p style="font-weight: 600; color: var(--accent-teal); margin-bottom: 1rem;">Comprender tus emociones es el primer paso</p>
+                    <p style="margin-bottom: 1.5rem;">Podemos trabajar juntos en ansiedad, depresión, estrés o experiencias del pasado que aún te afectan.</p>
                     <ul style="list-style: none; padding-left: 0; text-align: left; margin-bottom: 1.5rem;">
-                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Elimina patrones de pensamiento negativos</li>
-                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Maneja la ansiedad y el estrés</li>
-                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Reconstruye tu autoestima</li>
-                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Sana traumas del pasado</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Identificar patrones de pensamiento</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Herramientas para la ansiedad y el estrés</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Fortalecer tu autoestima</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Procesar experiencias del pasado</li>
                     </ul>
-                    <a href="#agendar" style="display: inline-block; background: var(--primary-cyan); color: white; padding: 0.8rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">Agendar Sesión</a>
+                    <a href="#agendar" style="display: inline-block; background: var(--primary-cyan); color: white; padding: 0.8rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">Conversemos</a>
                 </div>
             </div>
 
@@ -1002,15 +1050,15 @@
                 <img src="assets/Tanatologia.jpg" alt="Tanatología" style="width: 100%; height: 250px; object-fit: cover; border-radius: 20px 20px 0 0;">
                 <div style="padding: 2rem 2rem 2.5rem;">
                     <h3 style="color: var(--primary-cyan); margin-bottom: 1rem;">Tanatología</h3>
-                    <p style="font-weight: 600; color: var(--accent-teal); margin-bottom: 1rem;">¿El dolor de una pérdida te paraliza?</p>
-                    <p style="margin-bottom: 1.5rem;">Cuando una etapa termina, el proceso de sanación puede comenzar. No tienes que quedarte atrapado/a.</p>
+                    <p style="font-weight: 600; color: var(--accent-teal); margin-bottom: 1rem;">Cuando una etapa termina, comienza el proceso</p>
+                    <p style="margin-bottom: 1.5rem;">El duelo es un camino que se recorre mejor acompañado. Podemos transitarlo juntos.</p>
                     <ul style="list-style: none; padding-left: 0; text-align: left; margin-bottom: 1.5rem;">
-                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Procesa el duelo de forma saludable</li>
-                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Honra a quien partió sin estancarte</li>
-                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Encuentra paz y aceptación</li>
-                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Reconstruye tu vida con esperanza</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Procesar el duelo a tu ritmo</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Honrar lo vivido</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Encontrar paz interior</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Continuar tu camino con esperanza</li>
                     </ul>
-                    <a href="#agendar" style="display: inline-block; background: var(--primary-cyan); color: white; padding: 0.8rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">Agendar Sesión</a>
+                    <a href="#agendar" style="display: inline-block; background: var(--primary-cyan); color: white; padding: 0.8rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">Conversemos</a>
                 </div>
             </div>
 
@@ -1018,26 +1066,26 @@
                 <img src="assets/Logoterapia.jpg" alt="Logoterapia" style="width: 100%; height: 250px; object-fit: cover; border-radius: 20px 20px 0 0;">
                 <div style="padding: 2rem 2rem 2.5rem;">
                     <h3 style="color: var(--primary-cyan); margin-bottom: 1rem;">Logoterapia</h3>
-                    <p style="font-weight: 600; color: var(--accent-teal); margin-bottom: 1rem;">¿Sientes que tu vida no tiene sentido?</p>
-                    <p style="margin-bottom: 1.5rem;">Encontrar sentido también es una forma de sanar. Si sientes un vacío existencial, es porque aún no has encontrado tu propósito.</p>
+                    <p style="font-weight: 600; color: var(--accent-teal); margin-bottom: 1rem;">Encontrar sentido también es una forma de sanar</p>
+                    <p style="margin-bottom: 1.5rem;">Si sientes que algo falta en tu vida, podemos explorar juntos tu propósito y valores.</p>
                     <ul style="list-style: none; padding-left: 0; text-align: left; margin-bottom: 1.5rem;">
-                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Descubre tu propósito de vida</li>
-                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Reconecta con tus valores</li>
-                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Supera crisis existenciales</li>
-                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Vive con significado y plenitud</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Explorar tu propósito de vida</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Reconectar con tus valores</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Navegar momentos de búsqueda</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Vivir con mayor significado</li>
                     </ul>
-                    <a href="#agendar" style="display: inline-block; background: var(--primary-cyan); color: white; padding: 0.8rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">Agendar Sesión</a>
+                    <a href="#agendar" style="display: inline-block; background: var(--primary-cyan); color: white; padding: 0.8rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">Conversemos</a>
                 </div>
             </div>
         </div>
         
         <div style="background: white; max-width: 900px; margin: 4rem auto 0; padding: 3rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); text-align: center;">
-            <h3 style="color: var(--primary-cyan); font-size: 2rem; margin-bottom: 1.5rem;">⚠️ La pregunta no es "¿Puedo mejorar?"</h3>
+            <h3 style="color: var(--primary-cyan); font-size: 2rem; margin-bottom: 1.5rem;">💙 Dar el primer paso es valiente</h3>
             <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem;">
-                La pregunta es: <strong>"¿Cuánto tiempo más voy a esperar?"</strong><br>
-                Cada día que pospongas tu bienestar es un día perdido de felicidad, paz y plenitud.
+                Sé que buscar ayuda no es fácil, y llegar hasta aquí ya dice mucho de ti.<br>
+                Cuando sientas que es el momento adecuado, estaré aquí para acompañarte.
             </p>
-            <a href="#agendar" class="cta-button" style="font-size: 1.1rem; padding: 1.2rem 3rem;">Quiero Empezar Mi Transformación Ahora</a>
+            <a href="#agendar" class="cta-button" style="font-size: 1.1rem; padding: 1.2rem 3rem;">Conversemos</a>
         </div>
         </div>
     </section>
@@ -1060,12 +1108,12 @@
                 </div>
                 
                 <h3 style="font-size: 2.2rem; margin-bottom: 1.5rem; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">
-                    ¿No sabes exactamente qué te está pasando?
+                    ¿Quieres entender mejor cómo te sientes?
                 </h3>
                 
                 <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2.5rem; opacity: 0.95; max-width: 700px; margin-left: auto; margin-right: auto;">
-                    A veces es difícil poner en palabras lo que sentimos. <strong>Mi test de diagnóstico rápido</strong> te ayudará a 
-                    identificar qué está afectando tu bienestar emocional para que podamos tratarlo de forma efectiva en tu consulta.
+                    A veces es difícil poner en palabras lo que sentimos. Este test puede ayudarte a 
+                    identificar qué está afectando tu bienestar emocional, para que juntos podamos trabajar en ello.
                 </p>
                 
                 <div style="background: rgba(255, 255, 255, 0.15); padding: 1.5rem; border-radius: 15px; margin-bottom: 2.5rem; backdrop-filter: blur(10px);">
@@ -1095,7 +1143,7 @@
                 </div>
                 
                 <a href="pages/test.html" class="cta-button" style="background: white; color: var(--primary-cyan); padding: 1.3rem 3rem; font-size: 1.15rem; display: inline-flex; align-items: center; gap: 0.8rem; box-shadow: 0 6px 20px rgba(0,0,0,0.15);">
-                    <span>Realizar Test Gratuito Ahora</span>
+                    <span>Realizar Test</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
@@ -1114,15 +1162,16 @@
 
     <!-- Appointment Section -->
     <section id="agendar">
-        <h2 class="section-title">Tu Vida Puede Cambiar Desde Hoy</h2>
+        <h2 class="section-title">Conversemos</h2>
         <p style="text-align: center; max-width: 800px; margin: -1rem auto 3rem; font-size: 1.15rem; color: var(--text-light);">
-            Agendar tu primera sesión es el primer paso hacia la vida que mereces vivir.<br>
-            <strong style="color: var(--primary-cyan);">Sin compromisos. Sin juicios. Solo tú y tu bienestar.</strong>
+            Si sientes que es el momento de dar este paso, estoy aquí para acompañarte.<br>
+            <strong style="color: var(--primary-cyan);">Sin presiones. Sin juicios. A tu ritmo.</strong>
         </p>
         
         <!-- Logo decorativo arriba del formulario -->
         <div style="text-align: center; margin-bottom: 2rem;">
-            <img src="assets/logoMavi.png" alt="Mavi Bayona Logo" style="width: 60px; height: auto; opacity: 0.9; animation: fadeInUp 1s ease; object-fit: contain;">
+            <img src="assets/logoMavi.png" alt="Mavi Bayona Logo" style="width: 60px; height: auto; opacity: 0.9; animation: fadeInUp 1s ease; object-fit: contain; display: block; margin: 0 auto;">
+            <img src="assets/mavibayona-logo.png" alt="Mavi Bayona" style="width: 150px; height: auto; opacity: 0.85; margin-top: 0.5rem; object-fit: contain; display: block; margin-left: auto; margin-right: auto;">
         </div>
         
         <div class="appointment-form">
@@ -1195,7 +1244,7 @@
                     </p>
                 </div>
 
-                <button type="submit" class="submit-button">Sí, Quiero Agendar Mi Primera Sesión</button>
+                <button type="submit" class="submit-button">Solicitar Primera Sesión</button>
                 
                 <p style="text-align: center; margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.9;">
                     Al enviar este formulario aceptas que me contacte para agendar tu sesión
@@ -1210,7 +1259,8 @@
         
         <!-- Logo central decorativo -->
         <div style="text-align: center; margin-bottom: 3rem;">
-            <img src="assets/logoMavi.png" alt="Mavi Bayona Logo" style="width: 70px; height: auto; opacity: 0.85; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.1)); object-fit: contain;">
+            <img src="assets/logoMavi.png" alt="Mavi Bayona Logo" style="width: 70px; height: auto; opacity: 0.85; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.1)); object-fit: contain; display: block; margin: 0 auto;">
+            <img src="assets/mavibayona-logo.png" alt="Mavi Bayona" style="width: 160px; height: auto; opacity: 0.8; margin-top: 0.8rem; object-fit: contain; display: block; margin-left: auto; margin-right: auto;">
             <p style="margin-top: 1rem; color: var(--primary-cyan); font-weight: 600; font-size: 1.1rem;">Estoy aquí para acompañarte</p>
         </div>
         
@@ -1253,12 +1303,13 @@
 
     <!-- Footer -->
     <footer>
-        <!-- Logo en el footer -->
-        <div style="margin-bottom: 1.5rem;">
-            <img src="assets/logoMavi.png" alt="Mavi Bayona Logo" style="width: 50px; height: auto; opacity: 0.8; filter: brightness(0) invert(1); object-fit: contain;">
+        <!-- Logos en el footer -->
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+            <img src="assets/logoMavi.png" alt="Mavi Bayona Logo" style="width: 50px; height: auto; opacity: 0.8; filter: brightness(0) invert(1); object-fit: contain; display: block;">
+            <img src="assets/mavibayona-logo.png" alt="Mavi Bayona" style="width: 150px; height: auto; opacity: 0.9; filter: brightness(0) invert(1); object-fit: contain; display: block;">
         </div>
         
-        <p>&copy; 2024 Mavi Bayona - Psicoterapeuta, Tanatóloga, Logoterapeuta</p>
+        <p>&copy; 2025 Mavi Bayona - Psicoterapeuta, Tanatóloga, Logoterapeuta</p>
         <p style="margin-top: 0.5rem; opacity: 0.8; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
             Cuidando tus emociones 
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block;">

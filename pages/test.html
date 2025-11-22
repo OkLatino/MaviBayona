@@ -659,9 +659,12 @@
     <div class="container">
         <!-- Header -->
         <div class="test-header">
-            <img src="../assets/logoMavi.png" alt="Mavi Bayona" class="logo">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+                <img src="../assets/logoMavi.png" alt="Mavi Bayona" class="logo" style="width: 60px; height: auto; display: block;">
+                <img src="../assets/mavibayona-logo.png" alt="Mavi Bayona" style="width: 180px; max-width: 90%; height: auto; display: block; opacity: 0.9;">
+            </div>
             <h1>Test de Diagnóstico Emocional</h1>
-            <p>Responde con honestidad para obtener un diagnóstico preciso</p>
+            <p>Responde con sinceridad. Este es un espacio para ti, sin juicios.</p>
         </div>
 
         <!-- Progress Bar -->
@@ -715,7 +718,7 @@
             <div class="email-form">
                 <h3>📧 Recibe tus resultados por email</h3>
                 <p style="color: var(--text-light); margin-bottom: 1.5rem;">
-                    Te enviaremos un resumen completo de tu evaluación y recomendaciones personalizadas
+                    Si quieres, puedo enviarte un resumen completo de tu evaluación
                 </p>
                 
                 <div class="success-message" id="successMessage">
@@ -746,7 +749,7 @@
                     <input type="hidden" name="respuestas_detalladas" id="hiddenAnswers">
 
                     <button type="submit" class="btn-submit">
-                        📨 Enviar Resultados a mi Email
+                        📨 Recibir Resultados por Email
                     </button>
                 </form>
             </div>
@@ -765,9 +768,13 @@
 
             <!-- CTA Section -->
             <div class="cta-section">
-                <h3>¿Listo para dar el siguiente paso?</h3>
-                <p>Agenda una consulta conmigo y trabajemos juntos en tu bienestar emocional</p>
-                <a href="../index.html#agendar" class="btn-cta">Agendar mi Primera Sesión</a>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+                    <img src="../assets/logoMavi.png" alt="Mavi Bayona Logo" style="width: 60px; height: auto; display: block; opacity: 0.9;">
+                    <img src="../assets/mavibayona-logo.png" alt="Mavi Bayona" style="width: 180px; max-width: 90%; height: auto; display: block; opacity: 0.95;">
+                </div>
+                <h3>Si sientes que es el momento...</h3>
+                <p>Podemos conversar sobre tus resultados y trabajar juntos en tu bienestar</p>
+                <a href="../index.html#agendar" class="btn-cta">Conversemos</a>
             </div>
         </div>
     </div>
@@ -1186,23 +1193,23 @@
             const diagnoses = {
                 ansiedad: {
                     title: "Ansiedad Predominante",
-                    description: "Tus respuestas indican que la ansiedad es el factor principal que está afectando tu bienestar. Esto puede manifestarse como preocupación constante, nerviosismo, dificultad para relajarte y síntomas físicos como tensión muscular."
+                    description: "La ansiedad parece estar presente de manera significativa en tu vida. Esto puede manifestarse como preocupación constante, tensión física o dificultad para relajarte. Podemos trabajar juntos en esto."
                 },
                 depresion: {
                     title: "Síntomas Depresivos",
-                    description: "Tus resultados sugieren la presencia de síntomas depresivos significativos. Esto puede incluir tristeza persistente, pérdida de interés en actividades, cambios en el sueño y la energía, y sentimientos de desesperanza."
+                    description: "Tus respuestas sugieren que podrías estar experimentando síntomas depresivos. Esto puede incluir tristeza persistente, falta de energía o pérdida de interés en actividades. Es importante que sepas que no estás solo/a."
                 },
                 estres: {
                     title: "Estrés Elevado",
-                    description: "El estrés parece ser el factor dominante en tu situación actual. Esto puede estar afectando tu capacidad para concentrarte, dormir bien y manejar tus responsabilidades diarias de manera efectiva."
+                    description: "El estrés parece estar presente de forma importante en tu día a día. Esto puede afectar tu capacidad para concentrarte, dormir o manejar tus responsabilidades. Podemos explorar formas de manejarlo."
                 },
                 duelo: {
                     title: "Proceso de Duelo",
-                    description: "Estás atravesando un proceso de duelo que necesita atención. La pérdida que has experimentado está afectando significativamente tu bienestar emocional y requiere acompañamiento profesional."
+                    description: "Estás atravesando un proceso de duelo que merece atención. La pérdida que has experimentado está impactando tu bienestar emocional. El duelo es un camino que se transita mejor acompañado."
                 },
                 vacio: {
                     title: "Vacío Existencial",
-                    description: "Tus respuestas sugieren que estás experimentando un vacío existencial o falta de sentido. Esto puede manifestarse como sensación de que la vida no tiene propósito, desconexión emocional y cuestionamiento profundo sobre tu identidad."
+                    description: "Tus respuestas sugieren que podrías estar experimentando una búsqueda de sentido o propósito. Esto puede manifestarse como sensación de desconexión o cuestionamiento sobre tu dirección en la vida. Podemos explorar esto juntos."
                 }
             };
             
@@ -1245,22 +1252,22 @@
             const recommendationsDiv = document.getElementById('recommendations');
             
             let recommendations = [
-                "Considera agendar una consulta profesional para un diagnóstico completo y personalizado",
-                "No minimices lo que estás sintiendo - buscar ayuda es un signo de fortaleza, no de debilidad"
+                "Si sientes que necesitas apoyo, considera conversar sobre estos resultados en una consulta",
+                "Lo que estás sintiendo es válido - buscar ayuda es un signo de fortaleza y autocuidado"
             ];
             
             // Recomendaciones específicas según categoría principal
             if (mainCategory === 'ansiedad') {
                 recommendations.push(
                     "Practica técnicas de respiración profunda y mindfulness",
-                    "Establece una rutina de ejercicio regular para reducir la ansiedad",
+                    "Establece una rutina de ejercicio regular",
                     "Limita el consumo de cafeína y estimulantes"
                 );
             } else if (mainCategory === 'depresion') {
                 recommendations.push(
                     "Mantén una rutina diaria estructurada",
                     "Busca apoyo en tus seres queridos - no atravieses esto solo/a",
-                    "Considera la terapia cognitivo-conductual como tratamiento efectivo"
+                    "Prioriza actividades de autocuidado y descanso adecuado"
                 );
                 
                 if (percentages.depresion >= 60) {
@@ -1275,13 +1282,13 @@
             } else if (mainCategory === 'duelo') {
                 recommendations.push(
                     "Permítete sentir y expresar tus emociones sin juzgarlas",
-                    "Considera la tanatología como especialidad para procesar tu pérdida",
-                    "Únete a un grupo de apoyo de personas en situaciones similares"
+                    "Date tiempo para procesar tu pérdida a tu propio ritmo",
+                    "Considera unirte a un grupo de apoyo de personas en situaciones similares"
                 );
             } else if (mainCategory === 'vacio') {
                 recommendations.push(
-                    "Explora la logoterapia para encontrar sentido y propósito",
                     "Reflexiona sobre tus valores y lo que realmente importa para ti",
+                    "Explora actividades que te den sentido de propósito",
                     "Considera actividades de voluntariado o ayuda a otros"
                 );
             }
@@ -1426,11 +1433,11 @@
             };
             
             const descriptions = {
-                ansiedad: "Preocupación constante, nerviosismo y tensión que afectan tu vida diaria.",
-                depresion: "Tristeza persistente, pérdida de interés y cambios en el estado de ánimo.",
-                estres: "Sobrecarga emocional que dificulta el manejo de responsabilidades.",
-                duelo: "Proceso de adaptación ante una pérdida significativa que requiere acompañamiento.",
-                vacio: "Sensación de falta de propósito o sentido en diferentes áreas de tu vida."
+                ansiedad: "Estás experimentando preocupación constante y nerviosismo que afecta tu día a día. Es comprensible que te sientas así, y quiero que sepas que no estás solo/a en esto.",
+                depresion: "La tristeza persistente y la pérdida de interés en cosas que antes disfrutabas son señales importantes. Reconocer esto es un paso valiente hacia tu bienestar.",
+                estres: "Estás llevando una carga emocional considerable que dificulta manejar tus responsabilidades. Es momento de darte permiso de pedir ayuda y cuidar de ti.",
+                duelo: "Estás atravesando un proceso de adaptación ante una pérdida significativa. El duelo es un camino que no tiene que recorrerse en soledad.",
+                vacio: "Sientes falta de propósito o sentido en diferentes áreas de tu vida. Esta sensación es más común de lo que crees, y juntos podemos explorar nuevos significados."
             };
             
             checkNewPage(35);
@@ -1520,102 +1527,105 @@
             yPosition += 5;
             
             // Recomendaciones
-            checkNewPage(15);
+            checkNewPage(60); // Asegurar espacio suficiente
             
             pdf.setFontSize(13);
             pdf.setFont('helvetica', 'bold');
             pdf.setTextColor(...primaryCyan);
-            pdf.text('Recomendaciones', margin, yPosition);
-            yPosition += 8;
+            pdf.text('Recomendaciones para Ti', margin, yPosition);
+            yPosition += 10;
             
-            // Fondo para recomendaciones
-            const recomStartY = yPosition - 2;
-            
+            // Mensaje empático inicial
             pdf.setFontSize(9);
-            pdf.setFont('helvetica', 'normal');
-            pdf.setTextColor(...textDark);
+            pdf.setFont('helvetica', 'italic');
+            pdf.setTextColor(...textLight);
+            const empathyText = 'Recuerda que buscar ayuda es un acto de valentía y amor propio. Estos son algunos pasos que puedes dar:';
+            const empathyLines = pdf.splitTextToSize(empathyText, contentWidth - 10);
+            pdf.text(empathyLines, margin + 5, yPosition);
+            yPosition += empathyLines.length * 4 + 6;
+            
+            // Calcular altura necesaria para el fondo
+            const recomStartY = yPosition;
             
             const recommendations = [
-                'Considera agendar una consulta profesional para un diagnóstico completo y personalizado',
-                'No minimices lo que estás sintiendo - buscar ayuda es un signo de fortaleza',
-                'Establece rutinas saludables de sueño y alimentación',
-                'Practica técnicas de relajación y mindfulness diariamente',
-                'Mantén conexión con tus seres queridos y red de apoyo'
+                'Considera agendar una consulta profesional. Juntos podemos trabajar en un plan personalizado para tu bienestar.',
+                'Lo que estás sintiendo es válido e importante. No minimices tus emociones - reconocerlas es el primer paso.',
+                'Cuida tu cuerpo con cariño: establece horarios regulares de sueño, alimentación balanceada y pequeños momentos de descanso.',
+                'Dedica unos minutos cada día a técnicas de respiración, meditación o mindfulness. Tu mente merece estos espacios de calma.',
+                'Mantente conectado/a con las personas que te importan. Compartir lo que sientes con alguien de confianza puede aliviar la carga.'
             ];
             
-            let recomHeight = 0;
+            // Calcular altura total necesaria
+            let totalHeight = 5;
+            const tempLines = [];
             recommendations.forEach(rec => {
-                checkNewPage(12);
-                
-                const bullet = '•';
-                pdf.setFont('helvetica', 'bold');
-                pdf.text(bullet, margin + 3, yPosition);
-                pdf.setFont('helvetica', 'normal');
-                
                 const lines = pdf.splitTextToSize(rec, contentWidth - 15);
-                pdf.text(lines, margin + 8, yPosition);
-                const lineHeight = lines.length * 4;
-                yPosition += lineHeight + 2;
-                recomHeight += lineHeight + 2;
+                tempLines.push(lines);
+                totalHeight += lines.length * 4 + 3;
             });
+            totalHeight += 5;
             
-            // Fondo de recomendaciones
-            pdf.setFillColor(255, 249, 230);
-            pdf.rect(margin - 2, recomStartY, contentWidth + 4, recomHeight + 2, 'F');
+            // Dibujar PRIMERO el fondo
+            pdf.setFillColor(255, 251, 245); // Tono cálido y suave
+            pdf.roundedRect(margin - 2, recomStartY - 3, contentWidth + 4, totalHeight, 2, 2, 'F');
             
-            // Re-dibujar las recomendaciones sobre el fondo
-            yPosition = recomStartY + 5;
+            // LUEGO dibujar las recomendaciones
             pdf.setTextColor(...textDark);
-            recommendations.forEach(rec => {
+            pdf.setFontSize(9);
+            
+            tempLines.forEach(lines => {
                 const bullet = '•';
                 pdf.setFont('helvetica', 'bold');
+                pdf.setTextColor(...primaryGold);
                 pdf.text(bullet, margin + 3, yPosition);
-                pdf.setFont('helvetica', 'normal');
                 
-                const lines = pdf.splitTextToSize(rec, contentWidth - 15);
+                pdf.setFont('helvetica', 'normal');
+                pdf.setTextColor(...textDark);
                 pdf.text(lines, margin + 8, yPosition);
-                yPosition += lines.length * 4 + 2;
+                yPosition += lines.length * 4 + 3;
             });
             
             yPosition += 5;
             
             // Nota importante si hay niveles altos
             if (calculatedPercentages.depresion >= 60 || calculatedPercentages.ansiedad >= 70) {
-                checkNewPage(25);
+                checkNewPage(30);
                 
-                pdf.setFillColor(255, 235, 235);
-                pdf.roundedRect(margin, yPosition, contentWidth, 20, 2, 2, 'F');
+                pdf.setFillColor(255, 245, 240); // Tono cálido y suave
+                pdf.roundedRect(margin, yPosition, contentWidth, 24, 2, 2, 'F');
                 
-                pdf.setTextColor(220, 50, 50);
+                pdf.setTextColor(200, 80, 60); // Rojo más suave
                 pdf.setFontSize(10);
                 pdf.setFont('helvetica', 'bold');
-                pdf.text('⚠ IMPORTANTE', margin + 5, yPosition + 7);
+                pdf.text('💛 Un Mensaje Importante para Ti', margin + 5, yPosition + 7);
                 
                 pdf.setTextColor(...textDark);
                 pdf.setFontSize(9);
                 pdf.setFont('helvetica', 'normal');
-                const warningText = 'Tus resultados sugieren que podrías beneficiarte de atención profesional inmediata. No dudes en buscar ayuda.';
+                const warningText = 'Tus resultados muestran que estás pasando por un momento difícil. Me gustaría acompañarte en este proceso. Considera agendar una consulta pronto - no tienes que enfrentar esto solo/a. Estoy aquí para apoyarte.';
                 const warningLines = pdf.splitTextToSize(warningText, contentWidth - 15);
                 pdf.text(warningLines, margin + 5, yPosition + 13);
                 
-                yPosition += 25;
+                yPosition += 30;
             }
             
             // Call to Action
-            checkNewPage(25);
+            checkNewPage(28);
             
-            pdf.setFillColor(240, 248, 255);
-            pdf.roundedRect(margin, yPosition, contentWidth, 22, 2, 2, 'F');
+            pdf.setFillColor(245, 250, 255); // Azul muy suave
+            pdf.roundedRect(margin, yPosition, contentWidth, 26, 3, 3, 'F');
             
             pdf.setTextColor(...primaryCyan);
             pdf.setFontSize(11);
             pdf.setFont('helvetica', 'bold');
-            pdf.text('¿Listo para dar el siguiente paso?', pageWidth / 2, yPosition + 8, { align: 'center' });
+            pdf.text('¿Listo/a para dar el siguiente paso?', pageWidth / 2, yPosition + 9, { align: 'center' });
             
             pdf.setTextColor(...textDark);
             pdf.setFontSize(9);
             pdf.setFont('helvetica', 'normal');
-            pdf.text('Agenda tu primera consulta y trabajemos juntos en tu bienestar emocional', pageWidth / 2, yPosition + 15, { align: 'center' });
+            const ctaText = 'Agenda tu primera consulta y trabajemos juntos en tu bienestar emocional. Estoy aquí para acompañarte en este camino.';
+            const ctaLines = pdf.splitTextToSize(ctaText, contentWidth - 20);
+            pdf.text(ctaLines, pageWidth / 2, yPosition + 16, { align: 'center' });
             
             // Footer en todas las páginas
             const totalPages = pdf.internal.pages.length - 1;
