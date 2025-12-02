@@ -1159,23 +1159,51 @@
         </div>
     </section>
 
-    <!-- Cal.com Booking Section (NUEVA) -->
+    <!-- Cal.com Booking Section con Pestañas (NUEVA) -->
     <section id="agendar" style="padding: 100px 20px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); position: relative; overflow: hidden;">
         <div style="max-width: 1000px; margin: 0 auto; position: relative; z-index: 1;">
             <!-- Header -->
             <div style="text-align: center; margin-bottom: 50px;">
                 <h2 style="font-size: 2.5rem; color: #1B9AAA; margin-bottom: 20px; font-weight: 700;">Agenda tu Sesión</h2>
-                <p style="font-size: 1.1rem; color: #666; max-width: 600px; margin: 0 auto; line-height: 1.6;">
-                    Elige el día y horario que mejor se ajuste a ti. El pago es seguro y la confirmación es inmediata.
+                <p style="font-size: 1.1rem; color: #666; max-width: 700px; margin: 0 auto; line-height: 1.6;">
+                    Elige el tipo de terapia y el horario que mejor se ajuste a ti. El pago es seguro y la confirmación es inmediata.
                 </p>
             </div>
 
-            <!-- Widget de Cal.com -->
+            <!-- Pestañas -->
+            <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                <button onclick="switchTab('individual')" id="tab-individual" style="padding: 1rem 2rem; background: #1B9AAA; color: white; border: none; border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(27, 154, 170, 0.3);">
+                    👤 Terapia Individual
+                </button>
+                <button onclick="switchTab('pareja')" id="tab-pareja" style="padding: 1rem 2rem; background: white; color: #1B9AAA; border: 2px solid #1B9AAA; border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s;">
+                    💑 Terapia en Pareja
+                </button>
+            </div>
+
+            <!-- Descripción de cada tipo de terapia -->
+            <div id="desc-individual" style="background: rgba(27, 154, 170, 0.1); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #1B9AAA;">
+                <h3 style="color: #1B9AAA; font-size: 1.3rem; margin-bottom: 0.8rem;">Terapia Individual - 50 minutos</h3>
+                <p style="color: #555; margin: 0; line-height: 1.6;">
+                    Espacio personal para trabajar en tus emociones, pensamientos y bienestar. Ideal para ansiedad, depresión, duelo, búsqueda de sentido o crecimiento personal.
+                </p>
+            </div>
+
+            <div id="desc-pareja" style="background: rgba(27, 154, 170, 0.1); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #1B9AAA; display: none;">
+                <h3 style="color: #1B9AAA; font-size: 1.3rem; margin-bottom: 0.8rem;">Terapia en Pareja - 50 minutos</h3>
+                <p style="color: #555; margin: 0; line-height: 1.6;">
+                    Sesión diseñada para parejas que buscan mejorar su comunicación, resolver conflictos o fortalecer su relación. Ambos participan activamente en el proceso.
+                </p>
+            </div>
+
+            <!-- Contenedor de Widgets -->
             <div style="background: white; border-radius: 16px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1); overflow: hidden; margin-bottom: 40px; position: relative;">
                 <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #1B9AAA 0%, #06D6A0 100%);"></div>
                 
-                <!-- Cal.com Widget Oficial - Código embed optimizado -->
-                <div style="width:100%;height:100%;overflow:scroll;min-height:700px" id="my-cal-inline-60min"></div>
+                <!-- Widget Terapia Individual -->
+                <div id="widget-individual" style="width:100%;height:100%;overflow:scroll;min-height:700px"></div>
+                
+                <!-- Widget Terapia en Pareja -->
+                <div id="widget-pareja" style="width:100%;height:100%;overflow:scroll;min-height:700px;display:none;"></div>
             </div>
 
             <!-- Información adicional -->
@@ -1444,46 +1472,93 @@
                 servicio: document.getElementById('servicio').value,
                 fechaPreferida: document.getElementById('fecha-preferida').value,
                 motivo: document.getElementById('motivo').value,
-                comentarios: document.getElementById('comentarios').value,
-                fecha: new Date().toLocaleString('es-MX')
-            };
+                comentarios: document.getElementById('comentarios').value
+            }; // Cierre del objeto formData
 
-            // Store in localStorage (simulating database)
-            let citas = JSON.parse(localStorage.getItem('citas')) || [];
-            citas.push(formData);
-            localStorage.setItem('citas', JSON.stringify(citas));
+            // Aquí se cerraron las funciones faltantes
+            
+            // Simulación de envío exitoso
+            const successMessage = document.getElementById('successMessage');
+            if(successMessage) {
+                successMessage.style.display = 'block';
+                successMessage.classList.add('show');
+            }
+            e.target.reset();
 
-            // Show success message
-            const successMsg = document.getElementById('successMessage');
-            successMsg.classList.add('show');
+        }); // Cierre del addEventListener
+    </script> 
+    <!-- Cierre del script anterior -->
 
-            // Reset form
-            this.reset();
-
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                successMsg.classList.remove('show');
-            }, 5000);
-
-            // Log to console (for Mavi to see appointments)
-            console.log('Nueva cita agendada:', formData);
-            console.log('Total de citas:', citas);
-        });
-
-        // Set minimum date to today
-        const today = new Date().toISOString().split('T')[0];
-        document.getElementById('fecha-preferida').setAttribute('min', today);
-    </script>
-    <!-- Cal.com Embed Script Oficial -->
+    <!-- Cal.com Embed Script Oficial - Dual Calendar -->
     <script type="text/javascript">
     (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-    Cal("init", "60min", {origin:"https://app.cal.com"});
-    Cal.ns["60min"]("inline", {
-        elementOrSelector:"#my-cal-inline-60min",
+    
+    // Inicializar calendario de Terapia Individual
+    Cal("init", "individual", {origin:"https://app.cal.com"});
+    Cal.ns["individual"]("inline", {
+        elementOrSelector:"#widget-individual",
         config: {"layout":"month_view"},
-        calLink: "ok-ialatin-jypmxi/60min",
+        calLink: "mavibayona/50min",
     });
-    Cal.ns["60min"]("ui", {"hideEventTypeDetails":true,"layout":"month_view"});
+    Cal.ns["individual"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+    
+    // Inicializar calendario de Terapia en Pareja
+    Cal("init", "pareja", {origin:"https://app.cal.com"});
+    Cal.ns["pareja"]("inline", {
+        elementOrSelector:"#widget-pareja",
+        config: {"layout":"month_view"},
+        calLink: "mavibayona/50-minutos",
+    });
+    Cal.ns["pareja"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+    
+    // Función para cambiar entre pestañas
+    function switchTab(type) {
+        // Actualizar botones
+        const btnIndividual = document.getElementById('tab-individual');
+        const btnPareja = document.getElementById('tab-pareja');
+        const descIndividual = document.getElementById('desc-individual');
+        const descPareja = document.getElementById('desc-pareja');
+        const widgetIndividual = document.getElementById('widget-individual');
+        const widgetPareja = document.getElementById('widget-pareja');
+        
+        if (type === 'individual') {
+            // Estilos activos para Individual
+            btnIndividual.style.background = '#1B9AAA';
+            btnIndividual.style.color = 'white';
+            btnIndividual.style.border = 'none';
+            btnIndividual.style.boxShadow = '0 4px 15px rgba(27, 154, 170, 0.3)';
+            
+            // Estilos inactivos para Pareja
+            btnPareja.style.background = 'white';
+            btnPareja.style.color = '#1B9AAA';
+            btnPareja.style.border = '2px solid #1B9AAA';
+            btnPareja.style.boxShadow = 'none';
+            
+            // Mostrar contenido Individual
+            descIndividual.style.display = 'block';
+            descPareja.style.display = 'none';
+            widgetIndividual.style.display = 'block';
+            widgetPareja.style.display = 'none';
+        } else {
+            // Estilos activos para Pareja
+            btnPareja.style.background = '#1B9AAA';
+            btnPareja.style.color = 'white';
+            btnPareja.style.border = 'none';
+            btnPareja.style.boxShadow = '0 4px 15px rgba(27, 154, 170, 0.3)';
+            
+            // Estilos inactivos para Individual
+            btnIndividual.style.background = 'white';
+            btnIndividual.style.color = '#1B9AAA';
+            btnIndividual.style.border = '2px solid #1B9AAA';
+            btnIndividual.style.boxShadow = 'none';
+            
+            // Mostrar contenido Pareja
+            descPareja.style.display = 'block';
+            descIndividual.style.display = 'none';
+            widgetPareja.style.display = 'block';
+            widgetIndividual.style.display = 'none';
+        }
+    }
     </script>
 </body>
 </html>
