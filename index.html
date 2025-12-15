@@ -1,19 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWM2VNVTR0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-FWM2VNVTR0');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Título Principal -->
     <title>Mavi Bayona - Psicoterapeuta | Tanatóloga | Logoterapeuta</title>
-    <meta name="description" content="Psicoterapia, Tanatología y Logoterapia. Un espacio seguro donde puedes ser tú mismo/a. Acompañamiento profesional para ansiedad, duelo y búsqueda de sentido.">
-    
+    <meta name="description"
+        content="Psicoterapia, Tanatología y Logoterapia. Un espacio seguro donde puedes ser tú mismo/a. Acompañamiento profesional para ansiedad, duelo y búsqueda de sentido.">
+
     <!-- Metadatos para Redes Sociales (Open Graph & WhatsApp) -->
     <!-- IMPORTANTE: Reemplaza 'https://mavibayona.com' con tu dominio real si es diferente -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mavibayona.com/">
     <meta property="og:title" content="Mavi Bayona - Psicoterapeuta | Tanatóloga">
-    <meta property="og:description" content="Un espacio seguro para acompañarte en tu proceso. Psicoterapia, manejo de duelo y sentido de vida.">
+    <meta property="og:description"
+        content="Un espacio seguro para acompañarte en tu proceso. Psicoterapia, manejo de duelo y sentido de vida.">
     <!-- La imagen debe ser una URL completa (con https://) para funcionar mejor -->
     <meta property="og:image" content="https://mavibayona.com/assets/logoMavi.png">
     <meta property="og:image:width" content="1200">
@@ -22,14 +34,15 @@
     <!-- Metadatos para Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Mavi Bayona - Psicoterapeuta">
-    <meta name="twitter:description" content="Un espacio seguro para acompañarte en tu proceso. Psicoterapia, manejo de duelo y sentido de vida.">
+    <meta name="twitter:description"
+        content="Un espacio seguro para acompañarte en tu proceso. Psicoterapia, manejo de duelo y sentido de vida.">
     <meta name="twitter:image" content="https://mavibayona.com/assets/logoMavi.png">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/logoMavi.png">
     <link rel="shortcut icon" type="image/png" href="assets/logoMavi.png">
     <link rel="apple-touch-icon" href="assets/logoMavi.png">
-    
+
     <style>
         * {
             margin: 0;
@@ -37,7 +50,8 @@
             box-sizing: border-box;
         }
 
-        html, body {
+        html,
+        body {
             margin: 0;
             padding: 0;
             width: 100%;
@@ -89,7 +103,7 @@
             gap: 2rem;
             position: relative;
         }
-        
+
         .header-logos {
             position: absolute;
             left: 0;
@@ -367,7 +381,7 @@
             left: 0;
             right: 0;
         }
-        
+
         .hero-video {
             position: absolute;
             top: 0;
@@ -379,7 +393,7 @@
             object-fit: cover;
             z-index: 0;
         }
-        
+
         .hero::before {
             content: '';
             position: absolute;
@@ -392,7 +406,7 @@
             background: linear-gradient(135deg, rgba(27, 154, 170, 0.65) 0%, rgba(6, 214, 160, 0.55) 50%, rgba(45, 149, 150, 0.65) 100%);
             z-index: 1;
         }
-        
+
         .hero-content {
             position: relative;
             z-index: 2;
@@ -401,18 +415,18 @@
             margin: 0 auto;
             padding: 0 2rem;
         }
-        
+
         .hero-content h1 {
             text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.7);
             margin-bottom: 1.5rem;
             font-size: 3.5rem;
             line-height: 1.2;
         }
-        
+
         .hero-content p {
             text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.6);
         }
-        
+
         .hero-content .subtitle {
             text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
             font-size: 1.5rem;
@@ -442,19 +456,19 @@
             text-decoration: none;
             font-weight: bold;
             transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
         /* Sections */
         section {
             padding: 5rem 2rem;
         }
-        
+
         section:not(.hero) {
             max-width: 1200px;
             margin: 0 auto;
@@ -498,7 +512,7 @@
         .about-image img {
             max-width: 100%;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         /* Services */
@@ -513,16 +527,16 @@
             background: var(--white);
             padding: 2.5rem;
             border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.3s;
             border-top: 4px solid var(--primary-cyan);
         }
 
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
-        
+
         .service-card a:hover {
             background: var(--accent-teal) !important;
             transform: scale(1.05);
@@ -533,7 +547,7 @@
             margin-bottom: 1rem;
             display: block;
         }
-        
+
         .service-icon svg {
             width: 80px;
             height: 80px;
@@ -599,7 +613,7 @@
 
         .submit-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
         .submit-button:disabled {
@@ -626,7 +640,7 @@
             color: var(--primary-cyan);
             margin-bottom: 1rem;
         }
-        
+
         .contact-item svg {
             width: 60px;
             height: 60px;
@@ -649,17 +663,19 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         @keyframes slideInRight {
             from {
                 opacity: 0;
                 transform: translateX(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -668,24 +684,25 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+
             /* Header Mobile */
             .pill-nav-container {
                 justify-content: space-between;
                 gap: 1rem;
             }
-            
+
             .pill-logo {
                 position: relative;
                 left: auto;
             }
-            
+
             .mobile-menu-button {
                 position: relative;
                 right: auto;
             }
-            
+
             /* About Image Overlay - Mobile adjustments */
-            .about-image > div > div[style*="position: absolute"] {
+            .about-image>div>div[style*="position: absolute"] {
                 top: auto !important;
                 bottom: 1.5rem !important;
                 left: 1rem !important;
@@ -693,17 +710,17 @@
                 max-width: calc(100% - 2rem) !important;
                 padding: 1.2rem 1.5rem !important;
             }
-            
-            .about-image > div > div[style*="position: absolute"] h4 {
+
+            .about-image>div>div[style*="position: absolute"] h4 {
                 font-size: 1.1rem !important;
                 margin-bottom: 0.6rem !important;
             }
-            
-            .about-image > div > div[style*="position: absolute"] p {
+
+            .about-image>div>div[style*="position: absolute"] p {
                 font-size: 0.85rem !important;
                 line-height: 1.5 !important;
             }
-            
+
             /* Hero Mobile */
             .hero {
                 width: 100% !important;
@@ -723,24 +740,24 @@
                 line-height: 1.3;
                 margin-bottom: 1rem;
             }
-            
+
             .hero-content .subtitle {
                 font-size: 1.1rem;
                 margin-bottom: 1.5rem;
             }
-            
+
             .hero-content p {
                 font-size: 0.95rem !important;
                 line-height: 1.6 !important;
                 margin-bottom: 1.5rem !important;
             }
-            
+
             .hero-content div {
                 flex-direction: column;
                 gap: 0.8rem !important;
                 align-items: center !important;
             }
-            
+
             .hero-content div a {
                 width: 100%;
                 max-width: 280px;
@@ -790,7 +807,8 @@
             .form-group input,
             .form-group select,
             .form-group textarea {
-                font-size: 16px; /* Previene zoom en iOS */
+                font-size: 16px;
+                /* Previene zoom en iOS */
             }
 
             .submit-button {
@@ -856,20 +874,20 @@
             .appointment-form {
                 padding: 1.5rem 1rem;
             }
-            
+
             /* About Image Overlay - Extra small screens */
-            .about-image > div > div[style*="position: absolute"] {
+            .about-image>div>div[style*="position: absolute"] {
                 bottom: 1rem !important;
                 left: 0.75rem !important;
                 right: 0.75rem !important;
                 padding: 1rem 1.2rem !important;
             }
-            
-            .about-image > div > div[style*="position: absolute"] h4 {
+
+            .about-image>div>div[style*="position: absolute"] h4 {
                 font-size: 1rem !important;
             }
-            
-            .about-image > div > div[style*="position: absolute"] p {
+
+            .about-image>div>div[style*="position: absolute"] p {
                 font-size: 0.8rem !important;
             }
         }
@@ -915,17 +933,20 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header>
         <div class="pill-nav-container">
             <div class="header-logos">
                 <a href="#inicio" class="pill-logo" aria-label="Home">
-                    <img src="assets/logoMavi.png" alt="Mavi Bayona Logo" style="width: 100%; height: 100%; object-fit: contain;">
+                    <img src="assets/logoMavi.png" alt="Mavi Bayona Logo"
+                        style="width: 100%; height: 100%; object-fit: contain;">
                 </a>
 
                 <a href="#inicio" class="header-logo-horizontal" aria-label="Home">
-                    <img src="assets/mavibayona-logo.png" alt="Mavi Bayona" style="width: 100%; height: 100%; object-fit: contain;">
+                    <img src="assets/mavibayona-logo.png" alt="Mavi Bayona"
+                        style="width: 100%; height: 100%; object-fit: contain;">
                 </a>
             </div>
 
@@ -964,21 +985,28 @@
         <video autoplay muted loop playsinline class="hero-video">
             <source src="assets/MAVI_WEB.mp4" type="video/mp4">
         </video>
-        
+
         <!-- Contenido del Hero -->
         <div class="hero-content">
             <h1>Entiendo por lo que estás pasando</h1>
             <p class="subtitle">Y estoy aquí para acompañarte en tu proceso</p>
-            <p style="font-size: 1.15rem; margin-bottom: 2.5rem; line-height: 1.7; max-width: 850px; margin-left: auto; margin-right: auto;">
-                Soy <strong>Mavi Bayona</strong>, Psicoterapeuta especializada en crear un espacio seguro donde puedas ser tú mismo/a. 
+            <p
+                style="font-size: 1.15rem; margin-bottom: 2.5rem; line-height: 1.7; max-width: 850px; margin-left: auto; margin-right: auto;">
+                Soy <strong>Mavi Bayona</strong>, Psicoterapeuta especializada en crear un espacio seguro donde puedas
+                ser tú mismo/a.
                 <strong>Juntos encontraremos el camino hacia tu bienestar.</strong>
             </p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;">
                 <a href="#agendar" class="cta-button" style="padding: 1rem 2.5rem; font-size: 1rem;">Conversemos</a>
-                <a href="#test" class="cta-button" style="background: var(--primary-gold); color: var(--text-dark); padding: 1rem 2.5rem; font-size: 1rem; border: 2px solid var(--primary-gold);">✓ Conoce cómo te sientes</a>
-                <a href="#sobre-mi" class="cta-button" style="background: transparent; border: 2px solid white; color: white; padding: 1rem 2.5rem; font-size: 1rem;">Más sobre mí</a>
+                <a href="#test" class="cta-button"
+                    style="background: var(--primary-gold); color: var(--text-dark); padding: 1rem 2.5rem; font-size: 1rem; border: 2px solid var(--primary-gold);">✓
+                    Conoce cómo te sientes</a>
+                <a href="#sobre-mi" class="cta-button"
+                    style="background: transparent; border: 2px solid white; color: white; padding: 1rem 2.5rem; font-size: 1rem;">Más
+                    sobre mí</a>
             </div>
-            <p style="font-size: 0.95rem; opacity: 0.95; display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+            <p
+                style="font-size: 0.95rem; opacity: 0.95; display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
                 <span>✓ Espacio seguro y sin juicios</span>
                 <span>✓ Confidencialidad absoluta</span>
                 <span>✓ A tu propio ritmo</span>
@@ -991,16 +1019,20 @@
         <h2 class="section-title">Un Espacio Para Ti</h2>
         <div class="about-content">
             <div class="about-text">
-                <h3 style="color: var(--primary-cyan); margin-bottom: 1.5rem; font-size: 1.8rem;">Porque Tus Emociones Merecen Ser Escuchadas</h3>
+                <h3 style="color: var(--primary-cyan); margin-bottom: 1.5rem; font-size: 1.8rem;">Porque Tus Emociones
+                    Merecen Ser Escuchadas</h3>
                 <p style="margin-bottom: 1.5rem; font-size: 1.05rem; line-height: 1.8;">
                     Imagina vivir tu presente en plenitud, en paz con tu pasado y esperando por el futuro.
                 </p>
                 <p style="margin-bottom: 1.5rem; font-size: 1.05rem; line-height: 1.8;">
-                    Soy <strong>L.Psic. Mavi Bayona</strong>, y entiendo que buscar ayuda no es fácil. Por eso he dedicado mi vida 
-                    profesional a crear un espacio donde puedas ser tú mismo/a sin juicios, donde cada palabra que compartas 
+                    Soy <strong>L.Psic. Mavi Bayona</strong>, y entiendo que buscar ayuda no es fácil. Por eso he
+                    dedicado mi vida
+                    profesional a crear un espacio donde puedas ser tú mismo/a sin juicios, donde cada palabra que
+                    compartas
                     será escuchada con empatía y respeto.
                 </p>
-                <div style="background: var(--neutral-light); padding: 1.5rem; border-radius: 15px; border-left: 4px solid var(--primary-gold); margin: 2rem 0;">
+                <div
+                    style="background: var(--neutral-light); padding: 1.5rem; border-radius: 15px; border-left: 4px solid var(--primary-gold); margin: 2rem 0;">
                     <h4 style="color: var(--accent-teal); margin-bottom: 1rem;">Lo que SÍ puedes lograr:</h4>
                     <ul style="list-style: none; padding: 0;">
                         <li style="margin-bottom: 0.5rem;">✓ Reconocer que mereces sentirte bien</li>
@@ -1010,31 +1042,34 @@
                     </ul>
                 </div>
                 <p style="font-size: 1.05rem; line-height: 1.8;">
-                    Mi metodología combina <strong>Psicoterapia, Tanatología y Logoterapia</strong> para darte 
-                    herramientas reales que puedes aplicar desde la primera sesión. Trabajo activamente contigo 
+                    Mi metodología combina <strong>Psicoterapia, Tanatología y Logoterapia</strong> para darte
+                    herramientas reales que puedes aplicar desde la primera sesión. Trabajo activamente contigo
                     para lograr cambios tangibles.
                 </p>
             </div>
             <div class="about-image">
-                <div style="position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.2);">
-                    <img 
-                        src="assets/maviBayona1.jpg" 
-                        alt="L.Psic. Mavi Bayona - Psicoterapeuta"
-                        style="width: 100%; display: block; border-radius: 20px;"
-                    />
-                    
+                <div
+                    style="position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.2);">
+                    <img src="assets/maviBayona1.jpg" alt="L.Psic. Mavi Bayona - Psicoterapeuta"
+                        style="width: 100%; display: block; border-radius: 20px;" />
+
                     <!-- Overlay de texto - Arriba a la izquierda con fondo blanco translúcido -->
-                    <div style="position: absolute; top: 2rem; left: 2rem; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 1.5rem 2rem; border-radius: 15px; max-width: 280px; box-shadow: 0 8px 30px rgba(0,0,0,0.2); border-left: 4px solid var(--primary-cyan);">
-                        <h4 style="color: var(--primary-cyan); font-size: 1.2rem; margin-bottom: 0.8rem; font-weight: 700;">L.Psic. Mavi Bayona</h4>
+                    <div
+                        style="position: absolute; top: 2rem; left: 2rem; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 1.5rem 2rem; border-radius: 15px; max-width: 280px; box-shadow: 0 8px 30px rgba(0,0,0,0.2); border-left: 4px solid var(--primary-cyan);">
+                        <h4
+                            style="color: var(--primary-cyan); font-size: 1.2rem; margin-bottom: 0.8rem; font-weight: 700;">
+                            L.Psic. Mavi Bayona</h4>
                         <p style="color: var(--text-dark); font-size: 0.9rem; line-height: 1.6; margin: 0;">
-                            Psicoterapeuta especializada en acompañarte hacia tu bienestar emocional. 
+                            Psicoterapeuta especializada en acompañarte hacia tu bienestar emocional.
                             <strong style="color: var(--accent-teal);">Estoy aquí para ayudarte.</strong>
                         </p>
                     </div>
                 </div>
-                
-                <div style="background: var(--gradient-primary); color: white; padding: 1.5rem; border-radius: 15px; margin-top: 1.5rem; text-align: center;">
-                    <p style="font-size: 1.1rem; font-weight: 500; margin-bottom: 0.5rem;">💬 "La mejor inversión es en ti mismo/a"</p>
+
+                <div
+                    style="background: var(--gradient-primary); color: white; padding: 1.5rem; border-radius: 15px; margin-top: 1.5rem; text-align: center;">
+                    <p style="font-size: 1.1rem; font-weight: 500; margin-bottom: 0.5rem;">💬 "La mejor inversión es en
+                        ti mismo/a"</p>
                     <p style="font-size: 0.95rem; opacity: 0.9;">Cuando estés listo/a, aquí estaré para acompañarte</p>
                 </div>
             </div>
@@ -1044,139 +1079,177 @@
     <!-- Services Section -->
     <section id="servicios" style="background: var(--neutral-light); position: relative;">
         <!-- Logo marca de agua de fondo -->
-        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.03; pointer-events: none; z-index: 0;">
+        <div
+            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.03; pointer-events: none; z-index: 0;">
             <img src="assets/logoMavi.png" alt="Mavi Bayona" style="width: 300px; height: auto; object-fit: contain;">
         </div>
-        
+
         <div style="position: relative; z-index: 1;">
-        <h2 class="section-title">¿En Qué Puedo Acompañarte?</h2>
-        <p style="text-align: center; max-width: 800px; margin: -1rem auto 3rem; font-size: 1.1rem; color: var(--text-light);">
-            Cada servicio está diseñado para darte herramientas prácticas que puedes aplicar en tu día a día.
-        </p>
-        <div class="services-grid">
-            <div class="service-card" style="overflow: hidden; padding: 0;">
-                <img src="assets/Psicoterapia.jpg" alt="Psicoterapia" style="width: 100%; height: 250px; object-fit: cover; border-radius: 20px 20px 0 0;">
-                <div style="padding: 2rem 2rem 2.5rem;">
-                    <h3 style="color: var(--primary-cyan); margin-bottom: 1rem;">Psicoterapia</h3>
-                    <p style="font-weight: 600; color: var(--accent-teal); margin-bottom: 1rem;">Comprender tus emociones es el primer paso</p>
-                    <p style="margin-bottom: 1.5rem;">Podemos trabajar juntos en ansiedad, depresión, estrés o experiencias del pasado que aún te afectan.</p>
-                    <ul style="list-style: none; padding-left: 0; text-align: left; margin-bottom: 1.5rem;">
-                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Identificar patrones de pensamiento</li>
-                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Herramientas para la ansiedad y el estrés</li>
-                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Fortalecer tu autoestima</li>
-                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Procesar experiencias del pasado</li>
-                    </ul>
-                    <a href="#agendar" style="display: inline-block; background: var(--primary-cyan); color: white; padding: 0.8rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">Conversemos</a>
-                </div>
-            </div>
-
-            <div class="service-card" style="overflow: hidden; padding: 0;">
-                <img src="assets/Tanatologia.jpg" alt="Tanatología" style="width: 100%; height: 250px; object-fit: cover; border-radius: 20px 20px 0 0;">
-                <div style="padding: 2rem 2rem 2.5rem;">
-                    <h3 style="color: var(--primary-cyan); margin-bottom: 1rem;">Tanatología</h3>
-                    <p style="font-weight: 600; color: var(--accent-teal); margin-bottom: 1rem;">Cuando una etapa termina, comienza el proceso</p>
-                    <p style="margin-bottom: 1.5rem;">El duelo es un camino que se recorre mejor acompañado. Podemos transitarlo juntos.</p>
-                    <ul style="list-style: none; padding-left: 0; text-align: left; margin-bottom: 1.5rem;">
-                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Procesar el duelo a tu ritmo</li>
-                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Honrar lo vivido</li>
-                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Encontrar paz interior</li>
-                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Continuar tu camino con esperanza</li>
-                    </ul>
-                    <a href="#agendar" style="display: inline-block; background: var(--primary-cyan); color: white; padding: 0.8rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">Conversemos</a>
-                </div>
-            </div>
-
-            <div class="service-card" style="overflow: hidden; padding: 0;">
-                <img src="assets/Logoterapia.jpg" alt="Logoterapia" style="width: 100%; height: 250px; object-fit: cover; border-radius: 20px 20px 0 0;">
-                <div style="padding: 2rem 2rem 2.5rem;">
-                    <h3 style="color: var(--primary-cyan); margin-bottom: 1rem;">Logoterapia</h3>
-                    <p style="font-weight: 600; color: var(--accent-teal); margin-bottom: 1rem;">Encontrar sentido también es una forma de sanar</p>
-                    <p style="margin-bottom: 1.5rem;">Si sientes que algo falta en tu vida, podemos explorar juntos tu propósito y valores.</p>
-                    <ul style="list-style: none; padding-left: 0; text-align: left; margin-bottom: 1.5rem;">
-                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Explorar tu propósito de vida</li>
-                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Reconectar con tus valores</li>
-                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Navegar momentos de búsqueda</li>
-                        <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Vivir con mayor significado</li>
-                    </ul>
-                    <a href="#agendar" style="display: inline-block; background: var(--primary-cyan); color: white; padding: 0.8rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">Conversemos</a>
-                </div>
-            </div>
-        </div>
-        
-        <div style="background: white; max-width: 900px; margin: 4rem auto 0; padding: 3rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); text-align: center;">
-            <h3 style="color: var(--primary-cyan); font-size: 2rem; margin-bottom: 1.5rem;">💙 Dar el primer paso es valiente</h3>
-            <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem;">
-                Sé que buscar ayuda no es fácil, y llegar hasta aquí ya dice mucho de ti.<br>
-                Cuando sientas que es el momento adecuado, estaré aquí para acompañarte.
+            <h2 class="section-title">¿En Qué Puedo Acompañarte?</h2>
+            <p
+                style="text-align: center; max-width: 800px; margin: -1rem auto 3rem; font-size: 1.1rem; color: var(--text-light);">
+                Cada servicio está diseñado para darte herramientas prácticas que puedes aplicar en tu día a día.
             </p>
-            <a href="#agendar" class="cta-button" style="font-size: 1.1rem; padding: 1.2rem 3rem;">Conversemos</a>
-        </div>
+            <div class="services-grid">
+                <div class="service-card" style="overflow: hidden; padding: 0;">
+                    <img src="assets/Psicoterapia.jpg" alt="Psicoterapia"
+                        style="width: 100%; height: 250px; object-fit: cover; border-radius: 20px 20px 0 0;">
+                    <div style="padding: 2rem 2rem 2.5rem;">
+                        <h3 style="color: var(--primary-cyan); margin-bottom: 1rem;">Psicoterapia</h3>
+                        <p style="font-weight: 600; color: var(--accent-teal); margin-bottom: 1rem;">Comprender tus
+                            emociones es el primer paso</p>
+                        <p style="margin-bottom: 1.5rem;">Podemos trabajar juntos en ansiedad, depresión, estrés o
+                            experiencias del pasado que aún te afectan.</p>
+                        <ul style="list-style: none; padding-left: 0; text-align: left; margin-bottom: 1.5rem;">
+                            <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Identificar patrones de pensamiento
+                            </li>
+                            <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Herramientas para la ansiedad y el
+                                estrés</li>
+                            <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Fortalecer tu autoestima</li>
+                            <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Procesar experiencias del pasado</li>
+                        </ul>
+                        <a href="#agendar"
+                            style="display: inline-block; background: var(--primary-cyan); color: white; padding: 0.8rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">Conversemos</a>
+                    </div>
+                </div>
+
+                <div class="service-card" style="overflow: hidden; padding: 0;">
+                    <img src="assets/Tanatologia.jpg" alt="Tanatología"
+                        style="width: 100%; height: 250px; object-fit: cover; border-radius: 20px 20px 0 0;">
+                    <div style="padding: 2rem 2rem 2.5rem;">
+                        <h3 style="color: var(--primary-cyan); margin-bottom: 1rem;">Tanatología</h3>
+                        <p style="font-weight: 600; color: var(--accent-teal); margin-bottom: 1rem;">Cuando una etapa
+                            termina, comienza el proceso</p>
+                        <p style="margin-bottom: 1.5rem;">El duelo es un camino que se recorre mejor acompañado. Podemos
+                            transitarlo juntos.</p>
+                        <ul style="list-style: none; padding-left: 0; text-align: left; margin-bottom: 1.5rem;">
+                            <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Procesar el duelo a tu ritmo</li>
+                            <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Honrar lo vivido</li>
+                            <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Encontrar paz interior</li>
+                            <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Continuar tu camino con esperanza</li>
+                        </ul>
+                        <a href="#agendar"
+                            style="display: inline-block; background: var(--primary-cyan); color: white; padding: 0.8rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">Conversemos</a>
+                    </div>
+                </div>
+
+                <div class="service-card" style="overflow: hidden; padding: 0;">
+                    <img src="assets/Logoterapia.jpg" alt="Logoterapia"
+                        style="width: 100%; height: 250px; object-fit: cover; border-radius: 20px 20px 0 0;">
+                    <div style="padding: 2rem 2rem 2.5rem;">
+                        <h3 style="color: var(--primary-cyan); margin-bottom: 1rem;">Logoterapia</h3>
+                        <p style="font-weight: 600; color: var(--accent-teal); margin-bottom: 1rem;">Encontrar sentido
+                            también es una forma de sanar</p>
+                        <p style="margin-bottom: 1.5rem;">Si sientes que algo falta en tu vida, podemos explorar juntos
+                            tu propósito y valores.</p>
+                        <ul style="list-style: none; padding-left: 0; text-align: left; margin-bottom: 1.5rem;">
+                            <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Explorar tu propósito de vida</li>
+                            <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Reconectar con tus valores</li>
+                            <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Navegar momentos de búsqueda</li>
+                            <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Vivir con mayor significado</li>
+                        </ul>
+                        <a href="#agendar"
+                            style="display: inline-block; background: var(--primary-cyan); color: white; padding: 0.8rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">Conversemos</a>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                style="background: white; max-width: 900px; margin: 4rem auto 0; padding: 3rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); text-align: center;">
+                <h3 style="color: var(--primary-cyan); font-size: 2rem; margin-bottom: 1.5rem;">💙 Dar el primer paso es
+                    valiente</h3>
+                <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem;">
+                    Sé que buscar ayuda no es fácil, y llegar hasta aquí ya dice mucho de ti.<br>
+                    Cuando sientas que es el momento adecuado, estaré aquí para acompañarte.
+                </p>
+                <a href="#agendar" class="cta-button" style="font-size: 1.1rem; padding: 1.2rem 3rem;">Conversemos</a>
+            </div>
         </div>
     </section>
 
     <!-- Test Diagnóstico Section -->
     <section id="test" style="background: var(--neutral-light);">
         <!-- Sección de Test Diagnóstico -->
-        <div style="background: linear-gradient(135deg, #1B9AAA 0%, #06D6A0 100%); max-width: 1000px; margin: 0 auto; padding: 3.5rem 3rem; border-radius: 20px; box-shadow: 0 15px 50px rgba(27, 154, 170, 0.3); text-align: center; color: white; position: relative; overflow: hidden;">
+        <div
+            style="background: linear-gradient(135deg, #1B9AAA 0%, #06D6A0 100%); max-width: 1000px; margin: 0 auto; padding: 3.5rem 3rem; border-radius: 20px; box-shadow: 0 15px 50px rgba(27, 154, 170, 0.3); text-align: center; color: white; position: relative; overflow: hidden;">
             <!-- Decoración de fondo -->
-            <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: rgba(255, 255, 255, 0.05); border-radius: 50%;"></div>
-            <div style="position: absolute; bottom: -30px; left: -30px; width: 150px; height: 150px; background: rgba(255, 255, 255, 0.05); border-radius: 50%;"></div>
-            
+            <div
+                style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: rgba(255, 255, 255, 0.05); border-radius: 50%;">
+            </div>
+            <div
+                style="position: absolute; bottom: -30px; left: -30px; width: 150px; height: 150px; background: rgba(255, 255, 255, 0.05); border-radius: 50%;">
+            </div>
+
             <div style="position: relative; z-index: 1;">
                 <div style="margin-bottom: 2rem;">
-                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));">
-                        <rect x="4" y="4" width="16" height="16" rx="2" stroke="white" stroke-width="2" fill="none"/>
-                        <path d="M8 12L11 15L16 9" stroke="#D4AF37" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="19" cy="5" r="2" fill="#D4AF37"/>
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        style="filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));">
+                        <rect x="4" y="4" width="16" height="16" rx="2" stroke="white" stroke-width="2" fill="none" />
+                        <path d="M8 12L11 15L16 9" stroke="#D4AF37" stroke-width="2.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <circle cx="19" cy="5" r="2" fill="#D4AF37" />
                     </svg>
                 </div>
-                
-                <h3 style="font-size: 2.2rem; margin-bottom: 1.5rem; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">
+
+                <h3
+                    style="font-size: 2.2rem; margin-bottom: 1.5rem; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">
                     ¿Quieres entender mejor cómo te sientes?
                 </h3>
-                
-                <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2.5rem; opacity: 0.95; max-width: 700px; margin-left: auto; margin-right: auto;">
-                    A veces es difícil poner en palabras lo que sentimos. Este test puede ayudarte a 
+
+                <p
+                    style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2.5rem; opacity: 0.95; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    A veces es difícil poner en palabras lo que sentimos. Este test puede ayudarte a
                     identificar qué está afectando tu bienestar emocional, para que juntos podamos trabajar en ello.
                 </p>
-                
-                <div style="background: rgba(255, 255, 255, 0.15); padding: 1.5rem; border-radius: 15px; margin-bottom: 2.5rem; backdrop-filter: blur(10px);">
-                    <p style="font-size: 1rem; margin: 0; display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+
+                <div
+                    style="background: rgba(255, 255, 255, 0.15); padding: 1.5rem; border-radius: 15px; margin-bottom: 2.5rem; backdrop-filter: blur(10px);">
+                    <p
+                        style="font-size: 1rem; margin: 0; display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap;">
                         <span style="display: flex; align-items: center; gap: 0.5rem;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2" fill="none"/>
-                                <path d="M12 6V12L16 14" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2" fill="none" />
+                                <path d="M12 6V12L16 14" stroke="white" stroke-width="2" stroke-linecap="round" />
                             </svg>
                             <strong>Solo 5 minutos</strong>
                         </span>
                         <span style="display: flex; align-items: center; gap: 0.5rem;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="5" y="11" width="14" height="10" rx="2" stroke="white" stroke-width="2" fill="none"/>
-                                <path d="M12 15V17" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                                <path d="M9 11V7C9 5.34315 10.3431 4 12 4C13.6569 4 15 5.34315 15 7V11" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect x="5" y="11" width="14" height="10" rx="2" stroke="white" stroke-width="2"
+                                    fill="none" />
+                                <path d="M12 15V17" stroke="white" stroke-width="2" stroke-linecap="round" />
+                                <path d="M9 11V7C9 5.34315 10.3431 4 12 4C13.6569 4 15 5.34315 15 7V11" stroke="white"
+                                    stroke-width="2" stroke-linecap="round" />
                             </svg>
                             <strong>100% Confidencial</strong>
                         </span>
                         <span style="display: flex; align-items: center; gap: 0.5rem;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20 6L9 17L4 12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 6L9 17L4 12" stroke="white" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
                             </svg>
                             <strong>Resultados Inmediatos</strong>
                         </span>
                     </p>
                 </div>
-                
-                <a href="pages/test.html" class="cta-button" style="background: white; color: var(--primary-cyan); padding: 1.3rem 3rem; font-size: 1.15rem; display: inline-flex; align-items: center; gap: 0.8rem; box-shadow: 0 6px 20px rgba(0,0,0,0.15);">
+
+                <a href="pages/test.html" class="cta-button"
+                    style="background: white; color: var(--primary-cyan); padding: 1.3rem 3rem; font-size: 1.15rem; display: inline-flex; align-items: center; gap: 0.8rem; box-shadow: 0 6px 20px rgba(0,0,0,0.15);">
                     <span>Realizar Test</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </a>
-                
-                <p style="font-size: 0.9rem; margin-top: 1.5rem; opacity: 0.9; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+
+                <p
+                    style="font-size: 0.9rem; margin-top: 1.5rem; opacity: 0.9; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2" fill="none"/>
-                        <path d="M12 16V12M12 8H12.01" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2" fill="none" />
+                        <path d="M12 16V12M12 8H12.01" stroke="white" stroke-width="2" stroke-linecap="round" />
                     </svg>
                     El test no reemplaza una consulta profesional, pero es un excelente primer paso
                 </p>
@@ -1185,73 +1258,91 @@
     </section>
 
     <!-- Cal.com Booking Section con Pestañas (NUEVA) -->
-    <section id="agendar" style="padding: 100px 20px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); position: relative; overflow: hidden;">
+    <section id="agendar"
+        style="padding: 100px 20px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); position: relative; overflow: hidden;">
         <div style="max-width: 1000px; margin: 0 auto; position: relative; z-index: 1;">
             <!-- Header -->
             <div style="text-align: center; margin-bottom: 50px;">
-                <h2 style="font-size: 2.5rem; color: #1B9AAA; margin-bottom: 20px; font-weight: 700;">Agenda tu Sesión</h2>
+                <h2 style="font-size: 2.5rem; color: #1B9AAA; margin-bottom: 20px; font-weight: 700;">Agenda tu Sesión
+                </h2>
                 <p style="font-size: 1.1rem; color: #666; max-width: 700px; margin: 0 auto; line-height: 1.6;">
-                    Elige el tipo de terapia y el horario que mejor se ajuste a ti. El pago es seguro y la confirmación es inmediata.
+                    Elige el tipo de terapia y el horario que mejor se ajuste a ti. El pago es seguro y la confirmación
+                    es inmediata.
                 </p>
             </div>
 
             <!-- Pestañas -->
             <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-                <button onclick="switchTab('individual')" id="tab-individual" style="padding: 1rem 2rem; background: #1B9AAA; color: white; border: none; border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(27, 154, 170, 0.3);">
+                <button onclick="switchTab('individual')" id="tab-individual"
+                    style="padding: 1rem 2rem; background: #1B9AAA; color: white; border: none; border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(27, 154, 170, 0.3);">
                     👤 Terapia Individual
                 </button>
-                <button onclick="switchTab('pareja')" id="tab-pareja" style="padding: 1rem 2rem; background: white; color: #1B9AAA; border: 2px solid #1B9AAA; border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s;">
+                <button onclick="switchTab('pareja')" id="tab-pareja"
+                    style="padding: 1rem 2rem; background: white; color: #1B9AAA; border: 2px solid #1B9AAA; border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s;">
                     💑 Terapia en Pareja
                 </button>
             </div>
 
             <!-- Descripción de cada tipo de terapia -->
-            <div id="desc-individual" style="background: rgba(27, 154, 170, 0.1); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #1B9AAA;">
-                <h3 style="color: #1B9AAA; font-size: 1.3rem; margin-bottom: 0.8rem;">Terapia Individual - 50 minutos</h3>
+            <div id="desc-individual"
+                style="background: rgba(27, 154, 170, 0.1); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #1B9AAA;">
+                <h3 style="color: #1B9AAA; font-size: 1.3rem; margin-bottom: 0.8rem;">Terapia Individual - 50 minutos
+                </h3>
                 <p style="color: #555; margin: 0; line-height: 1.6;">
-                    Espacio personal para trabajar en tus emociones, pensamientos y bienestar. Ideal para ansiedad, depresión, duelo, búsqueda de sentido o crecimiento personal.
+                    Espacio personal para trabajar en tus emociones, pensamientos y bienestar. Ideal para ansiedad,
+                    depresión, duelo, búsqueda de sentido o crecimiento personal.
                 </p>
             </div>
 
-            <div id="desc-pareja" style="background: rgba(27, 154, 170, 0.1); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #1B9AAA; display: none;">
-                <h3 style="color: #1B9AAA; font-size: 1.3rem; margin-bottom: 0.8rem;">Terapia en Pareja - 50 minutos</h3>
+            <div id="desc-pareja"
+                style="background: rgba(27, 154, 170, 0.1); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid #1B9AAA; display: none;">
+                <h3 style="color: #1B9AAA; font-size: 1.3rem; margin-bottom: 0.8rem;">Terapia en Pareja - 50 minutos
+                </h3>
                 <p style="color: #555; margin: 0; line-height: 1.6;">
-                    Sesión diseñada para parejas que buscan mejorar su comunicación, resolver conflictos o fortalecer su relación. Ambos participan activamente en el proceso.
+                    Sesión diseñada para parejas que buscan mejorar su comunicación, resolver conflictos o fortalecer su
+                    relación. Ambos participan activamente en el proceso.
                 </p>
             </div>
 
             <!-- Contenedor de Widgets -->
-            <div style="background: white; border-radius: 16px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1); overflow: hidden; margin-bottom: 40px; position: relative;">
-                <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #1B9AAA 0%, #06D6A0 100%);"></div>
-                
+            <div
+                style="background: white; border-radius: 16px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1); overflow: hidden; margin-bottom: 40px; position: relative;">
+                <div
+                    style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #1B9AAA 0%, #06D6A0 100%);">
+                </div>
+
                 <!-- Widget Terapia Individual -->
                 <div id="widget-individual" style="width:100%;height:100%;overflow:scroll;min-height:700px"></div>
-                
+
                 <!-- Widget Terapia en Pareja -->
-                <div id="widget-pareja" style="width:100%;height:100%;overflow:scroll;min-height:700px;display:none;"></div>
+                <div id="widget-pareja" style="width:100%;height:100%;overflow:scroll;min-height:700px;display:none;">
+                </div>
             </div>
 
             <!-- Información adicional -->
             <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; margin-top: 40px;">
-                <div style="display: flex; align-items: center; gap: 12px; color: #555; flex: 1; min-width: 250px; justify-content: center;">
+                <div
+                    style="display: flex; align-items: center; gap: 12px; color: #555; flex: 1; min-width: 250px; justify-content: center;">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B9AAA" stroke-width="2">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                     </svg>
                     <p style="margin: 0; font-size: 0.95rem;">Pago 100% seguro con Stripe</p>
                 </div>
-                <div style="display: flex; align-items: center; gap: 12px; color: #555; flex: 1; min-width: 250px; justify-content: center;">
+                <div
+                    style="display: flex; align-items: center; gap: 12px; color: #555; flex: 1; min-width: 250px; justify-content: center;">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B9AAA" stroke-width="2">
-                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                        <line x1="16" y1="2" x2="16" y2="6"/>
-                        <line x1="8" y1="2" x2="8" y2="6"/>
-                        <line x1="3" y1="10" x2="21" y2="10"/>
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                        <line x1="16" y1="2" x2="16" y2="6" />
+                        <line x1="8" y1="2" x2="8" y2="6" />
+                        <line x1="3" y1="10" x2="21" y2="10" />
                     </svg>
                     <p style="margin: 0; font-size: 0.95rem;">Elige fecha y hora que prefieras</p>
                 </div>
-                <div style="display: flex; align-items: center; gap: 12px; color: #555; flex: 1; min-width: 250px; justify-content: center;">
+                <div
+                    style="display: flex; align-items: center; gap: 12px; color: #555; flex: 1; min-width: 250px; justify-content: center;">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B9AAA" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"/>
-                        <polyline points="12 6 12 12 16 14"/>
+                        <circle cx="12" cy="12" r="10" />
+                        <polyline points="12 6 12 12 16 14" />
                     </svg>
                     <p style="margin: 0; font-size: 0.95rem;">Confirmación inmediata por email</p>
                 </div>
@@ -1260,7 +1351,9 @@
             <!-- Alternativa -->
             <div style="text-align: center; margin-top: 3rem;">
                 <p style="color: #666; font-size: 0.95rem;">
-                    ¿Prefieres que te contacte primero? <a href="#formulario-contacto" style="color: #1B9AAA; font-weight: 600; text-decoration: underline;">Usa el formulario tradicional</a>
+                    ¿Prefieres que te contacte primero? <a href="#formulario-contacto"
+                        style="color: #1B9AAA; font-weight: 600; text-decoration: underline;">Usa el formulario
+                        tradicional</a>
                 </p>
             </div>
         </div>
@@ -1269,38 +1362,47 @@
     <!-- Formulario de Contacto Alternativo (RENOMBRADO) -->
     <section id="formulario-contacto">
         <h2 class="section-title">O Conversemos Primero</h2>
-        <p style="text-align: center; max-width: 800px; margin: -1rem auto 3rem; font-size: 1.15rem; color: var(--text-light);">
+        <p
+            style="text-align: center; max-width: 800px; margin: -1rem auto 3rem; font-size: 1.15rem; color: var(--text-light);">
             Si prefieres que te contacte antes de agendar, completa este formulario.<br>
             <strong style="color: var(--primary-cyan);">Sin presiones. Sin juicios. A tu ritmo.</strong>
         </p>
-        
+
         <!-- Logo decorativo arriba del formulario -->
         <div style="text-align: center; margin-bottom: 2rem;">
-            <img src="assets/logoMavi.png" alt="Mavi Bayona Logo" style="width: 60px; height: auto; opacity: 0.9; animation: fadeInUp 1s ease; object-fit: contain; display: block; margin: 0 auto;">
-            <img src="assets/mavibayona-logo.png" alt="Mavi Bayona" style="width: 150px; height: auto; opacity: 0.85; margin-top: 0.5rem; object-fit: contain; display: block; margin-left: auto; margin-right: auto;">
+            <img src="assets/logoMavi.png" alt="Mavi Bayona Logo"
+                style="width: 60px; height: auto; opacity: 0.9; animation: fadeInUp 1s ease; object-fit: contain; display: block; margin: 0 auto;">
+            <img src="assets/mavibayona-logo.png" alt="Mavi Bayona"
+                style="width: 150px; height: auto; opacity: 0.85; margin-top: 0.5rem; object-fit: contain; display: block; margin-left: auto; margin-right: auto;">
         </div>
-        
+
         <div class="appointment-form">
             <div id="successMessage" class="success-message">
                 <span style="display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
-                    ¡Excelente decisión! Tu solicitud ha sido enviada. Te contactaré pronto para confirmar tu sesión. 
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block;">
-                        <path d="M12 2C12 2 10.5 4 9 6C7.5 8 6 10 6 12C6 14 7 15 8.5 15.5C10 16 11 16 12 15C13 16 14 16 15.5 15.5C17 15 18 14 18 12C18 10 16.5 8 15 6C13.5 4 12 2 12 2Z" fill="white"/>
-                        <path d="M4 8C4 8 2 9 2 11C2 13 3 14 4.5 14C6 14 7 13 7 11.5C7 10 6 9 4 8Z" fill="white" opacity="0.8"/>
-                        <path d="M20 8C20 8 22 9 22 11C22 13 21 14 19.5 14C18 14 17 13 17 11.5C17 10 18 9 20 8Z" fill="white" opacity="0.8"/>
+                    ¡Excelente decisión! Tu solicitud ha sido enviada. Te contactaré pronto para confirmar tu sesión.
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        style="display: inline-block;">
+                        <path
+                            d="M12 2C12 2 10.5 4 9 6C7.5 8 6 10 6 12C6 14 7 15 8.5 15.5C10 16 11 16 12 15C13 16 14 16 15.5 15.5C17 15 18 14 18 12C18 10 16.5 8 15 6C13.5 4 12 2 12 2Z"
+                            fill="white" />
+                        <path d="M4 8C4 8 2 9 2 11C2 13 3 14 4.5 14C6 14 7 13 7 11.5C7 10 6 9 4 8Z" fill="white"
+                            opacity="0.8" />
+                        <path d="M20 8C20 8 22 9 22 11C22 13 21 14 19.5 14C18 14 17 13 17 11.5C17 10 18 9 20 8Z"
+                            fill="white" opacity="0.8" />
                     </svg>
                 </span>
             </div>
-            
-            <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 15px; margin-bottom: 2rem; border-left: 4px solid var(--primary-gold);">
+
+            <div
+                style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 15px; margin-bottom: 2rem; border-left: 4px solid var(--primary-gold);">
                 <p style="font-size: 1.05rem; line-height: 1.7; margin: 0;">
-                    💡 <strong>Compromiso de Confidencialidad:</strong> Todo lo que compartas conmigo permanece en 
+                    💡 <strong>Compromiso de Confidencialidad:</strong> Todo lo que compartas conmigo permanece en
                     absoluta confidencialidad. Este es tu espacio seguro.
                 </p>
             </div>
-            
-            <!-- FORMULARIO CON FORMSPREE - ENDPOINT ACTUALIZADO -->
-            <form id="appointmentForm" action="https://formspree.io/f/mjknedz" method="POST">
+
+            <!-- FORMULARIO CON FORMSPREE -->
+            <form id="appointmentForm" action="https://formspree.io/f/mwpgbdge" method="POST">
                 <div class="form-group">
                     <label for="nombre">Tu Nombre Completo *</label>
                     <input type="text" id="nombre" name="nombre" placeholder="Ej. María González" required>
@@ -1330,27 +1432,32 @@
                 <div class="form-group">
                     <label for="fecha-preferida">¿Cuándo Te Gustaría Tu Primera Sesión?</label>
                     <input type="date" id="fecha-preferida" name="fecha-preferida">
-                    <small style="opacity: 0.9; display: block; margin-top: 0.5rem;">Propondré horarios disponibles cercanos a esta fecha</small>
+                    <small style="opacity: 0.9; display: block; margin-top: 0.5rem;">Propondré horarios disponibles
+                        cercanos a esta fecha</small>
                 </div>
 
                 <div class="form-group">
                     <label for="motivo">Cuéntame: ¿Qué Te Está Pasando? *</label>
-                    <textarea id="motivo" name="motivo" required placeholder="No te preocupes por los detalles, solo comparte lo que sientes. Por ejemplo: 'Me siento ansioso/a constantemente', 'Perdí a alguien y no puedo superarlo', 'Siento que mi vida no tiene sentido'..."></textarea>
-                    <small style="opacity: 0.9; display: block; margin-top: 0.5rem;">Esta información me ayuda a preparar mejor nuestra primera sesión</small>
+                    <textarea id="motivo" name="motivo" required
+                        placeholder="No te preocupes por los detalles, solo comparte lo que sientes. Por ejemplo: 'Me siento ansioso/a constantemente', 'Perdí a alguien y no puedo superarlo', 'Siento que mi vida no tiene sentido'..."></textarea>
+                    <small style="opacity: 0.9; display: block; margin-top: 0.5rem;">Esta información me ayuda a
+                        preparar mejor nuestra primera sesión</small>
                 </div>
 
                 <div class="form-group">
                     <label for="comentarios">¿Algo Más Que Quieras Que Sepa?</label>
-                    <textarea id="comentarios" name="comentarios" placeholder="Horarios que prefieres, situaciones especiales, dudas sobre el proceso..."></textarea>
+                    <textarea id="comentarios" name="comentarios"
+                        placeholder="Horarios que prefieres, situaciones especiales, dudas sobre el proceso..."></textarea>
                 </div>
 
                 <!-- Campo oculto para saber de dónde viene el formulario -->
                 <input type="hidden" name="_subject" value="Nueva solicitud de sesión - Mavi Bayona">
-                
+
                 <!-- Redirección después del envío (opcional) -->
                 <input type="hidden" name="_next" value="https://mavibayona.com?enviado=true">
 
-                <div style="background: rgba(255,255,255,0.15); padding: 1.2rem; border-radius: 10px; margin-bottom: 1.5rem; text-align: center;">
+                <div
+                    style="background: rgba(255,255,255,0.15); padding: 1.2rem; border-radius: 10px; margin-bottom: 1.5rem; text-align: center;">
                     <p style="margin: 0; font-size: 0.95rem; line-height: 1.6;">
                         ⏰ <strong>Te responderé en menos de 24 horas</strong><br>
                         Generalmente confirmo las citas el mismo día
@@ -1358,7 +1465,7 @@
                 </div>
 
                 <button type="submit" class="submit-button">Solicitar Primera Sesión</button>
-                
+
                 <p style="text-align: center; margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.9;">
                     Al enviar este formulario aceptas que me contacte para agendar tu sesión
                 </p>
@@ -1368,47 +1475,60 @@
 
     <section id="contacto" style="background: var(--neutral-light);">
         <h2 class="section-title">Contacto</h2>
-        
+
         <!-- Logo central decorativo -->
         <div style="text-align: center; margin-bottom: 3rem;">
-            <img src="assets/logoMavi.png" alt="Mavi Bayona Logo" style="width: 70px; height: auto; opacity: 0.85; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.1)); object-fit: contain; display: block; margin: 0 auto;">
-            <img src="assets/mavibayona-logo.png" alt="Mavi Bayona" style="width: 160px; height: auto; opacity: 0.8; margin-top: 0.8rem; object-fit: contain; display: block; margin-left: auto; margin-right: auto;">
-            <p style="margin-top: 1rem; color: var(--primary-cyan); font-weight: 600; font-size: 1.1rem;">Estoy aquí para acompañarte</p>
+            <img src="assets/logoMavi.png" alt="Mavi Bayona Logo"
+                style="width: 70px; height: auto; opacity: 0.85; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.1)); object-fit: contain; display: block; margin: 0 auto;">
+            <img src="assets/mavibayona-logo.png" alt="Mavi Bayona"
+                style="width: 160px; height: auto; opacity: 0.8; margin-top: 0.8rem; object-fit: contain; display: block; margin-left: auto; margin-right: auto;">
+            <p style="margin-top: 1rem; color: var(--primary-cyan); font-weight: 600; font-size: 1.1rem;">Estoy aquí
+                para acompañarte</p>
         </div>
-        
+
         <div class="contact-info">
             <div class="contact-item">
                 <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="32" cy="32" r="26" fill="#06D6A0" opacity="0.2"/>
-                    <path d="M32 10C19.3 10 9 20.3 9 33C9 37.4 10.3 41.5 12.5 45L9 55L19.5 51.6C22.8 53.6 26.7 55 31 55C43.7 55 54 44.7 54 32C54 19.3 43.7 9 31 9L32 10Z" stroke="#1B9AAA" stroke-width="2.5" fill="none"/>
-                    <path d="M24 24C24 24 25 22 27 22C28 22 29 23 29 24C29 25 28 26 27 27C26 28 25 29 25 31C25 33 27 35 29 37C31 39 33 41 35 41C37 41 38 40 39 39C40 38 41 37 42 37C43 37 44 38 44 39C44 41 42 42 42 42C42 42 39 45 35 45C31 45 27 43 24 40C21 37 19 33 19 29C19 25 22 22 22 22" fill="#D4AF37"/>
+                    <circle cx="32" cy="32" r="26" fill="#06D6A0" opacity="0.2" />
+                    <path
+                        d="M32 10C19.3 10 9 20.3 9 33C9 37.4 10.3 41.5 12.5 45L9 55L19.5 51.6C22.8 53.6 26.7 55 31 55C43.7 55 54 44.7 54 32C54 19.3 43.7 9 31 9L32 10Z"
+                        stroke="#1B9AAA" stroke-width="2.5" fill="none" />
+                    <path
+                        d="M24 24C24 24 25 22 27 22C28 22 29 23 29 24C29 25 28 26 27 27C26 28 25 29 25 31C25 33 27 35 29 37C31 39 33 41 35 41C37 41 38 40 39 39C40 38 41 37 42 37C43 37 44 38 44 39C44 41 42 42 42 42C42 42 39 45 35 45C31 45 27 43 24 40C21 37 19 33 19 29C19 25 22 22 22 22"
+                        fill="#D4AF37" />
                 </svg>
                 <h3 style="color: var(--primary-cyan); margin-bottom: 0.5rem;">WhatsApp</h3>
                 <p>Contáctame directamente</p>
-                <a href="https://wa.me/5216181089265" style="color: var(--primary-cyan); text-decoration: none; font-weight: bold;">Enviar mensaje</a>
+                <a href="https://wa.me/5216181089265"
+                    style="color: var(--primary-cyan); text-decoration: none; font-weight: bold;">Enviar mensaje</a>
             </div>
 
             <div class="contact-item">
                 <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="8" y="16" width="48" height="32" rx="4" fill="#06D6A0" opacity="0.2"/>
-                    <rect x="8" y="16" width="48" height="32" rx="4" stroke="#1B9AAA" stroke-width="2.5" fill="none"/>
-                    <path d="M8 20L32 36L56 20" stroke="#D4AF37" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M8 44L22 32M56 44L42 32" stroke="#1B9AAA" stroke-width="2" stroke-linecap="round"/>
+                    <rect x="8" y="16" width="48" height="32" rx="4" fill="#06D6A0" opacity="0.2" />
+                    <rect x="8" y="16" width="48" height="32" rx="4" stroke="#1B9AAA" stroke-width="2.5" fill="none" />
+                    <path d="M8 20L32 36L56 20" stroke="#D4AF37" stroke-width="2.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M8 44L22 32M56 44L42 32" stroke="#1B9AAA" stroke-width="2" stroke-linecap="round" />
                 </svg>
                 <h3 style="color: var(--primary-cyan); margin-bottom: 0.5rem;">Email</h3>
-                <p><a href="mailto:mavibnarvaez@gmail.com" style="color: var(--primary-cyan); text-decoration: none;">mavibnarvaez@gmail.com</a></p>
+                <p><a href="mailto:mavibnarvaez@gmail.com"
+                        style="color: var(--primary-cyan); text-decoration: none;">mavibnarvaez@gmail.com</a></p>
             </div>
 
             <div class="contact-item">
                 <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="32" cy="32" r="26" fill="#1B9AAA" opacity="0.2"/>
-                    <circle cx="32" cy="32" r="26" stroke="#1B9AAA" stroke-width="2.5" fill="none"/>
-                    <path d="M38 22H34C32 22 30 23 30 25V28H26V34H30V50H36V34H40L42 28H36V26C36 25 37 24 38 24H42V18C42 18 40 18 38 18C35 18 32 20 32 23V28H38V22Z" fill="#06D6A0"/>
-                    <rect x="34" y="28" width="4" height="6" fill="#D4AF37"/>
+                    <circle cx="32" cy="32" r="26" fill="#1B9AAA" opacity="0.2" />
+                    <circle cx="32" cy="32" r="26" stroke="#1B9AAA" stroke-width="2.5" fill="none" />
+                    <path
+                        d="M38 22H34C32 22 30 23 30 25V28H26V34H30V50H36V34H40L42 28H36V26C36 25 37 24 38 24H42V18C42 18 40 18 38 18C35 18 32 20 32 23V28H38V22Z"
+                        fill="#06D6A0" />
+                    <rect x="34" y="28" width="4" height="6" fill="#D4AF37" />
                 </svg>
                 <h3 style="color: var(--primary-cyan); margin-bottom: 0.5rem;">Facebook</h3>
                 <p>Sígueme en redes</p>
-                <a href="https://www.facebook.com/share/17NcimN3gD/" target="_blank" style="color: var(--primary-cyan); text-decoration: none; font-weight: bold;">Visitar página</a>
+                <a href="https://www.facebook.com/share/17NcimN3gD/" target="_blank"
+                    style="color: var(--primary-cyan); text-decoration: none; font-weight: bold;">Visitar página</a>
             </div>
         </div>
     </section>
@@ -1417,17 +1537,24 @@
     <footer>
         <!-- Logos en el footer -->
         <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
-            <img src="assets/logoMavi.png" alt="Mavi Bayona Logo" style="width: 50px; height: auto; opacity: 0.8; filter: brightness(0) invert(1); object-fit: contain; display: block;">
-            <img src="assets/mavibayona-logo.png" alt="Mavi Bayona" style="width: 150px; height: auto; opacity: 0.9; filter: brightness(0) invert(1); object-fit: contain; display: block;">
+            <img src="assets/logoMavi.png" alt="Mavi Bayona Logo"
+                style="width: 50px; height: auto; opacity: 0.8; filter: brightness(0) invert(1); object-fit: contain; display: block;">
+            <img src="assets/mavibayona-logo.png" alt="Mavi Bayona"
+                style="width: 150px; height: auto; opacity: 0.9; filter: brightness(0) invert(1); object-fit: contain; display: block;">
         </div>
-        
+
         <p>&copy; 2025 Mavi Bayona - Psicoterapeuta, Tanatóloga, Logoterapeuta</p>
-        <p style="margin-top: 0.5rem; opacity: 0.8; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
-            Cuidando tus emociones 
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block;">
-                <path d="M12 2C12 2 10.5 4 9 6C7.5 8 6 10 6 12C6 14 7 15 8.5 15.5C10 16 11 16 12 15C13 16 14 16 15.5 15.5C17 15 18 14 18 12C18 10 16.5 8 15 6C13.5 4 12 2 12 2Z" fill="#D4AF37"/>
-                <path d="M4 8C4 8 2 9 2 11C2 13 3 14 4.5 14C6 14 7 13 7 11.5C7 10 6 9 4 8Z" fill="#06D6A0"/>
-                <path d="M20 8C20 8 22 9 22 11C22 13 21 14 19.5 14C18 14 17 13 17 11.5C17 10 18 9 20 8Z" fill="#06D6A0"/>
+        <p
+            style="margin-top: 0.5rem; opacity: 0.8; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+            Cuidando tus emociones
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                style="display: inline-block;">
+                <path
+                    d="M12 2C12 2 10.5 4 9 6C7.5 8 6 10 6 12C6 14 7 15 8.5 15.5C10 16 11 16 12 15C13 16 14 16 15.5 15.5C17 15 18 14 18 12C18 10 16.5 8 15 6C13.5 4 12 2 12 2Z"
+                    fill="#D4AF37" />
+                <path d="M4 8C4 8 2 9 2 11C2 13 3 14 4.5 14C6 14 7 13 7 11.5C7 10 6 9 4 8Z" fill="#06D6A0" />
+                <path d="M20 8C20 8 22 9 22 11C22 13 21 14 19.5 14C18 14 17 13 17 11.5C17 10 18 9 20 8Z"
+                    fill="#06D6A0" />
             </svg>
         </p>
     </footer>
@@ -1437,7 +1564,7 @@
         function toggleMobileMenu() {
             const button = document.querySelector('.mobile-menu-button');
             const menu = document.getElementById('mobileMenu');
-            
+
             button.classList.toggle('active');
             menu.classList.toggle('active');
         }
@@ -1445,19 +1572,19 @@
         function closeMobileMenu() {
             const button = document.querySelector('.mobile-menu-button');
             const menu = document.getElementById('mobileMenu');
-            
+
             button.classList.remove('active');
             menu.classList.remove('active');
         }
 
         // Active link tracking
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('.pill-nav-items a, .mobile-menu a');
 
             function updateActiveLink() {
                 let current = '';
-                
+
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
                     const sectionHeight = section.clientHeight;
@@ -1493,18 +1620,18 @@
         });
 
         // Form handling con Formspree
-        document.getElementById('appointmentForm').addEventListener('submit', async function(e) {
+        document.getElementById('appointmentForm').addEventListener('submit', async function (e) {
             e.preventDefault();
-            
+
             const form = e.target;
             const formData = new FormData(form);
             const submitButton = form.querySelector('.submit-button');
             const successMessage = document.getElementById('successMessage');
-            
+
             // Deshabilitar botón durante el envío
             submitButton.disabled = true;
             submitButton.textContent = 'Enviando...';
-            
+
             try {
                 const response = await fetch(form.action, {
                     method: 'POST',
@@ -1513,20 +1640,20 @@
                         'Accept': 'application/json'
                     }
                 });
-                
+
                 if (response.ok) {
                     // Mostrar mensaje de éxito
-                    if(successMessage) {
+                    if (successMessage) {
                         successMessage.style.display = 'block';
                         successMessage.classList.add('show');
                     }
-                    
+
                     // Resetear formulario
                     form.reset();
-                    
+
                     // Scroll al mensaje de éxito
                     successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    
+
                     // Restaurar botón
                     submitButton.disabled = false;
                     submitButton.textContent = 'Solicitar Primera Sesión';
@@ -1539,78 +1666,79 @@
                 submitButton.textContent = 'Solicitar Primera Sesión';
             }
         });
-    </script> 
+    </script>
 
     <!-- Cal.com Embed Script Oficial - Dual Calendar -->
     <script type="text/javascript">
-    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-    
-    // Inicializar calendario de Terapia Individual
-    Cal("init", "individual", {origin:"https://app.cal.com"});
-    Cal.ns["individual"]("inline", {
-        elementOrSelector:"#widget-individual",
-        config: {"layout":"month_view"},
-        calLink: "mavibayona/50min",
-    });
-    Cal.ns["individual"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
-    
-    // Inicializar calendario de Terapia en Pareja
-    Cal("init", "pareja", {origin:"https://app.cal.com"});
-    Cal.ns["pareja"]("inline", {
-        elementOrSelector:"#widget-pareja",
-        config: {"layout":"month_view"},
-        calLink: "mavibayona/50-minutos",
-    });
-    Cal.ns["pareja"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
-    
-    // Función para cambiar entre pestañas
-    function switchTab(type) {
-        // Actualizar botones
-        const btnIndividual = document.getElementById('tab-individual');
-        const btnPareja = document.getElementById('tab-pareja');
-        const descIndividual = document.getElementById('desc-individual');
-        const descPareja = document.getElementById('desc-pareja');
-        const widgetIndividual = document.getElementById('widget-individual');
-        const widgetPareja = document.getElementById('widget-pareja');
-        
-        if (type === 'individual') {
-            // Estilos activos para Individual
-            btnIndividual.style.background = '#1B9AAA';
-            btnIndividual.style.color = 'white';
-            btnIndividual.style.border = 'none';
-            btnIndividual.style.boxShadow = '0 4px 15px rgba(27, 154, 170, 0.3)';
-            
-            // Estilos inactivos para Pareja
-            btnPareja.style.background = 'white';
-            btnPareja.style.color = '#1B9AAA';
-            btnPareja.style.border = '2px solid #1B9AAA';
-            btnPareja.style.boxShadow = 'none';
-            
-            // Mostrar contenido Individual
-            descIndividual.style.display = 'block';
-            descPareja.style.display = 'none';
-            widgetIndividual.style.display = 'block';
-            widgetPareja.style.display = 'none';
-        } else {
-            // Estilos activos para Pareja
-            btnPareja.style.background = '#1B9AAA';
-            btnPareja.style.color = 'white';
-            btnPareja.style.border = 'none';
-            btnPareja.style.boxShadow = '0 4px 15px rgba(27, 154, 170, 0.3)';
-            
-            // Estilos inactivos para Individual
-            btnIndividual.style.background = 'white';
-            btnIndividual.style.color = '#1B9AAA';
-            btnIndividual.style.border = '2px solid #1B9AAA';
-            btnIndividual.style.boxShadow = 'none';
-            
-            // Mostrar contenido Pareja
-            descPareja.style.display = 'block';
-            descIndividual.style.display = 'none';
-            widgetPareja.style.display = 'block';
-            widgetIndividual.style.display = 'none';
+        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+
+        // Inicializar calendario de Terapia Individual
+        Cal("init", "individual", { origin: "https://app.cal.com" });
+        Cal.ns["individual"]("inline", {
+            elementOrSelector: "#widget-individual",
+            config: { "layout": "month_view" },
+            calLink: "mavibayona/50min",
+        });
+        Cal.ns["individual"]("ui", { "hideEventTypeDetails": false, "layout": "month_view" });
+
+        // Inicializar calendario de Terapia en Pareja
+        Cal("init", "pareja", { origin: "https://app.cal.com" });
+        Cal.ns["pareja"]("inline", {
+            elementOrSelector: "#widget-pareja",
+            config: { "layout": "month_view" },
+            calLink: "mavibayona/50-minutos",
+        });
+        Cal.ns["pareja"]("ui", { "hideEventTypeDetails": false, "layout": "month_view" });
+
+        // Función para cambiar entre pestañas
+        function switchTab(type) {
+            // Actualizar botones
+            const btnIndividual = document.getElementById('tab-individual');
+            const btnPareja = document.getElementById('tab-pareja');
+            const descIndividual = document.getElementById('desc-individual');
+            const descPareja = document.getElementById('desc-pareja');
+            const widgetIndividual = document.getElementById('widget-individual');
+            const widgetPareja = document.getElementById('widget-pareja');
+
+            if (type === 'individual') {
+                // Estilos activos para Individual
+                btnIndividual.style.background = '#1B9AAA';
+                btnIndividual.style.color = 'white';
+                btnIndividual.style.border = 'none';
+                btnIndividual.style.boxShadow = '0 4px 15px rgba(27, 154, 170, 0.3)';
+
+                // Estilos inactivos para Pareja
+                btnPareja.style.background = 'white';
+                btnPareja.style.color = '#1B9AAA';
+                btnPareja.style.border = '2px solid #1B9AAA';
+                btnPareja.style.boxShadow = 'none';
+
+                // Mostrar contenido Individual
+                descIndividual.style.display = 'block';
+                descPareja.style.display = 'none';
+                widgetIndividual.style.display = 'block';
+                widgetPareja.style.display = 'none';
+            } else {
+                // Estilos activos para Pareja
+                btnPareja.style.background = '#1B9AAA';
+                btnPareja.style.color = 'white';
+                btnPareja.style.border = 'none';
+                btnPareja.style.boxShadow = '0 4px 15px rgba(27, 154, 170, 0.3)';
+
+                // Estilos inactivos para Individual
+                btnIndividual.style.background = 'white';
+                btnIndividual.style.color = '#1B9AAA';
+                btnIndividual.style.border = '2px solid #1B9AAA';
+                btnIndividual.style.boxShadow = 'none';
+
+                // Mostrar contenido Pareja
+                descPareja.style.display = 'block';
+                descIndividual.style.display = 'none';
+                widgetPareja.style.display = 'block';
+                widgetIndividual.style.display = 'none';
+            }
         }
-    }
     </script>
 </body>
+
 </html>

@@ -1,22 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWM2VNVTR0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-FWM2VNVTR0');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Diagnóstico - Mavi Bayona</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="../assets/logoMavi.png">
     <link rel="shortcut icon" type="image/png" href="../assets/logoMavi.png">
     <link rel="apple-touch-icon" href="../assets/logoMavi.png">
-    
+
     <!-- Chart.js para gráficos -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-    
+
     <!-- jsPDF para generar PDFs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    
+
     <style>
         * {
             margin: 0;
@@ -57,7 +67,7 @@
             padding: 2rem;
             background: white;
             border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .logo {
@@ -105,7 +115,7 @@
             background: white;
             padding: 2.5rem;
             border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             margin-bottom: 2rem;
             display: none;
         }
@@ -120,6 +130,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -255,7 +266,7 @@
             background: white;
             padding: 3rem;
             border-radius: 20px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
             display: none;
         }
 
@@ -488,7 +499,7 @@
 
         .btn-cta:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
         }
 
         /* Charts Section */
@@ -496,7 +507,7 @@
             background: white;
             padding: 2.5rem;
             border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             margin-bottom: 2rem;
         }
 
@@ -655,13 +666,17 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <!-- Header -->
         <div class="test-header">
-            <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
-                <img src="../assets/logoMavi.png" alt="Mavi Bayona" class="logo" style="width: 60px; height: auto; display: block;">
-                <img src="../assets/mavibayona-logo.png" alt="Mavi Bayona" style="width: 180px; max-width: 90%; height: auto; display: block; opacity: 0.9;">
+            <div
+                style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+                <img src="../assets/logoMavi.png" alt="Mavi Bayona" class="logo"
+                    style="width: 60px; height: auto; display: block;">
+                <img src="../assets/mavibayona-logo.png" alt="Mavi Bayona"
+                    style="width: 180px; max-width: 90%; height: auto; display: block; opacity: 0.9;">
             </div>
             <h1>Test de Diagnóstico Emocional</h1>
             <p>Responde con sinceridad. Este es un espacio para ti, sin juicios.</p>
@@ -682,8 +697,9 @@
         <div class="results-container" id="resultsContainer">
             <div class="results-header">
                 <svg class="results-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12" cy="12" r="10" stroke="#1B9AAA" stroke-width="2" fill="none"/>
-                    <path d="M8 12L11 15L16 9" stroke="#06D6A0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12" cy="12" r="10" stroke="#1B9AAA" stroke-width="2" fill="none" />
+                    <path d="M8 12L11 15L16 9" stroke="#06D6A0" stroke-width="2.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
                 </svg>
                 <h2>Resultados de tu Test</h2>
                 <p class="subtitle">Análisis basado en tus respuestas</p>
@@ -720,10 +736,11 @@
                 <p style="color: var(--text-light); margin-bottom: 1.5rem;">
                     Si quieres, puedo enviarte un resumen completo de tu evaluación
                 </p>
-                
+
                 <div class="success-message" id="successMessage">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20 6L9 17L4 12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M20 6L9 17L4 12" stroke="white" stroke-width="2.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
                     </svg>
                     <span>¡Resultados enviados exitosamente! Revisa tu correo.</span>
                 </div>
@@ -758,9 +775,13 @@
             <div class="download-section">
                 <button class="btn-download" onclick="downloadPDF()">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M12 15V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path
+                            d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M12 15V3" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
                     </svg>
                     Descargar Resultados en PDF
                 </button>
@@ -768,9 +789,12 @@
 
             <!-- CTA Section -->
             <div class="cta-section">
-                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
-                    <img src="../assets/logoMavi.png" alt="Mavi Bayona Logo" style="width: 60px; height: auto; display: block; opacity: 0.9;">
-                    <img src="../assets/mavibayona-logo.png" alt="Mavi Bayona" style="width: 180px; max-width: 90%; height: auto; display: block; opacity: 0.95;">
+                <div
+                    style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+                    <img src="../assets/logoMavi.png" alt="Mavi Bayona Logo"
+                        style="width: 60px; height: auto; display: block; opacity: 0.9;">
+                    <img src="../assets/mavibayona-logo.png" alt="Mavi Bayona"
+                        style="width: 180px; max-width: 90%; height: auto; display: block; opacity: 0.95;">
                 </div>
                 <h3>Si sientes que es el momento...</h3>
                 <p>Podemos conversar sobre tus resultados y trabajar juntos en tu bienestar</p>
@@ -957,7 +981,7 @@
         function renderQuestion() {
             const container = document.getElementById('questionsContainer');
             const question = questions[currentQuestionIndex];
-            
+
             const questionHTML = `
                 <div class="question-container active" id="question${question.id}">
                     <div class="question-number">Pregunta ${currentQuestionIndex + 1} de ${questions.length}</div>
@@ -982,7 +1006,7 @@
                     </div>
                 </div>
             `;
-            
+
             container.innerHTML = questionHTML;
             updateProgress();
         }
@@ -991,10 +1015,10 @@
         function selectOption(questionId, optionIndex) {
             const question = questions[currentQuestionIndex];
             const options = document.querySelectorAll(`#options${questionId} .option`);
-            
+
             options.forEach(opt => opt.classList.remove('selected'));
             options[optionIndex].classList.add('selected');
-            
+
             answers[currentQuestionIndex] = {
                 questionId: questionId,
                 questionText: question.text,
@@ -1002,7 +1026,7 @@
                 optionText: question.options[optionIndex].text,
                 scores: question.options[optionIndex].scores
             };
-            
+
             document.getElementById('nextBtn').disabled = false;
         }
 
@@ -1022,7 +1046,7 @@
             if (currentQuestionIndex > 0) {
                 currentQuestionIndex--;
                 renderQuestion();
-                
+
                 // Restaurar selección anterior si existe
                 if (answers[currentQuestionIndex]) {
                     const questionId = questions[currentQuestionIndex].id;
@@ -1050,7 +1074,7 @@
                 duelo: 0,
                 vacio: 0
             };
-            
+
             answers.forEach(answer => {
                 Object.keys(answer.scores).forEach(key => {
                     scores[key] += answer.scores[key];
@@ -1063,10 +1087,10 @@
             document.getElementById('questionsContainer').style.display = 'none';
             document.querySelector('.progress-bar').style.display = 'none';
             document.querySelector('.progress-text').style.display = 'none';
-            
+
             const resultsContainer = document.getElementById('resultsContainer');
             resultsContainer.classList.add('active');
-            
+
             // Calcular máximo score posible por categoría
             const maxScores = {
                 ansiedad: 45,
@@ -1075,32 +1099,32 @@
                 duelo: 12,
                 vacio: 45
             };
-            
+
             // Calcular porcentajes
             const percentages = {};
             Object.keys(scores).forEach(key => {
                 percentages[key] = Math.round((scores[key] / maxScores[key]) * 100);
             });
-            
+
             calculatedPercentages = percentages;
-            
+
             // Determinar diagnóstico principal
-            const maxCategory = Object.keys(percentages).reduce((a, b) => 
+            const maxCategory = Object.keys(percentages).reduce((a, b) =>
                 percentages[a] > percentages[b] ? a : b
             );
-            
+
             // Renderizar diagnóstico principal
             renderMainDiagnosis(maxCategory, percentages[maxCategory]);
-            
+
             // Renderizar gráfico circular
             renderChart(percentages);
-            
+
             // Renderizar scores
             renderScores(percentages);
-            
+
             // Renderizar recomendaciones
             renderRecommendations(maxCategory, percentages);
-            
+
             // Llenar campos ocultos para el formulario
             fillHiddenFields(maxCategory, percentages);
         }
@@ -1114,7 +1138,7 @@
                 duelo: "Duelo",
                 vacio: "Vacío Existencial"
             };
-            
+
             const colors = {
                 ansiedad: '#FF6B6B',
                 depresion: '#667EEA',
@@ -1122,14 +1146,14 @@
                 duelo: '#4299E1',
                 vacio: '#9F7AEA'
             };
-            
+
             const ctx = document.getElementById('resultsChart').getContext('2d');
-            
+
             // Destruir gráfico anterior si existe
             if (resultsChart) {
                 resultsChart.destroy();
             }
-            
+
             resultsChart = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
@@ -1159,7 +1183,7 @@
                                 size: 13
                             },
                             callbacks: {
-                                label: function(context) {
+                                label: function (context) {
                                     return context.label + ': ' + context.parsed + '%';
                                 }
                             }
@@ -1168,7 +1192,7 @@
                     cutout: '60%'
                 }
             });
-            
+
             // Renderizar leyenda personalizada
             renderChartLegend(percentages, labels, colors);
         }
@@ -1176,7 +1200,7 @@
         // Renderizar leyenda del gráfico
         function renderChartLegend(percentages, labels, colors) {
             const legendDiv = document.getElementById('chartLegend');
-            
+
             legendDiv.innerHTML = Object.keys(percentages).map(key => `
                 <div class="legend-item">
                     <div class="legend-label">
@@ -1212,10 +1236,10 @@
                     description: "Tus respuestas sugieren que podrías estar experimentando una búsqueda de sentido o propósito. Esto puede manifestarse como sensación de desconexión o cuestionamiento sobre tu dirección en la vida. Podemos explorar esto juntos."
                 }
             };
-            
+
             const diagnosis = diagnoses[category];
             const mainDiagnosisDiv = document.getElementById('mainDiagnosis');
-            
+
             mainDiagnosisDiv.innerHTML = `
                 <div class="diagnosis-title">${diagnosis.title}</div>
                 <div class="diagnosis-description">${diagnosis.description}</div>
@@ -1234,7 +1258,7 @@
                 duelo: "Duelo",
                 vacio: "Vacío Existencial"
             };
-            
+
             const scoresGrid = document.getElementById('scoresGrid');
             scoresGrid.innerHTML = Object.keys(percentages).map(key => `
                 <div class="score-card">
@@ -1250,12 +1274,12 @@
         // Renderizar recomendaciones
         function renderRecommendations(mainCategory, percentages) {
             const recommendationsDiv = document.getElementById('recommendations');
-            
+
             let recommendations = [
                 "Si sientes que necesitas apoyo, considera conversar sobre estos resultados en una consulta",
                 "Lo que estás sintiendo es válido - buscar ayuda es un signo de fortaleza y autocuidado"
             ];
-            
+
             // Recomendaciones específicas según categoría principal
             if (mainCategory === 'ansiedad') {
                 recommendations.push(
@@ -1269,7 +1293,7 @@
                     "Busca apoyo en tus seres queridos - no atravieses esto solo/a",
                     "Prioriza actividades de autocuidado y descanso adecuado"
                 );
-                
+
                 if (percentages.depresion >= 60) {
                     recommendations.push("⚠️ IMPORTANTE: Si tienes pensamientos de hacerte daño, busca ayuda inmediata llamando a una línea de crisis");
                 }
@@ -1292,7 +1316,7 @@
                     "Considera actividades de voluntariado o ayuda a otros"
                 );
             }
-            
+
             recommendationsDiv.innerHTML = `
                 <h3>Recomendaciones Personalizadas</h3>
                 <ul>
@@ -1310,27 +1334,27 @@
                 duelo: "Proceso de Duelo",
                 vacio: "Vacío Existencial"
             };
-            
+
             document.getElementById('hiddenDiagnosis').value = diagnoses[mainCategory];
             document.getElementById('hiddenAnsiedad').value = percentages.ansiedad + '%';
             document.getElementById('hiddenDepresion').value = percentages.depresion + '%';
             document.getElementById('hiddenEstres').value = percentages.estres + '%';
             document.getElementById('hiddenDuelo').value = percentages.duelo + '%';
             document.getElementById('hiddenVacio').value = percentages.vacio + '%';
-            
+
             // Crear resumen de respuestas
-            const answersText = answers.map((a, i) => 
-                `P${i+1}: ${a.questionText}\nR: ${a.optionText}`
+            const answersText = answers.map((a, i) =>
+                `P${i + 1}: ${a.questionText}\nR: ${a.optionText}`
             ).join('\n\n');
             document.getElementById('hiddenAnswers').value = answersText;
         }
 
         // Manejar envío del formulario
-        document.getElementById('resultsForm').addEventListener('submit', function(e) {
+        document.getElementById('resultsForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             const formData = new FormData(this);
-            
+
             fetch(this.action, {
                 method: 'POST',
                 body: formData,
@@ -1338,21 +1362,21 @@
                     'Accept': 'application/json'
                 }
             })
-            .then(response => {
-                if (response.ok) {
-                    document.getElementById('successMessage').classList.add('show');
-                    this.reset();
-                    setTimeout(() => {
-                        document.getElementById('successMessage').classList.remove('show');
-                    }, 5000);
-                } else {
+                .then(response => {
+                    if (response.ok) {
+                        document.getElementById('successMessage').classList.add('show');
+                        this.reset();
+                        setTimeout(() => {
+                            document.getElementById('successMessage').classList.remove('show');
+                        }, 5000);
+                    } else {
+                        alert('Hubo un error al enviar los resultados. Por favor intenta de nuevo.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
                     alert('Hubo un error al enviar los resultados. Por favor intenta de nuevo.');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Hubo un error al enviar los resultados. Por favor intenta de nuevo.');
-            });
+                });
         });
 
         // Inicializar test al cargar la página
@@ -1362,13 +1386,13 @@
         async function downloadPDF() {
             const { jsPDF } = window.jspdf;
             const pdf = new jsPDF('p', 'mm', 'a4');
-            
+
             // Colores
             const primaryCyan = [27, 154, 170];
             const primaryGold = [212, 175, 55];
             const textDark = [51, 51, 51];
             const textLight = [102, 102, 102];
-            
+
             // Configuración inicial
             let yPosition = 20;
             const pageWidth = pdf.internal.pageSize.getWidth();
@@ -1376,7 +1400,7 @@
             const margin = 20;
             const contentWidth = pageWidth - (margin * 2);
             const bottomMargin = 30; // Margen inferior para el footer
-            
+
             // Función para verificar si necesitamos nueva página
             function checkNewPage(requiredSpace) {
                 if (yPosition + requiredSpace > pageHeight - bottomMargin) {
@@ -1386,7 +1410,7 @@
                 }
                 return false;
             }
-            
+
             // Header con logo (texto)
             pdf.setFillColor(...primaryCyan);
             pdf.rect(0, 0, pageWidth, 35, 'F');
@@ -1397,18 +1421,18 @@
             pdf.setFontSize(11);
             pdf.setFont('helvetica', 'normal');
             pdf.text('Resultados Personalizados - Mavi Bayona', pageWidth / 2, 24, { align: 'center' });
-            
+
             yPosition = 45;
-            
+
             // Información del usuario
             const userName = document.getElementById('userName').value || 'Usuario';
             const userEmail = document.getElementById('userEmail').value || 'Sin email';
-            const currentDate = new Date().toLocaleDateString('es-MX', { 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric' 
+            const currentDate = new Date().toLocaleDateString('es-MX', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
             });
-            
+
             pdf.setTextColor(...textDark);
             pdf.setFontSize(10);
             pdf.setFont('helvetica', 'normal');
@@ -1418,12 +1442,12 @@
             yPosition += 6;
             pdf.text(`Fecha: ${currentDate}`, margin, yPosition);
             yPosition += 12;
-            
+
             // Diagnóstico Principal
-            const maxCategory = Object.keys(calculatedPercentages).reduce((a, b) => 
+            const maxCategory = Object.keys(calculatedPercentages).reduce((a, b) =>
                 calculatedPercentages[a] > calculatedPercentages[b] ? a : b
             );
-            
+
             const diagnoses = {
                 ansiedad: "Ansiedad Predominante",
                 depresion: "Síntomas Depresivos",
@@ -1431,7 +1455,7 @@
                 duelo: "Proceso de Duelo",
                 vacio: "Vacío Existencial"
             };
-            
+
             const descriptions = {
                 ansiedad: "Estás experimentando preocupación constante y nerviosismo que afecta tu día a día. Es comprensible que te sientas así, y quiero que sepas que no estás solo/a en esto.",
                 depresion: "La tristeza persistente y la pérdida de interés en cosas que antes disfrutabas son señales importantes. Reconocer esto es un paso valiente hacia tu bienestar.",
@@ -1439,9 +1463,9 @@
                 duelo: "Estás atravesando un proceso de adaptación ante una pérdida significativa. El duelo es un camino que no tiene que recorrerse en soledad.",
                 vacio: "Sientes falta de propósito o sentido en diferentes áreas de tu vida. Esta sensación es más común de lo que crees, y juntos podemos explorar nuevos significados."
             };
-            
+
             checkNewPage(35);
-            
+
             // Recuadro del diagnóstico principal
             pdf.setFillColor(...primaryCyan);
             pdf.roundedRect(margin, yPosition, contentWidth, 30, 3, 3, 'F');
@@ -1454,9 +1478,9 @@
             pdf.setFontSize(10);
             pdf.setFont('helvetica', 'normal');
             pdf.text(`Nivel de afectación: ${calculatedPercentages[maxCategory]}%`, pageWidth / 2, yPosition + 26, { align: 'center' });
-            
+
             yPosition += 38;
-            
+
             // Descripción del diagnóstico
             checkNewPage(20);
             pdf.setTextColor(...textDark);
@@ -1464,7 +1488,7 @@
             const descLines = pdf.splitTextToSize(descriptions[maxCategory], contentWidth - 10);
             pdf.text(descLines, margin + 5, yPosition);
             yPosition += descLines.length * 4 + 8;
-            
+
             // Resultados detallados
             checkNewPage(15);
             pdf.setTextColor(...primaryCyan);
@@ -1472,7 +1496,7 @@
             pdf.setFont('helvetica', 'bold');
             pdf.text('Resultados Detallados', margin, yPosition);
             yPosition += 8;
-            
+
             const labels = {
                 ansiedad: "Ansiedad",
                 depresion: "Depresión",
@@ -1480,7 +1504,7 @@
                 duelo: "Duelo",
                 vacio: "Vacío Existencial"
             };
-            
+
             const colors = {
                 ansiedad: [255, 107, 107],
                 depresion: [102, 126, 234],
@@ -1488,53 +1512,53 @@
                 duelo: [66, 153, 225],
                 vacio: [159, 122, 234]
             };
-            
+
             // Dibujar barras de progreso para cada categoría
             pdf.setFontSize(10);
             pdf.setFont('helvetica', 'normal');
-            
+
             Object.keys(calculatedPercentages).forEach(key => {
                 checkNewPage(18);
-                
+
                 const percentage = calculatedPercentages[key];
                 const barWidth = contentWidth - 35;
                 const fillWidth = (barWidth * percentage) / 100;
-                
+
                 // Etiqueta
                 pdf.setTextColor(...textDark);
                 pdf.text(labels[key], margin, yPosition);
-                
+
                 // Porcentaje
                 pdf.setFont('helvetica', 'bold');
                 pdf.text(`${percentage}%`, pageWidth - margin, yPosition, { align: 'right' });
                 pdf.setFont('helvetica', 'normal');
-                
+
                 yPosition += 5;
-                
+
                 // Barra de fondo
                 pdf.setFillColor(224, 224, 224);
                 pdf.roundedRect(margin, yPosition, barWidth, 5, 2, 2, 'F');
-                
+
                 // Barra de progreso
                 if (percentage > 0) {
                     pdf.setFillColor(...colors[key]);
                     pdf.roundedRect(margin, yPosition, fillWidth, 5, 2, 2, 'F');
                 }
-                
+
                 yPosition += 10;
             });
-            
+
             yPosition += 5;
-            
+
             // Recomendaciones
             checkNewPage(60); // Asegurar espacio suficiente
-            
+
             pdf.setFontSize(13);
             pdf.setFont('helvetica', 'bold');
             pdf.setTextColor(...primaryCyan);
             pdf.text('Recomendaciones para Ti', margin, yPosition);
             yPosition += 10;
-            
+
             // Mensaje empático inicial
             pdf.setFontSize(9);
             pdf.setFont('helvetica', 'italic');
@@ -1543,10 +1567,10 @@
             const empathyLines = pdf.splitTextToSize(empathyText, contentWidth - 10);
             pdf.text(empathyLines, margin + 5, yPosition);
             yPosition += empathyLines.length * 4 + 6;
-            
+
             // Calcular altura necesaria para el fondo
             const recomStartY = yPosition;
-            
+
             const recommendations = [
                 'Considera agendar una consulta profesional. Juntos podemos trabajar en un plan personalizado para tu bienestar.',
                 'Lo que estás sintiendo es válido e importante. No minimices tus emociones - reconocerlas es el primer paso.',
@@ -1554,7 +1578,7 @@
                 'Dedica unos minutos cada día a técnicas de respiración, meditación o mindfulness. Tu mente merece estos espacios de calma.',
                 'Mantente conectado/a con las personas que te importan. Compartir lo que sientes con alguien de confianza puede aliviar la carga.'
             ];
-            
+
             // Calcular altura total necesaria
             let totalHeight = 5;
             const tempLines = [];
@@ -1564,96 +1588,97 @@
                 totalHeight += lines.length * 4 + 3;
             });
             totalHeight += 5;
-            
+
             // Dibujar PRIMERO el fondo
             pdf.setFillColor(255, 251, 245); // Tono cálido y suave
             pdf.roundedRect(margin - 2, recomStartY - 3, contentWidth + 4, totalHeight, 2, 2, 'F');
-            
+
             // LUEGO dibujar las recomendaciones
             pdf.setTextColor(...textDark);
             pdf.setFontSize(9);
-            
+
             tempLines.forEach(lines => {
                 const bullet = '•';
                 pdf.setFont('helvetica', 'bold');
                 pdf.setTextColor(...primaryGold);
                 pdf.text(bullet, margin + 3, yPosition);
-                
+
                 pdf.setFont('helvetica', 'normal');
                 pdf.setTextColor(...textDark);
                 pdf.text(lines, margin + 8, yPosition);
                 yPosition += lines.length * 4 + 3;
             });
-            
+
             yPosition += 5;
-            
+
             // Nota importante si hay niveles altos
             if (calculatedPercentages.depresion >= 60 || calculatedPercentages.ansiedad >= 70) {
                 checkNewPage(30);
-                
+
                 pdf.setFillColor(255, 245, 240); // Tono cálido y suave
                 pdf.roundedRect(margin, yPosition, contentWidth, 24, 2, 2, 'F');
-                
+
                 pdf.setTextColor(200, 80, 60); // Rojo más suave
                 pdf.setFontSize(10);
                 pdf.setFont('helvetica', 'bold');
                 pdf.text('💛 Un Mensaje Importante para Ti', margin + 5, yPosition + 7);
-                
+
                 pdf.setTextColor(...textDark);
                 pdf.setFontSize(9);
                 pdf.setFont('helvetica', 'normal');
                 const warningText = 'Tus resultados muestran que estás pasando por un momento difícil. Me gustaría acompañarte en este proceso. Considera agendar una consulta pronto - no tienes que enfrentar esto solo/a. Estoy aquí para apoyarte.';
                 const warningLines = pdf.splitTextToSize(warningText, contentWidth - 15);
                 pdf.text(warningLines, margin + 5, yPosition + 13);
-                
+
                 yPosition += 30;
             }
-            
+
             // Call to Action
             checkNewPage(28);
-            
+
             pdf.setFillColor(245, 250, 255); // Azul muy suave
             pdf.roundedRect(margin, yPosition, contentWidth, 26, 3, 3, 'F');
-            
+
             pdf.setTextColor(...primaryCyan);
             pdf.setFontSize(11);
             pdf.setFont('helvetica', 'bold');
             pdf.text('¿Listo/a para dar el siguiente paso?', pageWidth / 2, yPosition + 9, { align: 'center' });
-            
+
             pdf.setTextColor(...textDark);
             pdf.setFontSize(9);
             pdf.setFont('helvetica', 'normal');
             const ctaText = 'Agenda tu primera consulta y trabajemos juntos en tu bienestar emocional. Estoy aquí para acompañarte en este camino.';
             const ctaLines = pdf.splitTextToSize(ctaText, contentWidth - 20);
             pdf.text(ctaLines, pageWidth / 2, yPosition + 16, { align: 'center' });
-            
+
             // Footer en todas las páginas
             const totalPages = pdf.internal.pages.length - 1;
             for (let i = 1; i <= totalPages; i++) {
                 pdf.setPage(i);
                 const finalY = pageHeight - 20;
-                
+
                 pdf.setFillColor(...primaryGold);
                 pdf.rect(0, finalY, pageWidth, 20, 'F');
-                
+
                 pdf.setTextColor(255, 255, 255);
                 pdf.setFontSize(9);
                 pdf.setFont('helvetica', 'bold');
                 pdf.text('Mavi Bayona - Psicoterapeuta | Tanatóloga | Logoterapeuta', pageWidth / 2, finalY + 7, { align: 'center' });
-                
+
                 pdf.setFont('helvetica', 'normal');
                 pdf.setFontSize(8);
                 pdf.text('Este test no reemplaza una consulta profesional - Es una herramienta de orientación', pageWidth / 2, finalY + 13, { align: 'center' });
-                
+
                 // Número de página
                 pdf.setFontSize(8);
                 pdf.text(`Página ${i} de ${totalPages}`, pageWidth - margin, finalY + 10, { align: 'right' });
             }
-            
+
             // Descargar PDF
             const fileName = `Resultados_Test_${userName.replace(/\s+/g, '_')}_${new Date().toLocaleDateString('es-MX').replace(/\//g, '-')}.pdf`;
             pdf.save(fileName);
         }
     </script>
 </body>
+
 </html>
