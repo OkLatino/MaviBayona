@@ -464,6 +464,33 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
+        /* CTA Principal con animación de pulsación */
+        .cta-primary {
+            background: var(--primary-gold) !important;
+            color: var(--text-dark) !important;
+            font-size: 1.2rem !important;
+            padding: 1.3rem 3rem !important;
+            animation: pulse 2s ease infinite;
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4) !important;
+        }
+
+        .cta-primary:hover {
+            animation: none;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 35px rgba(212, 175, 55, 0.6) !important;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
+            }
+        }
+
         /* Sections */
         section {
             padding: 5rem 2rem;
@@ -997,7 +1024,7 @@
                 <strong>Juntos encontraremos el camino hacia tu bienestar.</strong>
             </p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;">
-                <a href="#agendar" class="cta-button" style="padding: 1rem 2.5rem; font-size: 1rem;">Conversemos</a>
+                <a href="#agendar" class="cta-button cta-primary" style="padding: 1.3rem 3rem; font-size: 1.2rem;">📅 Agendar Cita Ahora</a>
                 <a href="#test" class="cta-button"
                     style="background: var(--primary-gold); color: var(--text-dark); padding: 1rem 2.5rem; font-size: 1rem; border: 2px solid var(--primary-gold);">✓
                     Conoce cómo te sientes</a>
@@ -1109,7 +1136,7 @@
                             <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Procesar experiencias del pasado</li>
                         </ul>
                         <a href="#agendar"
-                            style="display: inline-block; background: var(--primary-cyan); color: white; padding: 0.8rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">Conversemos</a>
+                            style="display: inline-block; background: var(--primary-cyan); color: white; padding: 0.8rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">Agendar Cita</a>
                     </div>
                 </div>
 
@@ -1129,7 +1156,7 @@
                             <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Continuar tu camino con esperanza</li>
                         </ul>
                         <a href="#agendar"
-                            style="display: inline-block; background: var(--primary-cyan); color: white; padding: 0.8rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">Conversemos</a>
+                            style="display: inline-block; background: var(--primary-cyan); color: white; padding: 0.8rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">Agendar Cita</a>
                     </div>
                 </div>
 
@@ -1149,7 +1176,7 @@
                             <li style="margin-bottom: 0.8rem;"><strong>✓</strong> Vivir con mayor significado</li>
                         </ul>
                         <a href="#agendar"
-                            style="display: inline-block; background: var(--primary-cyan); color: white; padding: 0.8rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">Conversemos</a>
+                            style="display: inline-block; background: var(--primary-cyan); color: white; padding: 0.8rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s;">Agendar Cita</a>
                     </div>
                 </div>
             </div>
@@ -1162,7 +1189,7 @@
                     Sé que buscar ayuda no es fácil, y llegar hasta aquí ya dice mucho de ti.<br>
                     Cuando sientas que es el momento adecuado, estaré aquí para acompañarte.
                 </p>
-                <a href="#agendar" class="cta-button" style="font-size: 1.1rem; padding: 1.2rem 3rem;">Conversemos</a>
+                <a href="#agendar" class="cta-button" style="font-size: 1.1rem; padding: 1.2rem 3rem;">Agendar Cita</a>
             </div>
         </div>
     </section>
@@ -1396,7 +1423,7 @@
             <div
                 style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 15px; margin-bottom: 2rem; border-left: 4px solid var(--primary-gold);">
                 <p style="font-size: 1.05rem; line-height: 1.7; margin: 0;">
-                    💡 <strong>Compromiso de Confidencialidad:</strong> Todo lo que compartas conmigo permanece en
+                    🔒 <strong>Compromiso de Confidencialidad:</strong> Todo lo que compartas conmigo permanece en
                     absoluta confidencialidad. Este es tu espacio seguro.
                 </p>
             </div>
@@ -1431,30 +1458,34 @@
 
                 <div class="form-group">
                     <label for="fecha-preferida">¿Cuándo Te Gustaría Tu Primera Sesión?</label>
-                    <input type="date" id="fecha-preferida" name="fecha-preferida">
+                    <input type="date" id="fecha-preferida" name="fecha_preferida">
                     <small style="opacity: 0.9; display: block; margin-top: 0.5rem;">Propondré horarios disponibles
                         cercanos a esta fecha</small>
                 </div>
 
                 <div class="form-group">
                     <label for="motivo">Cuéntame: ¿Qué Te Está Pasando? *</label>
-                    <textarea id="motivo" name="motivo" required
-                        placeholder="No te preocupes por los detalles, solo comparte lo que sientes. Por ejemplo: 'Me siento ansioso/a constantemente', 'Perdí a alguien y no puedo superarlo', 'Siento que mi vida no tiene sentido'..."></textarea>
-                    <small style="opacity: 0.9; display: block; margin-top: 0.5rem;">Esta información me ayuda a
-                        preparar mejor nuestra primera sesión</small>
+                    <select id="motivo" name="motivo" required>
+                        <option value="">Selecciona la opción que mejor te describe</option>
+                        <option value="ansiedad">Siento ansiedad, estrés o nerviosismo constante</option>
+                        <option value="depresion">Siento tristeza profunda, depresión o falta de ánimo</option>
+                        <option value="duelo">Estoy pasando por un duelo (pérdida de un ser querido, ruptura, etc.)</option>
+                        <option value="vacio">Siento un vacío o falta de sentido en mi vida</option>
+                        <option value="pareja">Tengo problemas con mi pareja o relaciones</option>
+                        <option value="otro">Otro / Prefiero explicarlo en la sesión</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="comentarios">¿Algo Más Que Quieras Que Sepa?</label>
-                    <textarea id="comentarios" name="comentarios"
-                        placeholder="Horarios que prefieres, situaciones especiales, dudas sobre el proceso..."></textarea>
+                    <label for="horario">Preferencia de Horario</label>
+                    <select id="horario" name="horario_preferido">
+                        <option value="">Selecciona tu horario preferido</option>
+                        <option value="manana">Mañanas (9:00 AM - 12:00 PM)</option>
+                        <option value="tarde">Tardes (12:00 PM - 5:00 PM)</option>
+                        <option value="noche">Noches (5:00 PM - 8:00 PM)</option>
+                        <option value="flexible">Soy flexible / A convenir</option>
+                    </select>
                 </div>
-
-                <!-- Campo oculto para saber de dónde viene el formulario -->
-                <input type="hidden" name="_subject" value="Nueva solicitud de sesión - Mavi Bayona">
-
-                <!-- Redirección después del envío (opcional) -->
-                <input type="hidden" name="_next" value="https://mavibayona.com?enviado=true">
 
                 <div
                     style="background: rgba(255,255,255,0.15); padding: 1.2rem; border-radius: 10px; margin-bottom: 1.5rem; text-align: center;">
@@ -1512,8 +1543,7 @@
                     <path d="M8 44L22 32M56 44L42 32" stroke="#1B9AAA" stroke-width="2" stroke-linecap="round" />
                 </svg>
                 <h3 style="color: var(--primary-cyan); margin-bottom: 0.5rem;">Email</h3>
-                <p><a href="mailto:mavibnarvaez@gmail.com"
-                        style="color: var(--primary-cyan); text-decoration: none;">mavibnarvaez@gmail.com</a></p>
+                <p><a href="/cdn-cgi/l/email-protection#0b666a7d6269656a797d6a6e714b6c666a626725686466" style="color: var(--primary-cyan); text-decoration: none;"><span class="__cf_email__" data-cfemail="8ae7ebfce3e8e4ebf8fcebeff0caede7ebe3e6a4e9e5e7">[email&#160;protected]</span></a></p>
             </div>
 
             <div class="contact-item">
@@ -1559,7 +1589,7 @@
         </p>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Mobile menu toggle
         function toggleMobileMenu() {
             const button = document.querySelector('.mobile-menu-button');
@@ -1733,11 +1763,53 @@
 
                 // Mostrar contenido Pareja
                 descPareja.style.display = 'block';
-                descIndividual.style.display = 'none';
+                    descIndividual.style.display = 'none';
                 widgetPareja.style.display = 'block';
                 widgetIndividual.style.display = 'none';
             }
         }
+    </script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.remove('active');
+        }
+
+        // Smooth scroll para todos los enlaces
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Cambiar header al hacer scroll
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
+            } else {
+                header.style.background = 'transparent';
+                header.style.boxShadow = 'none';
+            }
+        });
     </script>
 </body>
 
